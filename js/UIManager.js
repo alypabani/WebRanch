@@ -244,7 +244,7 @@ class UIManager {
     }
 
     async detectSprites() {
-        // Fallback: detect common Pokemon sprites
+        // Fallback: detect common Pokemon sprites (supports animated GIFs)
         const commonPokemon = [
             'pikachu', 'charizard', 'blastoise', 'venusaur', 'eevee', 'squirtle', 
             'charmander', 'bulbasaur', 'mewtwo', 'mew', 'snorlax', 'gengar',
@@ -259,11 +259,11 @@ class UIManager {
 
         const detectedSprites = [];
         const checkPromises = commonPokemon.map(pokemonName => {
-            return this.checkSpriteExists(`sprites/${pokemonName}.png`).then(exists => {
+            return this.checkSpriteExists(`sprites/${pokemonName}.gif`).then(exists => {
                 if (exists) {
                     detectedSprites.push({
                         name: this.capitalizeName(pokemonName),
-                        path: `sprites/${pokemonName}.png`
+                        path: `sprites/${pokemonName}.gif`
                     });
                 }
             });

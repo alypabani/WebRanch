@@ -101,13 +101,23 @@ WebRanch/
 
 ## Deployment
 
-This is a static web application that can be deployed to any free hosting service:
+This is a static web application that can be deployed to any hosting service. See **[DEPLOYMENT.md](DEPLOYMENT.md)** for detailed instructions.
 
+### Quick Deploy Options:
+
+**Static Site (No Server):**
 - **GitHub Pages**: Push to a GitHub repository and enable Pages
 - **Netlify**: Drag and drop the folder or connect a Git repository
 - **Vercel**: Deploy via CLI or GitHub integration
+- **Render Static**: Free static site hosting
+- **DigitalOcean App Platform**: Static site option
 
-No server-side code is required - everything runs in the browser!
+**With Server (API Endpoint):**
+- **Render**: Free tier available (sleeps after inactivity)
+- **DigitalOcean App Platform**: $5/month for reliable hosting
+- **DigitalOcean Droplet**: $6/month for full VPS control
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for step-by-step instructions for Render and DigitalOcean.
 
 ## Technical Details
 

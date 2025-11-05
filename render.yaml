@@ -1,0 +1,19 @@
+# Render Blueprint for Pokemon Ranch
+# Deploy as a Web Service (Node.js server)
+
+services:
+  - type: web
+    name: pokemon-ranch
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    # Static site alternative (comment out above and use this instead):
+    # - type: web
+    #   name: pokemon-ranch-static
+    #   env: static
+    #   buildCommand: echo "Static site - no build needed"
+    #   staticPublishPath: .
+

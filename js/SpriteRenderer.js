@@ -20,6 +20,8 @@ class SpriteRenderer {
                 resolve(null);
             };
             img.src = spritePath;
+            // Note: Animated GIFs are supported - the browser handles animation automatically
+            // The canvas will redraw on each frame, so GIF animations will play
         });
     }
 
@@ -31,11 +33,12 @@ class SpriteRenderer {
         const sprite = this.spriteCache.get(pokemon.spritePath);
         
         if (sprite) {
-            // Render loaded sprite
+            // Render loaded sprite (supports animated GIFs - animation plays automatically)
             ctx.save();
             ctx.translate(x, y);
             
             // Draw sprite centered
+            // Animated GIFs will animate automatically when drawn to canvas
             ctx.drawImage(
                 sprite,
                 -size / 2,

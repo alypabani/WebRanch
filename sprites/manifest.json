@@ -2,23 +2,23 @@
   "sprites": [
     {
       "name": "Pikachu",
-      "path": "sprites/pikachu.png"
+      "path": "sprites/pikachu.gif"
     },
     {
       "name": "Charizard",
-      "path": "sprites/charizard.png"
+      "path": "sprites/charizard.gif"
     },
     {
       "name": "Blastoise",
-      "path": "sprites/blastoise.png"
+      "path": "sprites/blastoise.gif"
     },
     {
       "name": "Venusaur",
-      "path": "sprites/venusaur.png"
+      "path": "sprites/venusaur.gif"
     },
     {
       "name": "Eevee",
-      "path": "sprites/eevee.png"
+      "path": "sprites/eevee.gif"
     }
   ]
 }
