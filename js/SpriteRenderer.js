@@ -39,6 +39,7 @@ class SpriteRenderer {
             
             // Draw sprite centered
             // Animated GIFs will animate automatically when drawn to canvas
+            // The canvas is cleared and redrawn each frame, so GIF animations play smoothly
             ctx.drawImage(
                 sprite,
                 -size / 2,
@@ -52,14 +53,8 @@ class SpriteRenderer {
             // Render placeholder
             this.renderPlaceholder(ctx, pokemon);
         }
-
-        // Draw name label below sprite
-        ctx.save();
-        ctx.font = '12px Arial';
-        ctx.fillStyle = '#333';
-        ctx.textAlign = 'center';
-        ctx.fillText(pokemon.name, x, y + size + 15);
-        ctx.restore();
+        
+        // Names are not displayed in the ranch
     }
 
     renderPlaceholder(ctx, pokemon) {

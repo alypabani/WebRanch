@@ -149,6 +149,26 @@ class InteractionSystem {
         return Array.from(this.activeInteractions.values());
     }
 
+    cleanupInteractionsForPokemon(pokemon) {
+        // Remove all interactions involving this Pokemon
+        const interactionsToRemove = [];
+        
+        this.activeInteractions.forEach((interaction, key) => {
+            if (interaction.pokemon1.id === pokemon.id || interaction.pokemon2.id === pokemon.id) {
+                // End interaction for the other Pokemon
+                if (interaction.pokemon1.id !== pokemon.id) {
+                    interaction.pokemon1.endInteraction();
+                }
+                if (interaction.pokemon2.id !== pokemon.id) {
+                    interaction.pokemon2.endInteraction();
+                }
+                interactionsToRemove.push(key);
+            }
+        });
+        
+        interactionsToRemove.forEach(key => this.activeInteractions.delete(key));
+    }
+
     renderInteractionEffects(ctx, spriteRenderer) {
         this.activeInteractions.forEach((interaction) => {
             spriteRenderer.renderInteractionEffect(

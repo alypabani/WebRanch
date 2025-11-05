@@ -1,25 +1,5020 @@
 {
   "sprites": [
     {
-      "name": "Pikachu",
-      "path": "sprites/pikachu.gif"
+      "name": "Abomasnow",
+      "path": "sprites/abomasnow.gif"
     },
     {
-      "name": "Charizard",
-      "path": "sprites/charizard.gif"
+      "name": "Abomasnow ♀",
+      "path": "sprites/abomasnow-f.gif"
+    },
+    {
+      "name": "Abomasnow Mega",
+      "path": "sprites/abomasnow-mega.gif"
+    },
+    {
+      "name": "Abra",
+      "path": "sprites/abra.gif"
+    },
+    {
+      "name": "Absol",
+      "path": "sprites/absol.gif"
+    },
+    {
+      "name": "Absol Mega",
+      "path": "sprites/absol-mega.gif"
+    },
+    {
+      "name": "Accelgor",
+      "path": "sprites/accelgor.gif"
+    },
+    {
+      "name": "Aegislash",
+      "path": "sprites/aegislash.gif"
+    },
+    {
+      "name": "Aegislash Blade",
+      "path": "sprites/aegislash-blade.gif"
+    },
+    {
+      "name": "Aerodactyl",
+      "path": "sprites/aerodactyl.gif"
+    },
+    {
+      "name": "Aggron",
+      "path": "sprites/aggron.gif"
+    },
+    {
+      "name": "Aipom",
+      "path": "sprites/aipom.gif"
+    },
+    {
+      "name": "Aipom ♀",
+      "path": "sprites/aipom-f.gif"
+    },
+    {
+      "name": "Alakazam",
+      "path": "sprites/alakazam.gif"
+    },
+    {
+      "name": "Alakazam ♀",
+      "path": "sprites/alakazam-f.gif"
+    },
+    {
+      "name": "Alakazam Mega",
+      "path": "sprites/alakazam-mega.gif"
+    },
+    {
+      "name": "Alcremie",
+      "path": "sprites/alcremie.gif"
+    },
+    {
+      "name": "Alcremie Caramel",
+      "path": "sprites/alcremie-caramel.gif"
+    },
+    {
+      "name": "Alcremie Caramelswirl",
+      "path": "sprites/alcremie-caramelswirl.gif"
+    },
+    {
+      "name": "Alcremie Lemon",
+      "path": "sprites/alcremie-lemon.gif"
+    },
+    {
+      "name": "Alcremie Lemoncream",
+      "path": "sprites/alcremie-lemoncream.gif"
+    },
+    {
+      "name": "Alcremie Matcha",
+      "path": "sprites/alcremie-matcha.gif"
+    },
+    {
+      "name": "Alcremie Matchacream",
+      "path": "sprites/alcremie-matchacream.gif"
+    },
+    {
+      "name": "Alcremie Mint",
+      "path": "sprites/alcremie-mint.gif"
+    },
+    {
+      "name": "Alcremie Mintcream",
+      "path": "sprites/alcremie-mintcream.gif"
+    },
+    {
+      "name": "Alcremie Rainbow",
+      "path": "sprites/alcremie-rainbow.gif"
+    },
+    {
+      "name": "Alcremie Rainbowswirl",
+      "path": "sprites/alcremie-rainbowswirl.gif"
+    },
+    {
+      "name": "Alcremie Rubycream",
+      "path": "sprites/alcremie-rubycream.gif"
+    },
+    {
+      "name": "Alcremie Rubyswirl",
+      "path": "sprites/alcremie-rubyswirl.gif"
+    },
+    {
+      "name": "Alcremie Salted",
+      "path": "sprites/alcremie-salted.gif"
+    },
+    {
+      "name": "Alcremie Saltedcream",
+      "path": "sprites/alcremie-saltedcream.gif"
+    },
+    {
+      "name": "Alomomola",
+      "path": "sprites/alomomola.gif"
+    },
+    {
+      "name": "Altaria",
+      "path": "sprites/altaria.gif"
+    },
+    {
+      "name": "Amaura",
+      "path": "sprites/amaura.gif"
+    },
+    {
+      "name": "Ambipom",
+      "path": "sprites/ambipom.gif"
+    },
+    {
+      "name": "Ambipom ♀",
+      "path": "sprites/ambipom-f.gif"
+    },
+    {
+      "name": "Amoonguss",
+      "path": "sprites/amoonguss.gif"
+    },
+    {
+      "name": "Ampharos",
+      "path": "sprites/ampharos.gif"
+    },
+    {
+      "name": "Ampharos Mega",
+      "path": "sprites/ampharos-mega.gif"
+    },
+    {
+      "name": "Anorith",
+      "path": "sprites/anorith.gif"
+    },
+    {
+      "name": "Appletun G-Max",
+      "path": "sprites/appletun-gmax.gif"
+    },
+    {
+      "name": "Applin",
+      "path": "sprites/applin.gif"
+    },
+    {
+      "name": "Araquanid",
+      "path": "sprites/araquanid.gif"
+    },
+    {
+      "name": "Arbok",
+      "path": "sprites/arbok.gif"
+    },
+    {
+      "name": "Arcanine",
+      "path": "sprites/arcanine.gif"
+    },
+    {
+      "name": "Arceus",
+      "path": "sprites/arceus.gif"
+    },
+    {
+      "name": "Arceus Bug",
+      "path": "sprites/arceus-bug.gif"
+    },
+    {
+      "name": "Arceus Dark",
+      "path": "sprites/arceus-dark.gif"
+    },
+    {
+      "name": "Arceus Dragon",
+      "path": "sprites/arceus-dragon.gif"
+    },
+    {
+      "name": "Arceus Electric",
+      "path": "sprites/arceus-electric.gif"
+    },
+    {
+      "name": "Arceus Fairy",
+      "path": "sprites/arceus-fairy.gif"
+    },
+    {
+      "name": "Arceus Fighting",
+      "path": "sprites/arceus-fighting.gif"
+    },
+    {
+      "name": "Arceus Fire",
+      "path": "sprites/arceus-fire.gif"
+    },
+    {
+      "name": "Arceus Flying",
+      "path": "sprites/arceus-flying.gif"
+    },
+    {
+      "name": "Arceus Ghost",
+      "path": "sprites/arceus-ghost.gif"
+    },
+    {
+      "name": "Arceus Grass",
+      "path": "sprites/arceus-grass.gif"
+    },
+    {
+      "name": "Arceus Ground",
+      "path": "sprites/arceus-ground.gif"
+    },
+    {
+      "name": "Arceus Ice",
+      "path": "sprites/arceus-ice.gif"
+    },
+    {
+      "name": "Arceus Normal",
+      "path": "sprites/arceus-normal.gif"
+    },
+    {
+      "name": "Arceus Poison",
+      "path": "sprites/arceus-poison.gif"
+    },
+    {
+      "name": "Arceus Psychic",
+      "path": "sprites/arceus-psychic.gif"
+    },
+    {
+      "name": "Arceus Rock",
+      "path": "sprites/arceus-rock.gif"
+    },
+    {
+      "name": "Arceus Steel",
+      "path": "sprites/arceus-steel.gif"
+    },
+    {
+      "name": "Arceus Water",
+      "path": "sprites/arceus-water.gif"
+    },
+    {
+      "name": "Archen",
+      "path": "sprites/archen.gif"
+    },
+    {
+      "name": "Archeops",
+      "path": "sprites/archeops.gif"
+    },
+    {
+      "name": "Arctibax",
+      "path": "sprites/arctibax.gif"
+    },
+    {
+      "name": "Arctovish",
+      "path": "sprites/arctovish.gif"
+    },
+    {
+      "name": "Ariados",
+      "path": "sprites/ariados.gif"
+    },
+    {
+      "name": "Armaldo",
+      "path": "sprites/armaldo.gif"
+    },
+    {
+      "name": "Aron",
+      "path": "sprites/aron.gif"
+    },
+    {
+      "name": "Arrokuda",
+      "path": "sprites/arrokuda.gif"
+    },
+    {
+      "name": "Articuno",
+      "path": "sprites/articuno.gif"
+    },
+    {
+      "name": "Articuno Galar",
+      "path": "sprites/articuno-galar.gif"
+    },
+    {
+      "name": "Audino",
+      "path": "sprites/audino.gif"
+    },
+    {
+      "name": "Aurumoth",
+      "path": "sprites/aurumoth.gif"
+    },
+    {
+      "name": "Avalugg",
+      "path": "sprites/avalugg.gif"
+    },
+    {
+      "name": "Axew",
+      "path": "sprites/axew.gif"
+    },
+    {
+      "name": "Azelf",
+      "path": "sprites/azelf.gif"
+    },
+    {
+      "name": "Azumarill",
+      "path": "sprites/azumarill.gif"
+    },
+    {
+      "name": "Azurill",
+      "path": "sprites/azurill.gif"
+    },
+    {
+      "name": "Bagon",
+      "path": "sprites/bagon.gif"
+    },
+    {
+      "name": "Baltoy",
+      "path": "sprites/baltoy.gif"
+    },
+    {
+      "name": "Banette",
+      "path": "sprites/banette.gif"
+    },
+    {
+      "name": "Banette Mega",
+      "path": "sprites/banette-mega.gif"
+    },
+    {
+      "name": "Barboach",
+      "path": "sprites/barboach.gif"
+    },
+    {
+      "name": "Barraskewda",
+      "path": "sprites/barraskewda.gif"
+    },
+    {
+      "name": "Basculegion",
+      "path": "sprites/basculegion.gif"
+    },
+    {
+      "name": "Basculegion ♀",
+      "path": "sprites/basculegion-f.gif"
+    },
+    {
+      "name": "Basculin",
+      "path": "sprites/basculin.gif"
+    },
+    {
+      "name": "Basculin Bluestriped",
+      "path": "sprites/basculin-bluestriped.gif"
+    },
+    {
+      "name": "Basculin Whitestriped",
+      "path": "sprites/basculin-whitestriped.gif"
+    },
+    {
+      "name": "Bastiodon",
+      "path": "sprites/bastiodon.gif"
+    },
+    {
+      "name": "Bayleef",
+      "path": "sprites/bayleef.gif"
+    },
+    {
+      "name": "Beartic",
+      "path": "sprites/beartic.gif"
+    },
+    {
+      "name": "Beautifly",
+      "path": "sprites/beautifly.gif"
+    },
+    {
+      "name": "Beautifly ♀",
+      "path": "sprites/beautifly-f.gif"
+    },
+    {
+      "name": "Beedrill",
+      "path": "sprites/beedrill.gif"
+    },
+    {
+      "name": "Beedrill Mega",
+      "path": "sprites/beedrill-mega.gif"
+    },
+    {
+      "name": "Beheeyem",
+      "path": "sprites/beheeyem.gif"
+    },
+    {
+      "name": "Beldum",
+      "path": "sprites/beldum.gif"
+    },
+    {
+      "name": "Bellossom",
+      "path": "sprites/bellossom.gif"
+    },
+    {
+      "name": "Bellsprout",
+      "path": "sprites/bellsprout.gif"
+    },
+    {
+      "name": "Bergmite",
+      "path": "sprites/bergmite.gif"
+    },
+    {
+      "name": "Bewear",
+      "path": "sprites/bewear.gif"
+    },
+    {
+      "name": "Bibarel",
+      "path": "sprites/bibarel.gif"
+    },
+    {
+      "name": "Bibarel ♀",
+      "path": "sprites/bibarel-f.gif"
+    },
+    {
+      "name": "Bidoof",
+      "path": "sprites/bidoof.gif"
+    },
+    {
+      "name": "Bidoof ♀",
+      "path": "sprites/bidoof-f.gif"
+    },
+    {
+      "name": "Binacle",
+      "path": "sprites/binacle.gif"
+    },
+    {
+      "name": "Bisharp",
+      "path": "sprites/bisharp.gif"
+    },
+    {
+      "name": "Blacephalon",
+      "path": "sprites/blacephalon.gif"
     },
     {
       "name": "Blastoise",
       "path": "sprites/blastoise.gif"
     },
     {
-      "name": "Venusaur",
-      "path": "sprites/venusaur.gif"
+      "name": "Blaziken",
+      "path": "sprites/blaziken.gif"
+    },
+    {
+      "name": "Blaziken ♀",
+      "path": "sprites/blaziken-f.gif"
+    },
+    {
+      "name": "Blaziken Mega",
+      "path": "sprites/blaziken-mega.gif"
+    },
+    {
+      "name": "Blissey",
+      "path": "sprites/blissey.gif"
+    },
+    {
+      "name": "Blitzle",
+      "path": "sprites/blitzle.gif"
+    },
+    {
+      "name": "Boldore",
+      "path": "sprites/boldore.gif"
+    },
+    {
+      "name": "Bonsly",
+      "path": "sprites/bonsly.gif"
+    },
+    {
+      "name": "Bouffalant",
+      "path": "sprites/bouffalant.gif"
+    },
+    {
+      "name": "Bounsweet",
+      "path": "sprites/bounsweet.gif"
+    },
+    {
+      "name": "Braixen",
+      "path": "sprites/braixen.gif"
+    },
+    {
+      "name": "Braviary",
+      "path": "sprites/braviary.gif"
+    },
+    {
+      "name": "Breloom",
+      "path": "sprites/breloom.gif"
+    },
+    {
+      "name": "Brionne",
+      "path": "sprites/brionne.gif"
+    },
+    {
+      "name": "Bronzong",
+      "path": "sprites/bronzong.gif"
+    },
+    {
+      "name": "Bronzor",
+      "path": "sprites/bronzor.gif"
+    },
+    {
+      "name": "Bruxish",
+      "path": "sprites/bruxish.gif"
+    },
+    {
+      "name": "Budew",
+      "path": "sprites/budew.gif"
+    },
+    {
+      "name": "Buizel",
+      "path": "sprites/buizel.gif"
+    },
+    {
+      "name": "Buizel ♀",
+      "path": "sprites/buizel-f.gif"
+    },
+    {
+      "name": "Bulbasaur",
+      "path": "sprites/bulbasaur.gif"
+    },
+    {
+      "name": "Buneary",
+      "path": "sprites/buneary.gif"
+    },
+    {
+      "name": "Burmy",
+      "path": "sprites/burmy.gif"
+    },
+    {
+      "name": "Burmy Sandy",
+      "path": "sprites/burmy-sandy.gif"
+    },
+    {
+      "name": "Burmy Trash",
+      "path": "sprites/burmy-trash.gif"
+    },
+    {
+      "name": "Butterfree",
+      "path": "sprites/butterfree.gif"
+    },
+    {
+      "name": "Butterfree ♀",
+      "path": "sprites/butterfree-f.gif"
+    },
+    {
+      "name": "Buzzwole",
+      "path": "sprites/buzzwole.gif"
+    },
+    {
+      "name": "Cacnea",
+      "path": "sprites/cacnea.gif"
+    },
+    {
+      "name": "Cacturne",
+      "path": "sprites/cacturne.gif"
+    },
+    {
+      "name": "Cacturne ♀",
+      "path": "sprites/cacturne-f.gif"
+    },
+    {
+      "name": "Calyrex",
+      "path": "sprites/calyrex.gif"
+    },
+    {
+      "name": "Calyrex Ice",
+      "path": "sprites/calyrex-ice.gif"
+    },
+    {
+      "name": "Camerupt",
+      "path": "sprites/camerupt.gif"
+    },
+    {
+      "name": "Camerupt ♀",
+      "path": "sprites/camerupt-f.gif"
+    },
+    {
+      "name": "Carbink",
+      "path": "sprites/carbink.gif"
+    },
+    {
+      "name": "Carkoal",
+      "path": "sprites/carkoal.gif"
+    },
+    {
+      "name": "Carnivine",
+      "path": "sprites/carnivine.gif"
+    },
+    {
+      "name": "Carracosta",
+      "path": "sprites/carracosta.gif"
+    },
+    {
+      "name": "Carvanha",
+      "path": "sprites/carvanha.gif"
+    },
+    {
+      "name": "Cascoon",
+      "path": "sprites/cascoon.gif"
+    },
+    {
+      "name": "Castform",
+      "path": "sprites/castform.gif"
+    },
+    {
+      "name": "Castform Rainy",
+      "path": "sprites/castform-rainy.gif"
+    },
+    {
+      "name": "Castform Snowy",
+      "path": "sprites/castform-snowy.gif"
+    },
+    {
+      "name": "Castform Sunny",
+      "path": "sprites/castform-sunny.gif"
+    },
+    {
+      "name": "Caterpie",
+      "path": "sprites/caterpie.gif"
+    },
+    {
+      "name": "Cawmodore",
+      "path": "sprites/cawmodore.gif"
+    },
+    {
+      "name": "Celebi",
+      "path": "sprites/celebi.gif"
+    },
+    {
+      "name": "Celesteela",
+      "path": "sprites/celesteela.gif"
+    },
+    {
+      "name": "Chandelure",
+      "path": "sprites/chandelure.gif"
+    },
+    {
+      "name": "Chansey",
+      "path": "sprites/chansey.gif"
+    },
+    {
+      "name": "Charizard",
+      "path": "sprites/charizard.gif"
+    },
+    {
+      "name": "Charizard Megax",
+      "path": "sprites/charizard-megax.gif"
+    },
+    {
+      "name": "Charjabug",
+      "path": "sprites/charjabug.gif"
+    },
+    {
+      "name": "Charmander",
+      "path": "sprites/charmander.gif"
+    },
+    {
+      "name": "Charmeleon",
+      "path": "sprites/charmeleon.gif"
+    },
+    {
+      "name": "Chatot",
+      "path": "sprites/chatot.gif"
+    },
+    {
+      "name": "Cherrim",
+      "path": "sprites/cherrim.gif"
+    },
+    {
+      "name": "Cherrim Sunshine",
+      "path": "sprites/cherrim-sunshine.gif"
+    },
+    {
+      "name": "Cherubi",
+      "path": "sprites/cherubi.gif"
+    },
+    {
+      "name": "Chesnaught",
+      "path": "sprites/chesnaught.gif"
+    },
+    {
+      "name": "Chewtle",
+      "path": "sprites/chewtle.gif"
+    },
+    {
+      "name": "Chienpao",
+      "path": "sprites/chienpao.gif"
+    },
+    {
+      "name": "Chikorita",
+      "path": "sprites/chikorita.gif"
+    },
+    {
+      "name": "Chimchar",
+      "path": "sprites/chimchar.gif"
+    },
+    {
+      "name": "Chimecho",
+      "path": "sprites/chimecho.gif"
+    },
+    {
+      "name": "Chinchou",
+      "path": "sprites/chinchou.gif"
+    },
+    {
+      "name": "Chingling",
+      "path": "sprites/chingling.gif"
+    },
+    {
+      "name": "Chiyu",
+      "path": "sprites/chiyu.gif"
+    },
+    {
+      "name": "Cinccino",
+      "path": "sprites/cinccino.gif"
+    },
+    {
+      "name": "Cinderace G-Max",
+      "path": "sprites/cinderace-gmax.gif"
+    },
+    {
+      "name": "Clamperl",
+      "path": "sprites/clamperl.gif"
+    },
+    {
+      "name": "Clauncher",
+      "path": "sprites/clauncher.gif"
+    },
+    {
+      "name": "Clawitzer",
+      "path": "sprites/clawitzer.gif"
+    },
+    {
+      "name": "Claydol",
+      "path": "sprites/claydol.gif"
+    },
+    {
+      "name": "Clefable",
+      "path": "sprites/clefable.gif"
+    },
+    {
+      "name": "Clefairy",
+      "path": "sprites/clefairy.gif"
+    },
+    {
+      "name": "Cleffa",
+      "path": "sprites/cleffa.gif"
+    },
+    {
+      "name": "Clobbopus",
+      "path": "sprites/clobbopus.gif"
+    },
+    {
+      "name": "Clodsire",
+      "path": "sprites/clodsire.gif"
+    },
+    {
+      "name": "Cloyster",
+      "path": "sprites/cloyster.gif"
+    },
+    {
+      "name": "Coalossal",
+      "path": "sprites/coalossal.gif"
+    },
+    {
+      "name": "Coalossal G-Max",
+      "path": "sprites/coalossal-gmax.gif"
+    },
+    {
+      "name": "Cobalion",
+      "path": "sprites/cobalion.gif"
+    },
+    {
+      "name": "Cofagrigus",
+      "path": "sprites/cofagrigus.gif"
+    },
+    {
+      "name": "Colossoil",
+      "path": "sprites/colossoil.gif"
+    },
+    {
+      "name": "Colossoil ♀",
+      "path": "sprites/colossoil-f.gif"
+    },
+    {
+      "name": "Combee",
+      "path": "sprites/combee.gif"
+    },
+    {
+      "name": "Combee ♀",
+      "path": "sprites/combee-f.gif"
+    },
+    {
+      "name": "Combusken",
+      "path": "sprites/combusken.gif"
+    },
+    {
+      "name": "Combusken ♀",
+      "path": "sprites/combusken-f.gif"
+    },
+    {
+      "name": "Comfey",
+      "path": "sprites/comfey.gif"
+    },
+    {
+      "name": "Conkeldurr",
+      "path": "sprites/conkeldurr.gif"
+    },
+    {
+      "name": "Corphish",
+      "path": "sprites/corphish.gif"
+    },
+    {
+      "name": "Corsola",
+      "path": "sprites/corsola.gif"
+    },
+    {
+      "name": "Corsola Galar",
+      "path": "sprites/corsola-galar.gif"
+    },
+    {
+      "name": "Corviknight",
+      "path": "sprites/corviknight.gif"
+    },
+    {
+      "name": "Corvisquire",
+      "path": "sprites/corvisquire.gif"
+    },
+    {
+      "name": "Cosmoem",
+      "path": "sprites/cosmoem.gif"
+    },
+    {
+      "name": "Cosmog",
+      "path": "sprites/cosmog.gif"
+    },
+    {
+      "name": "Cottonee",
+      "path": "sprites/cottonee.gif"
+    },
+    {
+      "name": "Crabominable",
+      "path": "sprites/crabominable.gif"
+    },
+    {
+      "name": "Crabrawler",
+      "path": "sprites/crabrawler.gif"
+    },
+    {
+      "name": "Cradily",
+      "path": "sprites/cradily.gif"
+    },
+    {
+      "name": "Cranidos",
+      "path": "sprites/cranidos.gif"
+    },
+    {
+      "name": "Crawdaunt",
+      "path": "sprites/crawdaunt.gif"
+    },
+    {
+      "name": "Cresselia",
+      "path": "sprites/cresselia.gif"
+    },
+    {
+      "name": "Croagunk",
+      "path": "sprites/croagunk.gif"
+    },
+    {
+      "name": "Croagunk ♀",
+      "path": "sprites/croagunk-f.gif"
+    },
+    {
+      "name": "Crobat",
+      "path": "sprites/crobat.gif"
+    },
+    {
+      "name": "Croconaw",
+      "path": "sprites/croconaw.gif"
+    },
+    {
+      "name": "Crustle",
+      "path": "sprites/crustle.gif"
+    },
+    {
+      "name": "Cryogonal",
+      "path": "sprites/cryogonal.gif"
+    },
+    {
+      "name": "Cubchoo",
+      "path": "sprites/cubchoo.gif"
+    },
+    {
+      "name": "Cubone",
+      "path": "sprites/cubone.gif"
+    },
+    {
+      "name": "Cufant",
+      "path": "sprites/cufant.gif"
+    },
+    {
+      "name": "Cursola",
+      "path": "sprites/cursola.gif"
+    },
+    {
+      "name": "Cutiefly",
+      "path": "sprites/cutiefly.gif"
+    },
+    {
+      "name": "Cyndaquil",
+      "path": "sprites/cyndaquil.gif"
+    },
+    {
+      "name": "Darkrai",
+      "path": "sprites/darkrai.gif"
+    },
+    {
+      "name": "Darmanitan",
+      "path": "sprites/darmanitan.gif"
+    },
+    {
+      "name": "Darmanitan Galarzen",
+      "path": "sprites/darmanitan-galarzen.gif"
+    },
+    {
+      "name": "Darmanitan Zen",
+      "path": "sprites/darmanitan-zen.gif"
+    },
+    {
+      "name": "Darumaka",
+      "path": "sprites/darumaka.gif"
+    },
+    {
+      "name": "Dedenne",
+      "path": "sprites/dedenne.gif"
+    },
+    {
+      "name": "Deerling",
+      "path": "sprites/deerling.gif"
+    },
+    {
+      "name": "Deerling Autumn",
+      "path": "sprites/deerling-autumn.gif"
+    },
+    {
+      "name": "Deerling Summer",
+      "path": "sprites/deerling-summer.gif"
+    },
+    {
+      "name": "Deerling Winter",
+      "path": "sprites/deerling-winter.gif"
+    },
+    {
+      "name": "Deino",
+      "path": "sprites/deino.gif"
+    },
+    {
+      "name": "Delcatty",
+      "path": "sprites/delcatty.gif"
+    },
+    {
+      "name": "Delibird",
+      "path": "sprites/delibird.gif"
+    },
+    {
+      "name": "Deoxys",
+      "path": "sprites/deoxys.gif"
+    },
+    {
+      "name": "Deoxys Attack",
+      "path": "sprites/deoxys-attack.gif"
+    },
+    {
+      "name": "Deoxys Defense",
+      "path": "sprites/deoxys-defense.gif"
+    },
+    {
+      "name": "Deoxys Speed",
+      "path": "sprites/deoxys-speed.gif"
+    },
+    {
+      "name": "Dewgong",
+      "path": "sprites/dewgong.gif"
+    },
+    {
+      "name": "Dewott",
+      "path": "sprites/dewott.gif"
+    },
+    {
+      "name": "Dewpider",
+      "path": "sprites/dewpider.gif"
+    },
+    {
+      "name": "Dhelmise",
+      "path": "sprites/dhelmise.gif"
+    },
+    {
+      "name": "Dialga",
+      "path": "sprites/dialga.gif"
+    },
+    {
+      "name": "Dialga Origin",
+      "path": "sprites/dialga-origin.gif"
+    },
+    {
+      "name": "Diancie",
+      "path": "sprites/diancie.gif"
+    },
+    {
+      "name": "Diglett",
+      "path": "sprites/diglett.gif"
+    },
+    {
+      "name": "Diglett Alola",
+      "path": "sprites/diglett-alola.gif"
+    },
+    {
+      "name": "Ditto",
+      "path": "sprites/ditto.gif"
+    },
+    {
+      "name": "Dodrio",
+      "path": "sprites/dodrio.gif"
+    },
+    {
+      "name": "Dodrio ♀",
+      "path": "sprites/dodrio-f.gif"
+    },
+    {
+      "name": "Doduo",
+      "path": "sprites/doduo.gif"
+    },
+    {
+      "name": "Doduo ♀",
+      "path": "sprites/doduo-f.gif"
+    },
+    {
+      "name": "Donphan",
+      "path": "sprites/donphan.gif"
+    },
+    {
+      "name": "Donphan ♀",
+      "path": "sprites/donphan-f.gif"
+    },
+    {
+      "name": "Dracovish",
+      "path": "sprites/dracovish.gif"
+    },
+    {
+      "name": "Dracozolt",
+      "path": "sprites/dracozolt.gif"
+    },
+    {
+      "name": "Dragalge",
+      "path": "sprites/dragalge.gif"
+    },
+    {
+      "name": "Dragapult",
+      "path": "sprites/dragapult.gif"
+    },
+    {
+      "name": "Dragonair",
+      "path": "sprites/dragonair.gif"
+    },
+    {
+      "name": "Dragonite",
+      "path": "sprites/dragonite.gif"
+    },
+    {
+      "name": "Drakloak",
+      "path": "sprites/drakloak.gif"
+    },
+    {
+      "name": "Drampa",
+      "path": "sprites/drampa.gif"
+    },
+    {
+      "name": "Drapion",
+      "path": "sprites/drapion.gif"
+    },
+    {
+      "name": "Dratini",
+      "path": "sprites/dratini.gif"
+    },
+    {
+      "name": "Drednaw",
+      "path": "sprites/drednaw.gif"
+    },
+    {
+      "name": "Drednaw G-Max",
+      "path": "sprites/drednaw-gmax.gif"
+    },
+    {
+      "name": "Dreepy",
+      "path": "sprites/dreepy.gif"
+    },
+    {
+      "name": "Drifblim",
+      "path": "sprites/drifblim.gif"
+    },
+    {
+      "name": "Drifloon",
+      "path": "sprites/drifloon.gif"
+    },
+    {
+      "name": "Drilbur",
+      "path": "sprites/drilbur.gif"
+    },
+    {
+      "name": "Drizzile",
+      "path": "sprites/drizzile.gif"
+    },
+    {
+      "name": "Drowzee",
+      "path": "sprites/drowzee.gif"
+    },
+    {
+      "name": "Druddigon",
+      "path": "sprites/druddigon.gif"
+    },
+    {
+      "name": "Dubwool",
+      "path": "sprites/dubwool.gif"
+    },
+    {
+      "name": "Ducklett",
+      "path": "sprites/ducklett.gif"
+    },
+    {
+      "name": "Dugtrio",
+      "path": "sprites/dugtrio.gif"
+    },
+    {
+      "name": "Dugtrio Alola",
+      "path": "sprites/dugtrio-alola.gif"
+    },
+    {
+      "name": "Dunsparce",
+      "path": "sprites/dunsparce.gif"
+    },
+    {
+      "name": "Duosion",
+      "path": "sprites/duosion.gif"
+    },
+    {
+      "name": "Duraludon",
+      "path": "sprites/duraludon.gif"
+    },
+    {
+      "name": "Durant",
+      "path": "sprites/durant.gif"
+    },
+    {
+      "name": "Dusclops",
+      "path": "sprites/dusclops.gif"
+    },
+    {
+      "name": "Dusknoir",
+      "path": "sprites/dusknoir.gif"
+    },
+    {
+      "name": "Duskull",
+      "path": "sprites/duskull.gif"
+    },
+    {
+      "name": "Dustox",
+      "path": "sprites/dustox.gif"
+    },
+    {
+      "name": "Dustox ♀",
+      "path": "sprites/dustox-f.gif"
+    },
+    {
+      "name": "Dwebble",
+      "path": "sprites/dwebble.gif"
+    },
+    {
+      "name": "Eelektrik",
+      "path": "sprites/eelektrik.gif"
+    },
+    {
+      "name": "Eelektross",
+      "path": "sprites/eelektross.gif"
     },
     {
       "name": "Eevee",
       "path": "sprites/eevee.gif"
+    },
+    {
+      "name": "Eevee G-Max",
+      "path": "sprites/eevee-gmax.gif"
+    },
+    {
+      "name": "Eiscue",
+      "path": "sprites/eiscue.gif"
+    },
+    {
+      "name": "Eiscue Noice",
+      "path": "sprites/eiscue-noice.gif"
+    },
+    {
+      "name": "Ekans",
+      "path": "sprites/ekans.gif"
+    },
+    {
+      "name": "Eldegoss",
+      "path": "sprites/eldegoss.gif"
+    },
+    {
+      "name": "Electabuzz",
+      "path": "sprites/electabuzz.gif"
+    },
+    {
+      "name": "Electivire",
+      "path": "sprites/electivire.gif"
+    },
+    {
+      "name": "Electrike",
+      "path": "sprites/electrike.gif"
+    },
+    {
+      "name": "Electrode",
+      "path": "sprites/electrode.gif"
+    },
+    {
+      "name": "Elekid",
+      "path": "sprites/elekid.gif"
+    },
+    {
+      "name": "Elgyem",
+      "path": "sprites/elgyem.gif"
+    },
+    {
+      "name": "Emboar",
+      "path": "sprites/emboar.gif"
+    },
+    {
+      "name": "Emolga",
+      "path": "sprites/emolga.gif"
+    },
+    {
+      "name": "Empoleon",
+      "path": "sprites/empoleon.gif"
+    },
+    {
+      "name": "Entei",
+      "path": "sprites/entei.gif"
+    },
+    {
+      "name": "Escavalier",
+      "path": "sprites/escavalier.gif"
+    },
+    {
+      "name": "Espeon",
+      "path": "sprites/espeon.gif"
+    },
+    {
+      "name": "Eternatus",
+      "path": "sprites/eternatus.gif"
+    },
+    {
+      "name": "Excadrill",
+      "path": "sprites/excadrill.gif"
+    },
+    {
+      "name": "Exeggcute",
+      "path": "sprites/exeggcute.gif"
+    },
+    {
+      "name": "Exeggutor",
+      "path": "sprites/exeggutor.gif"
+    },
+    {
+      "name": "Exeggutor Alola",
+      "path": "sprites/exeggutor-alola.gif"
+    },
+    {
+      "name": "Exploud",
+      "path": "sprites/exploud.gif"
+    },
+    {
+      "name": "Falinks",
+      "path": "sprites/falinks.gif"
+    },
+    {
+      "name": "Farfetchd",
+      "path": "sprites/farfetchd.gif"
+    },
+    {
+      "name": "Farfetchd Galar",
+      "path": "sprites/farfetchd-galar.gif"
+    },
+    {
+      "name": "Fearow",
+      "path": "sprites/fearow.gif"
+    },
+    {
+      "name": "Feebas",
+      "path": "sprites/feebas.gif"
+    },
+    {
+      "name": "Fennekin",
+      "path": "sprites/fennekin.gif"
+    },
+    {
+      "name": "Feraligatr",
+      "path": "sprites/feraligatr.gif"
+    },
+    {
+      "name": "Ferroseed",
+      "path": "sprites/ferroseed.gif"
+    },
+    {
+      "name": "Ferrothorn",
+      "path": "sprites/ferrothorn.gif"
+    },
+    {
+      "name": "Finneon",
+      "path": "sprites/finneon.gif"
+    },
+    {
+      "name": "Finneon ♀",
+      "path": "sprites/finneon-f.gif"
+    },
+    {
+      "name": "Flaaffy",
+      "path": "sprites/flaaffy.gif"
+    },
+    {
+      "name": "Flabebe",
+      "path": "sprites/flabebe.gif"
+    },
+    {
+      "name": "Flabebe Blue",
+      "path": "sprites/flabebe-blue.gif"
+    },
+    {
+      "name": "Flabebe Orange",
+      "path": "sprites/flabebe-orange.gif"
+    },
+    {
+      "name": "Flabebe White",
+      "path": "sprites/flabebe-white.gif"
+    },
+    {
+      "name": "Flabebe Yellow",
+      "path": "sprites/flabebe-yellow.gif"
+    },
+    {
+      "name": "Flapple G-Max",
+      "path": "sprites/flapple-gmax.gif"
+    },
+    {
+      "name": "Flareon",
+      "path": "sprites/flareon.gif"
+    },
+    {
+      "name": "Fletchinder",
+      "path": "sprites/fletchinder.gif"
+    },
+    {
+      "name": "Fletchling",
+      "path": "sprites/fletchling.gif"
+    },
+    {
+      "name": "Floatzel",
+      "path": "sprites/floatzel.gif"
+    },
+    {
+      "name": "Floatzel ♀",
+      "path": "sprites/floatzel-f.gif"
+    },
+    {
+      "name": "Floette",
+      "path": "sprites/floette.gif"
+    },
+    {
+      "name": "Florges",
+      "path": "sprites/florges.gif"
+    },
+    {
+      "name": "Fluttermane",
+      "path": "sprites/fluttermane.gif"
+    },
+    {
+      "name": "Flygon",
+      "path": "sprites/flygon.gif"
+    },
+    {
+      "name": "Fomantis",
+      "path": "sprites/fomantis.gif"
+    },
+    {
+      "name": "Foongus",
+      "path": "sprites/foongus.gif"
+    },
+    {
+      "name": "Forretress",
+      "path": "sprites/forretress.gif"
+    },
+    {
+      "name": "Fraxure",
+      "path": "sprites/fraxure.gif"
+    },
+    {
+      "name": "Frigibax",
+      "path": "sprites/frigibax.gif"
+    },
+    {
+      "name": "Frillish",
+      "path": "sprites/frillish.gif"
+    },
+    {
+      "name": "Frillish ♀",
+      "path": "sprites/frillish-f.gif"
+    },
+    {
+      "name": "Froakie",
+      "path": "sprites/froakie.gif"
+    },
+    {
+      "name": "Froslass",
+      "path": "sprites/froslass.gif"
+    },
+    {
+      "name": "Frosmoth",
+      "path": "sprites/frosmoth.gif"
+    },
+    {
+      "name": "Furret",
+      "path": "sprites/furret.gif"
+    },
+    {
+      "name": "Gabite",
+      "path": "sprites/gabite.gif"
+    },
+    {
+      "name": "Gabite ♀",
+      "path": "sprites/gabite-f.gif"
+    },
+    {
+      "name": "Gallade",
+      "path": "sprites/gallade.gif"
+    },
+    {
+      "name": "Galvantula",
+      "path": "sprites/galvantula.gif"
+    },
+    {
+      "name": "Garbodor",
+      "path": "sprites/garbodor.gif"
+    },
+    {
+      "name": "Garbodor G-Max",
+      "path": "sprites/garbodor-gmax.gif"
+    },
+    {
+      "name": "Garchomp",
+      "path": "sprites/garchomp.gif"
+    },
+    {
+      "name": "Garchomp ♀",
+      "path": "sprites/garchomp-f.gif"
+    },
+    {
+      "name": "Garchomp Mega",
+      "path": "sprites/garchomp-mega.gif"
+    },
+    {
+      "name": "Gardevoir",
+      "path": "sprites/gardevoir.gif"
+    },
+    {
+      "name": "Gardevoir Mega",
+      "path": "sprites/gardevoir-mega.gif"
+    },
+    {
+      "name": "Gastly",
+      "path": "sprites/gastly.gif"
+    },
+    {
+      "name": "Gastrodon",
+      "path": "sprites/gastrodon.gif"
+    },
+    {
+      "name": "Gastrodon East",
+      "path": "sprites/gastrodon-east.gif"
+    },
+    {
+      "name": "Genesect",
+      "path": "sprites/genesect.gif"
+    },
+    {
+      "name": "Genesect Burn",
+      "path": "sprites/genesect-burn.gif"
+    },
+    {
+      "name": "Genesect Chill",
+      "path": "sprites/genesect-chill.gif"
+    },
+    {
+      "name": "Genesect Douse",
+      "path": "sprites/genesect-douse.gif"
+    },
+    {
+      "name": "Genesect Shock",
+      "path": "sprites/genesect-shock.gif"
+    },
+    {
+      "name": "Gengar",
+      "path": "sprites/gengar.gif"
+    },
+    {
+      "name": "Geodude",
+      "path": "sprites/geodude.gif"
+    },
+    {
+      "name": "Geodude Alola",
+      "path": "sprites/geodude-alola.gif"
+    },
+    {
+      "name": "Gholdengo",
+      "path": "sprites/gholdengo.gif"
+    },
+    {
+      "name": "Gible",
+      "path": "sprites/gible.gif"
+    },
+    {
+      "name": "Gible ♀",
+      "path": "sprites/gible-f.gif"
+    },
+    {
+      "name": "Gigalith",
+      "path": "sprites/gigalith.gif"
+    },
+    {
+      "name": "Gimmighoul",
+      "path": "sprites/gimmighoul.gif"
+    },
+    {
+      "name": "Girafarig",
+      "path": "sprites/girafarig.gif"
+    },
+    {
+      "name": "Girafarig ♀",
+      "path": "sprites/girafarig-f.gif"
+    },
+    {
+      "name": "Giratina",
+      "path": "sprites/giratina.gif"
+    },
+    {
+      "name": "Giratina Origin",
+      "path": "sprites/giratina-origin.gif"
+    },
+    {
+      "name": "Glaceon",
+      "path": "sprites/glaceon.gif"
+    },
+    {
+      "name": "Glalie",
+      "path": "sprites/glalie.gif"
+    },
+    {
+      "name": "Glalie Mega",
+      "path": "sprites/glalie-mega.gif"
+    },
+    {
+      "name": "Glameow",
+      "path": "sprites/glameow.gif"
+    },
+    {
+      "name": "Glastrier",
+      "path": "sprites/glastrier.gif"
+    },
+    {
+      "name": "Gligar",
+      "path": "sprites/gligar.gif"
+    },
+    {
+      "name": "Gligar ♀",
+      "path": "sprites/gligar-f.gif"
+    },
+    {
+      "name": "Glimmet",
+      "path": "sprites/glimmet.gif"
+    },
+    {
+      "name": "Gliscor",
+      "path": "sprites/gliscor.gif"
+    },
+    {
+      "name": "Gloom",
+      "path": "sprites/gloom.gif"
+    },
+    {
+      "name": "Gloom ♀",
+      "path": "sprites/gloom-f.gif"
+    },
+    {
+      "name": "Golbat",
+      "path": "sprites/golbat.gif"
+    },
+    {
+      "name": "Golbat ♀",
+      "path": "sprites/golbat-f.gif"
+    },
+    {
+      "name": "Goldeen",
+      "path": "sprites/goldeen.gif"
+    },
+    {
+      "name": "Goldeen ♀",
+      "path": "sprites/goldeen-f.gif"
+    },
+    {
+      "name": "Golduck",
+      "path": "sprites/golduck.gif"
+    },
+    {
+      "name": "Golem",
+      "path": "sprites/golem.gif"
+    },
+    {
+      "name": "Golem Alola",
+      "path": "sprites/golem-alola.gif"
+    },
+    {
+      "name": "Golett",
+      "path": "sprites/golett.gif"
+    },
+    {
+      "name": "Golurk",
+      "path": "sprites/golurk.gif"
+    },
+    {
+      "name": "Goodra",
+      "path": "sprites/goodra.gif"
+    },
+    {
+      "name": "Goodra Hisui",
+      "path": "sprites/goodra-hisui.gif"
+    },
+    {
+      "name": "Goomy",
+      "path": "sprites/goomy.gif"
+    },
+    {
+      "name": "Gorebyss",
+      "path": "sprites/gorebyss.gif"
+    },
+    {
+      "name": "Gothita",
+      "path": "sprites/gothita.gif"
+    },
+    {
+      "name": "Gothitelle",
+      "path": "sprites/gothitelle.gif"
+    },
+    {
+      "name": "Gothorita",
+      "path": "sprites/gothorita.gif"
+    },
+    {
+      "name": "Gougingfire",
+      "path": "sprites/gougingfire.gif"
+    },
+    {
+      "name": "Granbull",
+      "path": "sprites/granbull.gif"
+    },
+    {
+      "name": "Graveler",
+      "path": "sprites/graveler.gif"
+    },
+    {
+      "name": "Graveler Alola",
+      "path": "sprites/graveler-alola.gif"
+    },
+    {
+      "name": "Greattusk",
+      "path": "sprites/greattusk.gif"
+    },
+    {
+      "name": "Greninja",
+      "path": "sprites/greninja.gif"
+    },
+    {
+      "name": "Grimer",
+      "path": "sprites/grimer.gif"
+    },
+    {
+      "name": "Grimer Alola",
+      "path": "sprites/grimer-alola.gif"
+    },
+    {
+      "name": "Grimmsnarl",
+      "path": "sprites/grimmsnarl.gif"
+    },
+    {
+      "name": "Grookey",
+      "path": "sprites/grookey.gif"
+    },
+    {
+      "name": "Grotle",
+      "path": "sprites/grotle.gif"
+    },
+    {
+      "name": "Groudon",
+      "path": "sprites/groudon.gif"
+    },
+    {
+      "name": "Groudon Primal",
+      "path": "sprites/groudon-primal.gif"
+    },
+    {
+      "name": "Grovyle",
+      "path": "sprites/grovyle.gif"
+    },
+    {
+      "name": "Growlithe",
+      "path": "sprites/growlithe.gif"
+    },
+    {
+      "name": "Grubbin",
+      "path": "sprites/grubbin.gif"
+    },
+    {
+      "name": "Grumpig",
+      "path": "sprites/grumpig.gif"
+    },
+    {
+      "name": "Gulpin",
+      "path": "sprites/gulpin.gif"
+    },
+    {
+      "name": "Gulpin ♀",
+      "path": "sprites/gulpin-f.gif"
+    },
+    {
+      "name": "Gumshoos",
+      "path": "sprites/gumshoos.gif"
+    },
+    {
+      "name": "Gurdurr",
+      "path": "sprites/gurdurr.gif"
+    },
+    {
+      "name": "Gyarados",
+      "path": "sprites/gyarados.gif"
+    },
+    {
+      "name": "Gyarados ♀",
+      "path": "sprites/gyarados-f.gif"
+    },
+    {
+      "name": "Hakamoo",
+      "path": "sprites/hakamoo.gif"
+    },
+    {
+      "name": "Happiny",
+      "path": "sprites/happiny.gif"
+    },
+    {
+      "name": "Hariyama",
+      "path": "sprites/hariyama.gif"
+    },
+    {
+      "name": "Hatenna",
+      "path": "sprites/hatenna.gif"
+    },
+    {
+      "name": "Hatterene",
+      "path": "sprites/hatterene.gif"
+    },
+    {
+      "name": "Hatterene G-Max",
+      "path": "sprites/hatterene-gmax.gif"
+    },
+    {
+      "name": "Haunter",
+      "path": "sprites/haunter.gif"
+    },
+    {
+      "name": "Haxorus",
+      "path": "sprites/haxorus.gif"
+    },
+    {
+      "name": "Heatmor",
+      "path": "sprites/heatmor.gif"
+    },
+    {
+      "name": "Heatran",
+      "path": "sprites/heatran.gif"
+    },
+    {
+      "name": "Helioptile",
+      "path": "sprites/helioptile.gif"
+    },
+    {
+      "name": "Heracross",
+      "path": "sprites/heracross.gif"
+    },
+    {
+      "name": "Heracross ♀",
+      "path": "sprites/heracross-f.gif"
+    },
+    {
+      "name": "Herdier",
+      "path": "sprites/herdier.gif"
+    },
+    {
+      "name": "Hippopotas",
+      "path": "sprites/hippopotas.gif"
+    },
+    {
+      "name": "Hippopotas ♀",
+      "path": "sprites/hippopotas-f.gif"
+    },
+    {
+      "name": "Hippowdon",
+      "path": "sprites/hippowdon.gif"
+    },
+    {
+      "name": "Hippowdon ♀",
+      "path": "sprites/hippowdon-f.gif"
+    },
+    {
+      "name": "Hitmonchan",
+      "path": "sprites/hitmonchan.gif"
+    },
+    {
+      "name": "Hitmonlee",
+      "path": "sprites/hitmonlee.gif"
+    },
+    {
+      "name": "Hitmontop",
+      "path": "sprites/hitmontop.gif"
+    },
+    {
+      "name": "Honchkrow",
+      "path": "sprites/honchkrow.gif"
+    },
+    {
+      "name": "Honedge",
+      "path": "sprites/honedge.gif"
+    },
+    {
+      "name": "Hooh",
+      "path": "sprites/hooh.gif"
+    },
+    {
+      "name": "Hoopa",
+      "path": "sprites/hoopa.gif"
+    },
+    {
+      "name": "Hoopa Unbound",
+      "path": "sprites/hoopa-unbound.gif"
+    },
+    {
+      "name": "Hoothoot",
+      "path": "sprites/hoothoot.gif"
+    },
+    {
+      "name": "Hoppip",
+      "path": "sprites/hoppip.gif"
+    },
+    {
+      "name": "Horsea",
+      "path": "sprites/horsea.gif"
+    },
+    {
+      "name": "Houndoom",
+      "path": "sprites/houndoom.gif"
+    },
+    {
+      "name": "Houndoom ♀",
+      "path": "sprites/houndoom-f.gif"
+    },
+    {
+      "name": "Houndour",
+      "path": "sprites/houndour.gif"
+    },
+    {
+      "name": "Huntail",
+      "path": "sprites/huntail.gif"
+    },
+    {
+      "name": "Hydrapple",
+      "path": "sprites/hydrapple.gif"
+    },
+    {
+      "name": "Hydreigon",
+      "path": "sprites/hydreigon.gif"
+    },
+    {
+      "name": "Hypno",
+      "path": "sprites/hypno.gif"
+    },
+    {
+      "name": "Hypno ♀",
+      "path": "sprites/hypno-f.gif"
+    },
+    {
+      "name": "Igglybuff",
+      "path": "sprites/igglybuff.gif"
+    },
+    {
+      "name": "Illumise",
+      "path": "sprites/illumise.gif"
+    },
+    {
+      "name": "Impidimp",
+      "path": "sprites/impidimp.gif"
+    },
+    {
+      "name": "Incineroar",
+      "path": "sprites/incineroar.gif"
+    },
+    {
+      "name": "Indeedee",
+      "path": "sprites/indeedee.gif"
+    },
+    {
+      "name": "Indeedee ♀",
+      "path": "sprites/indeedee-f.gif"
+    },
+    {
+      "name": "Infernape",
+      "path": "sprites/infernape.gif"
+    },
+    {
+      "name": "Inkay",
+      "path": "sprites/inkay.gif"
+    },
+    {
+      "name": "Inteleon",
+      "path": "sprites/inteleon.gif"
+    },
+    {
+      "name": "Ironhands",
+      "path": "sprites/ironhands.gif"
+    },
+    {
+      "name": "Ironmoth",
+      "path": "sprites/ironmoth.gif"
+    },
+    {
+      "name": "Ironthorns",
+      "path": "sprites/ironthorns.gif"
+    },
+    {
+      "name": "Ironvaliant",
+      "path": "sprites/ironvaliant.gif"
+    },
+    {
+      "name": "Ivysaur",
+      "path": "sprites/ivysaur.gif"
+    },
+    {
+      "name": "Jangmoo",
+      "path": "sprites/jangmoo.gif"
+    },
+    {
+      "name": "Jellicent",
+      "path": "sprites/jellicent.gif"
+    },
+    {
+      "name": "Jellicent ♀",
+      "path": "sprites/jellicent-f.gif"
+    },
+    {
+      "name": "Jigglypuff",
+      "path": "sprites/jigglypuff.gif"
+    },
+    {
+      "name": "Jirachi",
+      "path": "sprites/jirachi.gif"
+    },
+    {
+      "name": "Jolteon",
+      "path": "sprites/jolteon.gif"
+    },
+    {
+      "name": "Joltik",
+      "path": "sprites/joltik.gif"
+    },
+    {
+      "name": "Jumpluff",
+      "path": "sprites/jumpluff.gif"
+    },
+    {
+      "name": "Jynx",
+      "path": "sprites/jynx.gif"
+    },
+    {
+      "name": "Kabuto",
+      "path": "sprites/kabuto.gif"
+    },
+    {
+      "name": "Kabutops",
+      "path": "sprites/kabutops.gif"
+    },
+    {
+      "name": "Kadabra",
+      "path": "sprites/kadabra.gif"
+    },
+    {
+      "name": "Kadabra ♀",
+      "path": "sprites/kadabra-f.gif"
+    },
+    {
+      "name": "Kakuna",
+      "path": "sprites/kakuna.gif"
+    },
+    {
+      "name": "Kangaskhan",
+      "path": "sprites/kangaskhan.gif"
+    },
+    {
+      "name": "Karrablast",
+      "path": "sprites/karrablast.gif"
+    },
+    {
+      "name": "Kartana",
+      "path": "sprites/kartana.gif"
+    },
+    {
+      "name": "Kecleon",
+      "path": "sprites/kecleon.gif"
+    },
+    {
+      "name": "Keldeo",
+      "path": "sprites/keldeo.gif"
+    },
+    {
+      "name": "Keldeo Resolute",
+      "path": "sprites/keldeo-resolute.gif"
+    },
+    {
+      "name": "Kingdra",
+      "path": "sprites/kingdra.gif"
+    },
+    {
+      "name": "Kingler",
+      "path": "sprites/kingler.gif"
+    },
+    {
+      "name": "Kirlia",
+      "path": "sprites/kirlia.gif"
+    },
+    {
+      "name": "Klang",
+      "path": "sprites/klang.gif"
+    },
+    {
+      "name": "Klefki",
+      "path": "sprites/klefki.gif"
+    },
+    {
+      "name": "Klink",
+      "path": "sprites/klink.gif"
+    },
+    {
+      "name": "Klinklang",
+      "path": "sprites/klinklang.gif"
+    },
+    {
+      "name": "Koffing",
+      "path": "sprites/koffing.gif"
+    },
+    {
+      "name": "Komala",
+      "path": "sprites/komala.gif"
+    },
+    {
+      "name": "Kommoo",
+      "path": "sprites/kommoo.gif"
+    },
+    {
+      "name": "Krabby",
+      "path": "sprites/krabby.gif"
+    },
+    {
+      "name": "Kricketot",
+      "path": "sprites/kricketot.gif"
+    },
+    {
+      "name": "Kricketot ♀",
+      "path": "sprites/kricketot-f.gif"
+    },
+    {
+      "name": "Kricketune",
+      "path": "sprites/kricketune.gif"
+    },
+    {
+      "name": "Kricketune ♀",
+      "path": "sprites/kricketune-f.gif"
+    },
+    {
+      "name": "Krokorok",
+      "path": "sprites/krokorok.gif"
+    },
+    {
+      "name": "Krookodile",
+      "path": "sprites/krookodile.gif"
+    },
+    {
+      "name": "Kyogre",
+      "path": "sprites/kyogre.gif"
+    },
+    {
+      "name": "Kyogre Primal",
+      "path": "sprites/kyogre-primal.gif"
+    },
+    {
+      "name": "Kyurem",
+      "path": "sprites/kyurem.gif"
+    },
+    {
+      "name": "Kyurem Black",
+      "path": "sprites/kyurem-black.gif"
+    },
+    {
+      "name": "Kyurem White",
+      "path": "sprites/kyurem-white.gif"
+    },
+    {
+      "name": "Lairon",
+      "path": "sprites/lairon.gif"
+    },
+    {
+      "name": "Lampent",
+      "path": "sprites/lampent.gif"
+    },
+    {
+      "name": "Landorus",
+      "path": "sprites/landorus.gif"
+    },
+    {
+      "name": "Landorus Therian",
+      "path": "sprites/landorus-therian.gif"
+    },
+    {
+      "name": "Lanturn",
+      "path": "sprites/lanturn.gif"
+    },
+    {
+      "name": "Lapras",
+      "path": "sprites/lapras.gif"
+    },
+    {
+      "name": "Larvesta",
+      "path": "sprites/larvesta.gif"
+    },
+    {
+      "name": "Larvitar",
+      "path": "sprites/larvitar.gif"
+    },
+    {
+      "name": "Latias",
+      "path": "sprites/latias.gif"
+    },
+    {
+      "name": "Latias Mega",
+      "path": "sprites/latias-mega.gif"
+    },
+    {
+      "name": "Latios",
+      "path": "sprites/latios.gif"
+    },
+    {
+      "name": "Latios Mega",
+      "path": "sprites/latios-mega.gif"
+    },
+    {
+      "name": "Leafeon",
+      "path": "sprites/leafeon.gif"
+    },
+    {
+      "name": "Leavanny",
+      "path": "sprites/leavanny.gif"
+    },
+    {
+      "name": "Ledian",
+      "path": "sprites/ledian.gif"
+    },
+    {
+      "name": "Ledian ♀",
+      "path": "sprites/ledian-f.gif"
+    },
+    {
+      "name": "Ledyba",
+      "path": "sprites/ledyba.gif"
+    },
+    {
+      "name": "Ledyba ♀",
+      "path": "sprites/ledyba-f.gif"
+    },
+    {
+      "name": "Lickilicky",
+      "path": "sprites/lickilicky.gif"
+    },
+    {
+      "name": "Lickitung",
+      "path": "sprites/lickitung.gif"
+    },
+    {
+      "name": "Liepard",
+      "path": "sprites/liepard.gif"
+    },
+    {
+      "name": "Lileep",
+      "path": "sprites/lileep.gif"
+    },
+    {
+      "name": "Lilligant",
+      "path": "sprites/lilligant.gif"
+    },
+    {
+      "name": "Lilligant Hisui",
+      "path": "sprites/lilligant-hisui.gif"
+    },
+    {
+      "name": "Lillipup",
+      "path": "sprites/lillipup.gif"
+    },
+    {
+      "name": "Linoone",
+      "path": "sprites/linoone.gif"
+    },
+    {
+      "name": "Linoone Galar",
+      "path": "sprites/linoone-galar.gif"
+    },
+    {
+      "name": "Litleo",
+      "path": "sprites/litleo.gif"
+    },
+    {
+      "name": "Litten",
+      "path": "sprites/litten.gif"
+    },
+    {
+      "name": "Litwick",
+      "path": "sprites/litwick.gif"
+    },
+    {
+      "name": "Lombre",
+      "path": "sprites/lombre.gif"
+    },
+    {
+      "name": "Lopunny",
+      "path": "sprites/lopunny.gif"
+    },
+    {
+      "name": "Lotad",
+      "path": "sprites/lotad.gif"
+    },
+    {
+      "name": "Loudred",
+      "path": "sprites/loudred.gif"
+    },
+    {
+      "name": "Lucario",
+      "path": "sprites/lucario.gif"
+    },
+    {
+      "name": "Lucario Mega",
+      "path": "sprites/lucario-mega.gif"
+    },
+    {
+      "name": "Ludicolo",
+      "path": "sprites/ludicolo.gif"
+    },
+    {
+      "name": "Ludicolo ♀",
+      "path": "sprites/ludicolo-f.gif"
+    },
+    {
+      "name": "Lugia",
+      "path": "sprites/lugia.gif"
+    },
+    {
+      "name": "Lumineon",
+      "path": "sprites/lumineon.gif"
+    },
+    {
+      "name": "Lumineon ♀",
+      "path": "sprites/lumineon-f.gif"
+    },
+    {
+      "name": "Lunala",
+      "path": "sprites/lunala.gif"
+    },
+    {
+      "name": "Lunatone",
+      "path": "sprites/lunatone.gif"
+    },
+    {
+      "name": "Lurantis",
+      "path": "sprites/lurantis.gif"
+    },
+    {
+      "name": "Luvdisc",
+      "path": "sprites/luvdisc.gif"
+    },
+    {
+      "name": "Luxio",
+      "path": "sprites/luxio.gif"
+    },
+    {
+      "name": "Luxio ♀",
+      "path": "sprites/luxio-f.gif"
+    },
+    {
+      "name": "Luxray",
+      "path": "sprites/luxray.gif"
+    },
+    {
+      "name": "Luxray ♀",
+      "path": "sprites/luxray-f.gif"
+    },
+    {
+      "name": "Lycanroc",
+      "path": "sprites/lycanroc.gif"
+    },
+    {
+      "name": "Lycanroc Dusk",
+      "path": "sprites/lycanroc-dusk.gif"
+    },
+    {
+      "name": "Lycanroc Midnight",
+      "path": "sprites/lycanroc-midnight.gif"
+    },
+    {
+      "name": "Machamp",
+      "path": "sprites/machamp.gif"
+    },
+    {
+      "name": "Machoke",
+      "path": "sprites/machoke.gif"
+    },
+    {
+      "name": "Machop",
+      "path": "sprites/machop.gif"
+    },
+    {
+      "name": "Magby",
+      "path": "sprites/magby.gif"
+    },
+    {
+      "name": "Magcargo",
+      "path": "sprites/magcargo.gif"
+    },
+    {
+      "name": "Magearna",
+      "path": "sprites/magearna.gif"
+    },
+    {
+      "name": "Magearna Original",
+      "path": "sprites/magearna-original.gif"
+    },
+    {
+      "name": "Magikarp",
+      "path": "sprites/magikarp.gif"
+    },
+    {
+      "name": "Magikarp ♀",
+      "path": "sprites/magikarp-f.gif"
+    },
+    {
+      "name": "Magmar",
+      "path": "sprites/magmar.gif"
+    },
+    {
+      "name": "Magmortar",
+      "path": "sprites/magmortar.gif"
+    },
+    {
+      "name": "Magnemite",
+      "path": "sprites/magnemite.gif"
+    },
+    {
+      "name": "Magneton",
+      "path": "sprites/magneton.gif"
+    },
+    {
+      "name": "Magnezone",
+      "path": "sprites/magnezone.gif"
+    },
+    {
+      "name": "Makuhita",
+      "path": "sprites/makuhita.gif"
+    },
+    {
+      "name": "Malaconda",
+      "path": "sprites/malaconda.gif"
+    },
+    {
+      "name": "Malamar",
+      "path": "sprites/malamar.gif"
+    },
+    {
+      "name": "Mamoswine",
+      "path": "sprites/mamoswine.gif"
+    },
+    {
+      "name": "Mamoswine ♀",
+      "path": "sprites/mamoswine-f.gif"
+    },
+    {
+      "name": "Manaphy",
+      "path": "sprites/manaphy.gif"
+    },
+    {
+      "name": "Mandibuzz",
+      "path": "sprites/mandibuzz.gif"
+    },
+    {
+      "name": "Manectric",
+      "path": "sprites/manectric.gif"
+    },
+    {
+      "name": "Manectric Mega",
+      "path": "sprites/manectric-mega.gif"
+    },
+    {
+      "name": "Mankey",
+      "path": "sprites/mankey.gif"
+    },
+    {
+      "name": "Mantine",
+      "path": "sprites/mantine.gif"
+    },
+    {
+      "name": "Mantyke",
+      "path": "sprites/mantyke.gif"
+    },
+    {
+      "name": "Maractus",
+      "path": "sprites/maractus.gif"
+    },
+    {
+      "name": "Mareep",
+      "path": "sprites/mareep.gif"
+    },
+    {
+      "name": "Marill",
+      "path": "sprites/marill.gif"
+    },
+    {
+      "name": "Marowak",
+      "path": "sprites/marowak.gif"
+    },
+    {
+      "name": "Marowak Alola",
+      "path": "sprites/marowak-alola.gif"
+    },
+    {
+      "name": "Marshadow",
+      "path": "sprites/marshadow.gif"
+    },
+    {
+      "name": "Marshtomp",
+      "path": "sprites/marshtomp.gif"
+    },
+    {
+      "name": "Masquerain",
+      "path": "sprites/masquerain.gif"
+    },
+    {
+      "name": "Maushold",
+      "path": "sprites/maushold.gif"
+    },
+    {
+      "name": "Maushold Four",
+      "path": "sprites/maushold-four.gif"
+    },
+    {
+      "name": "Mawile",
+      "path": "sprites/mawile.gif"
+    },
+    {
+      "name": "Mawile Mega",
+      "path": "sprites/mawile-mega.gif"
+    },
+    {
+      "name": "Medicham",
+      "path": "sprites/medicham.gif"
+    },
+    {
+      "name": "Medicham ♀",
+      "path": "sprites/medicham-f.gif"
+    },
+    {
+      "name": "Medicham Mega",
+      "path": "sprites/medicham-mega.gif"
+    },
+    {
+      "name": "Meditite",
+      "path": "sprites/meditite.gif"
+    },
+    {
+      "name": "Meditite ♀",
+      "path": "sprites/meditite-f.gif"
+    },
+    {
+      "name": "Meganium",
+      "path": "sprites/meganium.gif"
+    },
+    {
+      "name": "Meganium ♀",
+      "path": "sprites/meganium-f.gif"
+    },
+    {
+      "name": "Melmetal",
+      "path": "sprites/melmetal.gif"
+    },
+    {
+      "name": "Meloetta",
+      "path": "sprites/meloetta.gif"
+    },
+    {
+      "name": "Meloetta Pirouette",
+      "path": "sprites/meloetta-pirouette.gif"
+    },
+    {
+      "name": "Meltan",
+      "path": "sprites/meltan.gif"
+    },
+    {
+      "name": "Meowth",
+      "path": "sprites/meowth.gif"
+    },
+    {
+      "name": "Meowth Alola",
+      "path": "sprites/meowth-alola.gif"
+    },
+    {
+      "name": "Meowth G-Max",
+      "path": "sprites/meowth-gmax.gif"
+    },
+    {
+      "name": "Meowth Galar",
+      "path": "sprites/meowth-galar.gif"
+    },
+    {
+      "name": "Mesprit",
+      "path": "sprites/mesprit.gif"
+    },
+    {
+      "name": "Metagross",
+      "path": "sprites/metagross.gif"
+    },
+    {
+      "name": "Metang",
+      "path": "sprites/metang.gif"
+    },
+    {
+      "name": "Metapod",
+      "path": "sprites/metapod.gif"
+    },
+    {
+      "name": "Mew",
+      "path": "sprites/mew.gif"
+    },
+    {
+      "name": "Mewtwo",
+      "path": "sprites/mewtwo.gif"
+    },
+    {
+      "name": "Mewtwo Mega X",
+      "path": "sprites/mewtwo-mega-x.gif"
+    },
+    {
+      "name": "Mewtwo Mega Y",
+      "path": "sprites/mewtwo-mega-y.gif"
+    },
+    {
+      "name": "Mewtwo Megax",
+      "path": "sprites/mewtwo-megax.gif"
+    },
+    {
+      "name": "Mewtwo Megay",
+      "path": "sprites/mewtwo-megay.gif"
+    },
+    {
+      "name": "Mienfoo",
+      "path": "sprites/mienfoo.gif"
+    },
+    {
+      "name": "Mienshao",
+      "path": "sprites/mienshao.gif"
+    },
+    {
+      "name": "Mightyena",
+      "path": "sprites/mightyena.gif"
+    },
+    {
+      "name": "Milcery",
+      "path": "sprites/milcery.gif"
+    },
+    {
+      "name": "Milotic",
+      "path": "sprites/milotic.gif"
+    },
+    {
+      "name": "Milotic ♀",
+      "path": "sprites/milotic-f.gif"
+    },
+    {
+      "name": "Miltank",
+      "path": "sprites/miltank.gif"
+    },
+    {
+      "name": "Mimejr",
+      "path": "sprites/mimejr.gif"
+    },
+    {
+      "name": "Mimikyu",
+      "path": "sprites/mimikyu.gif"
+    },
+    {
+      "name": "Mimikyu Busted",
+      "path": "sprites/mimikyu-busted.gif"
+    },
+    {
+      "name": "Minccino",
+      "path": "sprites/minccino.gif"
+    },
+    {
+      "name": "Minior",
+      "path": "sprites/minior.gif"
+    },
+    {
+      "name": "Minior Blue",
+      "path": "sprites/minior-blue.gif"
+    },
+    {
+      "name": "Minior Green",
+      "path": "sprites/minior-green.gif"
+    },
+    {
+      "name": "Minior Indigo",
+      "path": "sprites/minior-indigo.gif"
+    },
+    {
+      "name": "Minior Meteor",
+      "path": "sprites/minior-meteor.gif"
+    },
+    {
+      "name": "Minior Orange",
+      "path": "sprites/minior-orange.gif"
+    },
+    {
+      "name": "Minior Violet",
+      "path": "sprites/minior-violet.gif"
+    },
+    {
+      "name": "Minior Yellow",
+      "path": "sprites/minior-yellow.gif"
+    },
+    {
+      "name": "Minun",
+      "path": "sprites/minun.gif"
+    },
+    {
+      "name": "Miraidon",
+      "path": "sprites/miraidon.gif"
+    },
+    {
+      "name": "Misdreavus",
+      "path": "sprites/misdreavus.gif"
+    },
+    {
+      "name": "Mismagius",
+      "path": "sprites/mismagius.gif"
+    },
+    {
+      "name": "Mollux",
+      "path": "sprites/mollux.gif"
+    },
+    {
+      "name": "Moltres",
+      "path": "sprites/moltres.gif"
+    },
+    {
+      "name": "Monferno",
+      "path": "sprites/monferno.gif"
+    },
+    {
+      "name": "Morelull",
+      "path": "sprites/morelull.gif"
+    },
+    {
+      "name": "Morpeko",
+      "path": "sprites/morpeko.gif"
+    },
+    {
+      "name": "Morpeko Hangry",
+      "path": "sprites/morpeko-hangry.gif"
+    },
+    {
+      "name": "Mothim",
+      "path": "sprites/mothim.gif"
+    },
+    {
+      "name": "Mrmime",
+      "path": "sprites/mrmime.gif"
+    },
+    {
+      "name": "Mrrime",
+      "path": "sprites/mrrime.gif"
+    },
+    {
+      "name": "Mudbray",
+      "path": "sprites/mudbray.gif"
+    },
+    {
+      "name": "Mudkip",
+      "path": "sprites/mudkip.gif"
+    },
+    {
+      "name": "Mudsdale",
+      "path": "sprites/mudsdale.gif"
+    },
+    {
+      "name": "Muk",
+      "path": "sprites/muk.gif"
+    },
+    {
+      "name": "Muk Alola",
+      "path": "sprites/muk-alola.gif"
+    },
+    {
+      "name": "Munchlax",
+      "path": "sprites/munchlax.gif"
+    },
+    {
+      "name": "Munna",
+      "path": "sprites/munna.gif"
+    },
+    {
+      "name": "Murkrow",
+      "path": "sprites/murkrow.gif"
+    },
+    {
+      "name": "Murkrow ♀",
+      "path": "sprites/murkrow-f.gif"
+    },
+    {
+      "name": "Musharna",
+      "path": "sprites/musharna.gif"
+    },
+    {
+      "name": "Nacli",
+      "path": "sprites/nacli.gif"
+    },
+    {
+      "name": "Naganadel",
+      "path": "sprites/naganadel.gif"
+    },
+    {
+      "name": "Natu",
+      "path": "sprites/natu.gif"
+    },
+    {
+      "name": "Necrozma",
+      "path": "sprites/necrozma.gif"
+    },
+    {
+      "name": "Necrozma Dawnwings",
+      "path": "sprites/necrozma-dawnwings.gif"
+    },
+    {
+      "name": "Necrozma Duskmane",
+      "path": "sprites/necrozma-duskmane.gif"
+    },
+    {
+      "name": "Necrozma Ultra",
+      "path": "sprites/necrozma-ultra.gif"
+    },
+    {
+      "name": "Necturna",
+      "path": "sprites/necturna.gif"
+    },
+    {
+      "name": "Nidoking",
+      "path": "sprites/nidoking.gif"
+    },
+    {
+      "name": "Nidoqueen",
+      "path": "sprites/nidoqueen.gif"
+    },
+    {
+      "name": "Nidoranf",
+      "path": "sprites/nidoranf.gif"
+    },
+    {
+      "name": "Nidoranm",
+      "path": "sprites/nidoranm.gif"
+    },
+    {
+      "name": "Nidorina",
+      "path": "sprites/nidorina.gif"
+    },
+    {
+      "name": "Nidorino",
+      "path": "sprites/nidorino.gif"
+    },
+    {
+      "name": "Nihilego",
+      "path": "sprites/nihilego.gif"
+    },
+    {
+      "name": "Nincada",
+      "path": "sprites/nincada.gif"
+    },
+    {
+      "name": "Ninetales",
+      "path": "sprites/ninetales.gif"
+    },
+    {
+      "name": "Ninetales Alola",
+      "path": "sprites/ninetales-alola.gif"
+    },
+    {
+      "name": "Ninjask",
+      "path": "sprites/ninjask.gif"
+    },
+    {
+      "name": "Noctowl",
+      "path": "sprites/noctowl.gif"
+    },
+    {
+      "name": "Noibat",
+      "path": "sprites/noibat.gif"
+    },
+    {
+      "name": "Noivern",
+      "path": "sprites/noivern.gif"
+    },
+    {
+      "name": "Nosepass",
+      "path": "sprites/nosepass.gif"
+    },
+    {
+      "name": "Numel",
+      "path": "sprites/numel.gif"
+    },
+    {
+      "name": "Numel ♀",
+      "path": "sprites/numel-f.gif"
+    },
+    {
+      "name": "Nuzleaf",
+      "path": "sprites/nuzleaf.gif"
+    },
+    {
+      "name": "Nuzleaf ♀",
+      "path": "sprites/nuzleaf-f.gif"
+    },
+    {
+      "name": "Obstagoon",
+      "path": "sprites/obstagoon.gif"
+    },
+    {
+      "name": "Octillery",
+      "path": "sprites/octillery.gif"
+    },
+    {
+      "name": "Octillery ♀",
+      "path": "sprites/octillery-f.gif"
+    },
+    {
+      "name": "Oddish",
+      "path": "sprites/oddish.gif"
+    },
+    {
+      "name": "Omanyte",
+      "path": "sprites/omanyte.gif"
+    },
+    {
+      "name": "Omastar",
+      "path": "sprites/omastar.gif"
+    },
+    {
+      "name": "Onix",
+      "path": "sprites/onix.gif"
+    },
+    {
+      "name": "Orbeetle G-Max",
+      "path": "sprites/orbeetle-gmax.gif"
+    },
+    {
+      "name": "Oricorio Pau",
+      "path": "sprites/oricorio-pau.gif"
+    },
+    {
+      "name": "Oricorio Pompom",
+      "path": "sprites/oricorio-pompom.gif"
+    },
+    {
+      "name": "Oricorio Sensu",
+      "path": "sprites/oricorio-sensu.gif"
+    },
+    {
+      "name": "Oshawott",
+      "path": "sprites/oshawott.gif"
+    },
+    {
+      "name": "Overqwil",
+      "path": "sprites/overqwil.gif"
+    },
+    {
+      "name": "Pachirisu",
+      "path": "sprites/pachirisu.gif"
+    },
+    {
+      "name": "Pachirisu ♀",
+      "path": "sprites/pachirisu-f.gif"
+    },
+    {
+      "name": "Pajantom",
+      "path": "sprites/pajantom.gif"
+    },
+    {
+      "name": "Palkia",
+      "path": "sprites/palkia.gif"
+    },
+    {
+      "name": "Palossand",
+      "path": "sprites/palossand.gif"
+    },
+    {
+      "name": "Palpitoad",
+      "path": "sprites/palpitoad.gif"
+    },
+    {
+      "name": "Pancham",
+      "path": "sprites/pancham.gif"
+    },
+    {
+      "name": "Pangoro",
+      "path": "sprites/pangoro.gif"
+    },
+    {
+      "name": "Panpour",
+      "path": "sprites/panpour.gif"
+    },
+    {
+      "name": "Pansage",
+      "path": "sprites/pansage.gif"
+    },
+    {
+      "name": "Pansear",
+      "path": "sprites/pansear.gif"
+    },
+    {
+      "name": "Paras",
+      "path": "sprites/paras.gif"
+    },
+    {
+      "name": "Parasect",
+      "path": "sprites/parasect.gif"
+    },
+    {
+      "name": "Patrat",
+      "path": "sprites/patrat.gif"
+    },
+    {
+      "name": "Pawniard",
+      "path": "sprites/pawniard.gif"
+    },
+    {
+      "name": "Pelipper",
+      "path": "sprites/pelipper.gif"
+    },
+    {
+      "name": "Perrserker",
+      "path": "sprites/perrserker.gif"
+    },
+    {
+      "name": "Persian",
+      "path": "sprites/persian.gif"
+    },
+    {
+      "name": "Persian Alola",
+      "path": "sprites/persian-alola.gif"
+    },
+    {
+      "name": "Petilil",
+      "path": "sprites/petilil.gif"
+    },
+    {
+      "name": "Phanpy",
+      "path": "sprites/phanpy.gif"
+    },
+    {
+      "name": "Phantump",
+      "path": "sprites/phantump.gif"
+    },
+    {
+      "name": "Pheromosa",
+      "path": "sprites/pheromosa.gif"
+    },
+    {
+      "name": "Phione",
+      "path": "sprites/phione.gif"
+    },
+    {
+      "name": "Pichu",
+      "path": "sprites/pichu.gif"
+    },
+    {
+      "name": "Pidgeot",
+      "path": "sprites/pidgeot.gif"
+    },
+    {
+      "name": "Pidgeotto",
+      "path": "sprites/pidgeotto.gif"
+    },
+    {
+      "name": "Pidgey",
+      "path": "sprites/pidgey.gif"
+    },
+    {
+      "name": "Pidove",
+      "path": "sprites/pidove.gif"
+    },
+    {
+      "name": "Pignite",
+      "path": "sprites/pignite.gif"
+    },
+    {
+      "name": "Pikachu",
+      "path": "sprites/pikachu.gif"
+    },
+    {
+      "name": "Pikachu ♀",
+      "path": "sprites/pikachu-f.gif"
+    },
+    {
+      "name": "Pikachu Alola",
+      "path": "sprites/pikachu-alola.gif"
+    },
+    {
+      "name": "Pikachu Hoenn",
+      "path": "sprites/pikachu-hoenn.gif"
+    },
+    {
+      "name": "Pikachu Kalos",
+      "path": "sprites/pikachu-kalos.gif"
+    },
+    {
+      "name": "Pikachu Original",
+      "path": "sprites/pikachu-original.gif"
+    },
+    {
+      "name": "Pikachu Partner",
+      "path": "sprites/pikachu-partner.gif"
+    },
+    {
+      "name": "Pikachu Sinnoh",
+      "path": "sprites/pikachu-sinnoh.gif"
+    },
+    {
+      "name": "Pikachu Starter",
+      "path": "sprites/pikachu-starter.gif"
+    },
+    {
+      "name": "Pikachu Starter ♀",
+      "path": "sprites/pikachu-starter-f.gif"
+    },
+    {
+      "name": "Pikachu Unova",
+      "path": "sprites/pikachu-unova.gif"
+    },
+    {
+      "name": "Pikachu World",
+      "path": "sprites/pikachu-world.gif"
+    },
+    {
+      "name": "Pikipek",
+      "path": "sprites/pikipek.gif"
+    },
+    {
+      "name": "Piloswine",
+      "path": "sprites/piloswine.gif"
+    },
+    {
+      "name": "Piloswine ♀",
+      "path": "sprites/piloswine-f.gif"
+    },
+    {
+      "name": "Pincurchin",
+      "path": "sprites/pincurchin.gif"
+    },
+    {
+      "name": "Pineco",
+      "path": "sprites/pineco.gif"
+    },
+    {
+      "name": "Pinsir",
+      "path": "sprites/pinsir.gif"
+    },
+    {
+      "name": "Piplup",
+      "path": "sprites/piplup.gif"
+    },
+    {
+      "name": "Plasmanta",
+      "path": "sprites/plasmanta.gif"
+    },
+    {
+      "name": "Plusle",
+      "path": "sprites/plusle.gif"
+    },
+    {
+      "name": "Pokestarblackbelt",
+      "path": "sprites/pokestarblackbelt.gif"
+    },
+    {
+      "name": "Pokestarblackdoor",
+      "path": "sprites/pokestarblackdoor.gif"
+    },
+    {
+      "name": "Pokestarbrycenman",
+      "path": "sprites/pokestarbrycenman.gif"
+    },
+    {
+      "name": "Pokestarf00",
+      "path": "sprites/pokestarf00.gif"
+    },
+    {
+      "name": "Pokestarf002",
+      "path": "sprites/pokestarf002.gif"
+    },
+    {
+      "name": "Pokestargiant",
+      "path": "sprites/pokestargiant.gif"
+    },
+    {
+      "name": "Pokestarhumanoid",
+      "path": "sprites/pokestarhumanoid.gif"
+    },
+    {
+      "name": "Pokestarmonster",
+      "path": "sprites/pokestarmonster.gif"
+    },
+    {
+      "name": "Pokestarmt",
+      "path": "sprites/pokestarmt.gif"
+    },
+    {
+      "name": "Pokestarmt2",
+      "path": "sprites/pokestarmt2.gif"
+    },
+    {
+      "name": "Pokestarsmeargle",
+      "path": "sprites/pokestarsmeargle.gif"
+    },
+    {
+      "name": "Pokestarspirit",
+      "path": "sprites/pokestarspirit.gif"
+    },
+    {
+      "name": "Pokestartransport",
+      "path": "sprites/pokestartransport.gif"
+    },
+    {
+      "name": "Pokestarufo",
+      "path": "sprites/pokestarufo.gif"
+    },
+    {
+      "name": "Pokestarufo2",
+      "path": "sprites/pokestarufo2.gif"
+    },
+    {
+      "name": "Pokestarwhitedoor",
+      "path": "sprites/pokestarwhitedoor.gif"
+    },
+    {
+      "name": "Politoed",
+      "path": "sprites/politoed.gif"
+    },
+    {
+      "name": "Politoed ♀",
+      "path": "sprites/politoed-f.gif"
+    },
+    {
+      "name": "Poliwag",
+      "path": "sprites/poliwag.gif"
+    },
+    {
+      "name": "Poliwhirl",
+      "path": "sprites/poliwhirl.gif"
+    },
+    {
+      "name": "Poliwrath",
+      "path": "sprites/poliwrath.gif"
+    },
+    {
+      "name": "Ponyta",
+      "path": "sprites/ponyta.gif"
+    },
+    {
+      "name": "Ponyta Galar",
+      "path": "sprites/ponyta-galar.gif"
+    },
+    {
+      "name": "Poochyena",
+      "path": "sprites/poochyena.gif"
+    },
+    {
+      "name": "Popplio",
+      "path": "sprites/popplio.gif"
+    },
+    {
+      "name": "Porygon",
+      "path": "sprites/porygon.gif"
+    },
+    {
+      "name": "Porygon2",
+      "path": "sprites/porygon2.gif"
+    },
+    {
+      "name": "Porygonz",
+      "path": "sprites/porygonz.gif"
+    },
+    {
+      "name": "Primarina",
+      "path": "sprites/primarina.gif"
+    },
+    {
+      "name": "Primeape",
+      "path": "sprites/primeape.gif"
+    },
+    {
+      "name": "Prinplup",
+      "path": "sprites/prinplup.gif"
+    },
+    {
+      "name": "Probopass",
+      "path": "sprites/probopass.gif"
+    },
+    {
+      "name": "Psyduck",
+      "path": "sprites/psyduck.gif"
+    },
+    {
+      "name": "Pupitar",
+      "path": "sprites/pupitar.gif"
+    },
+    {
+      "name": "Purrloin",
+      "path": "sprites/purrloin.gif"
+    },
+    {
+      "name": "Purugly",
+      "path": "sprites/purugly.gif"
+    },
+    {
+      "name": "Pyroar",
+      "path": "sprites/pyroar.gif"
+    },
+    {
+      "name": "Pyroar ♀",
+      "path": "sprites/pyroar-f.gif"
+    },
+    {
+      "name": "Pyukumuku",
+      "path": "sprites/pyukumuku.gif"
+    },
+    {
+      "name": "Quagsire",
+      "path": "sprites/quagsire.gif"
+    },
+    {
+      "name": "Quagsire ♀",
+      "path": "sprites/quagsire-f.gif"
+    },
+    {
+      "name": "Quilava",
+      "path": "sprites/quilava.gif"
+    },
+    {
+      "name": "Quilladin",
+      "path": "sprites/quilladin.gif"
+    },
+    {
+      "name": "Qwilfish",
+      "path": "sprites/qwilfish.gif"
+    },
+    {
+      "name": "Raboot",
+      "path": "sprites/raboot.gif"
+    },
+    {
+      "name": "Raichu",
+      "path": "sprites/raichu.gif"
+    },
+    {
+      "name": "Raichu ♀",
+      "path": "sprites/raichu-f.gif"
+    },
+    {
+      "name": "Raichu Alola",
+      "path": "sprites/raichu-alola.gif"
+    },
+    {
+      "name": "Raikou",
+      "path": "sprites/raikou.gif"
+    },
+    {
+      "name": "Ralts",
+      "path": "sprites/ralts.gif"
+    },
+    {
+      "name": "Rampardos",
+      "path": "sprites/rampardos.gif"
+    },
+    {
+      "name": "Rapidash",
+      "path": "sprites/rapidash.gif"
+    },
+    {
+      "name": "Raticate",
+      "path": "sprites/raticate.gif"
+    },
+    {
+      "name": "Raticate ♀",
+      "path": "sprites/raticate-f.gif"
+    },
+    {
+      "name": "Raticate Alola",
+      "path": "sprites/raticate-alola.gif"
+    },
+    {
+      "name": "Rattata",
+      "path": "sprites/rattata.gif"
+    },
+    {
+      "name": "Rattata ♀",
+      "path": "sprites/rattata-f.gif"
+    },
+    {
+      "name": "Rattata Alola",
+      "path": "sprites/rattata-alola.gif"
+    },
+    {
+      "name": "Rayquaza",
+      "path": "sprites/rayquaza.gif"
+    },
+    {
+      "name": "Rayquaza Mega",
+      "path": "sprites/rayquaza-mega.gif"
+    },
+    {
+      "name": "Regice",
+      "path": "sprites/regice.gif"
+    },
+    {
+      "name": "Regidrago",
+      "path": "sprites/regidrago.gif"
+    },
+    {
+      "name": "Regigigas",
+      "path": "sprites/regigigas.gif"
+    },
+    {
+      "name": "Regirock",
+      "path": "sprites/regirock.gif"
+    },
+    {
+      "name": "Registeel",
+      "path": "sprites/registeel.gif"
+    },
+    {
+      "name": "Relicanth",
+      "path": "sprites/relicanth.gif"
+    },
+    {
+      "name": "Relicanth ♀",
+      "path": "sprites/relicanth-f.gif"
+    },
+    {
+      "name": "Remoraid",
+      "path": "sprites/remoraid.gif"
+    },
+    {
+      "name": "Reshiram",
+      "path": "sprites/reshiram.gif"
+    },
+    {
+      "name": "Reuniclus",
+      "path": "sprites/reuniclus.gif"
+    },
+    {
+      "name": "Rhydon",
+      "path": "sprites/rhydon.gif"
+    },
+    {
+      "name": "Rhydon ♀",
+      "path": "sprites/rhydon-f.gif"
+    },
+    {
+      "name": "Rhyhorn",
+      "path": "sprites/rhyhorn.gif"
+    },
+    {
+      "name": "Rhyhorn ♀",
+      "path": "sprites/rhyhorn-f.gif"
+    },
+    {
+      "name": "Rhyperior",
+      "path": "sprites/rhyperior.gif"
+    },
+    {
+      "name": "Rhyperior ♀",
+      "path": "sprites/rhyperior-f.gif"
+    },
+    {
+      "name": "Ribombee",
+      "path": "sprites/ribombee.gif"
+    },
+    {
+      "name": "Riolu",
+      "path": "sprites/riolu.gif"
+    },
+    {
+      "name": "Rockruff",
+      "path": "sprites/rockruff.gif"
+    },
+    {
+      "name": "Roggenrola",
+      "path": "sprites/roggenrola.gif"
+    },
+    {
+      "name": "Rolycoly",
+      "path": "sprites/rolycoly.gif"
+    },
+    {
+      "name": "Rookidee",
+      "path": "sprites/rookidee.gif"
+    },
+    {
+      "name": "Roselia",
+      "path": "sprites/roselia.gif"
+    },
+    {
+      "name": "Roselia ♀",
+      "path": "sprites/roselia-f.gif"
+    },
+    {
+      "name": "Roserade",
+      "path": "sprites/roserade.gif"
+    },
+    {
+      "name": "Roserade ♀",
+      "path": "sprites/roserade-f.gif"
+    },
+    {
+      "name": "Rotom",
+      "path": "sprites/rotom.gif"
+    },
+    {
+      "name": "Rotom Fan",
+      "path": "sprites/rotom-fan.gif"
+    },
+    {
+      "name": "Rotom Frost",
+      "path": "sprites/rotom-frost.gif"
+    },
+    {
+      "name": "Rotom Heat",
+      "path": "sprites/rotom-heat.gif"
+    },
+    {
+      "name": "Rotom Mow",
+      "path": "sprites/rotom-mow.gif"
+    },
+    {
+      "name": "Rotom Wash",
+      "path": "sprites/rotom-wash.gif"
+    },
+    {
+      "name": "Rowlet",
+      "path": "sprites/rowlet.gif"
+    },
+    {
+      "name": "Rufflet",
+      "path": "sprites/rufflet.gif"
+    },
+    {
+      "name": "Runerigus",
+      "path": "sprites/runerigus.gif"
+    },
+    {
+      "name": "Sableye",
+      "path": "sprites/sableye.gif"
+    },
+    {
+      "name": "Salamence",
+      "path": "sprites/salamence.gif"
+    },
+    {
+      "name": "Salamence Mega",
+      "path": "sprites/salamence-mega.gif"
+    },
+    {
+      "name": "Samurott",
+      "path": "sprites/samurott.gif"
+    },
+    {
+      "name": "Samurott Hisui",
+      "path": "sprites/samurott-hisui.gif"
+    },
+    {
+      "name": "Sandaconda",
+      "path": "sprites/sandaconda.gif"
+    },
+    {
+      "name": "Sandile",
+      "path": "sprites/sandile.gif"
+    },
+    {
+      "name": "Sandshrew",
+      "path": "sprites/sandshrew.gif"
+    },
+    {
+      "name": "Sandshrew Alola",
+      "path": "sprites/sandshrew-alola.gif"
+    },
+    {
+      "name": "Sandslash",
+      "path": "sprites/sandslash.gif"
+    },
+    {
+      "name": "Sandslash Alola",
+      "path": "sprites/sandslash-alola.gif"
+    },
+    {
+      "name": "Sandygast",
+      "path": "sprites/sandygast.gif"
+    },
+    {
+      "name": "Sawk",
+      "path": "sprites/sawk.gif"
+    },
+    {
+      "name": "Sawsbuck",
+      "path": "sprites/sawsbuck.gif"
+    },
+    {
+      "name": "Sawsbuck Autumn",
+      "path": "sprites/sawsbuck-autumn.gif"
+    },
+    {
+      "name": "Sawsbuck Summer",
+      "path": "sprites/sawsbuck-summer.gif"
+    },
+    {
+      "name": "Sawsbuck Winter",
+      "path": "sprites/sawsbuck-winter.gif"
+    },
+    {
+      "name": "Scatterbug",
+      "path": "sprites/scatterbug.gif"
+    },
+    {
+      "name": "Sceptile",
+      "path": "sprites/sceptile.gif"
+    },
+    {
+      "name": "Scizor",
+      "path": "sprites/scizor.gif"
+    },
+    {
+      "name": "Scizor ♀",
+      "path": "sprites/scizor-f.gif"
+    },
+    {
+      "name": "Scizor Mega",
+      "path": "sprites/scizor-mega.gif"
+    },
+    {
+      "name": "Scolipede",
+      "path": "sprites/scolipede.gif"
+    },
+    {
+      "name": "Scorbunny",
+      "path": "sprites/scorbunny.gif"
+    },
+    {
+      "name": "Scrafty",
+      "path": "sprites/scrafty.gif"
+    },
+    {
+      "name": "Scraggy",
+      "path": "sprites/scraggy.gif"
+    },
+    {
+      "name": "Scyther",
+      "path": "sprites/scyther.gif"
+    },
+    {
+      "name": "Scyther ♀",
+      "path": "sprites/scyther-f.gif"
+    },
+    {
+      "name": "Seadra",
+      "path": "sprites/seadra.gif"
+    },
+    {
+      "name": "Seaking",
+      "path": "sprites/seaking.gif"
+    },
+    {
+      "name": "Seaking ♀",
+      "path": "sprites/seaking-f.gif"
+    },
+    {
+      "name": "Sealeo",
+      "path": "sprites/sealeo.gif"
+    },
+    {
+      "name": "Seedot",
+      "path": "sprites/seedot.gif"
+    },
+    {
+      "name": "Seel",
+      "path": "sprites/seel.gif"
+    },
+    {
+      "name": "Seismitoad",
+      "path": "sprites/seismitoad.gif"
+    },
+    {
+      "name": "Sentret",
+      "path": "sprites/sentret.gif"
+    },
+    {
+      "name": "Serperior",
+      "path": "sprites/serperior.gif"
+    },
+    {
+      "name": "Servine",
+      "path": "sprites/servine.gif"
+    },
+    {
+      "name": "Seviper",
+      "path": "sprites/seviper.gif"
+    },
+    {
+      "name": "Sewaddle",
+      "path": "sprites/sewaddle.gif"
+    },
+    {
+      "name": "Sharpedo",
+      "path": "sprites/sharpedo.gif"
+    },
+    {
+      "name": "Shaymin",
+      "path": "sprites/shaymin.gif"
+    },
+    {
+      "name": "Shaymin Sky",
+      "path": "sprites/shaymin-sky.gif"
+    },
+    {
+      "name": "Shedinja",
+      "path": "sprites/shedinja.gif"
+    },
+    {
+      "name": "Shelgon",
+      "path": "sprites/shelgon.gif"
+    },
+    {
+      "name": "Shellder",
+      "path": "sprites/shellder.gif"
+    },
+    {
+      "name": "Shellos",
+      "path": "sprites/shellos.gif"
+    },
+    {
+      "name": "Shellos East",
+      "path": "sprites/shellos-east.gif"
+    },
+    {
+      "name": "Shelmet",
+      "path": "sprites/shelmet.gif"
+    },
+    {
+      "name": "Shieldon",
+      "path": "sprites/shieldon.gif"
+    },
+    {
+      "name": "Shiftry",
+      "path": "sprites/shiftry.gif"
+    },
+    {
+      "name": "Shiftry ♀",
+      "path": "sprites/shiftry-f.gif"
+    },
+    {
+      "name": "Shiinotic",
+      "path": "sprites/shiinotic.gif"
+    },
+    {
+      "name": "Shinx",
+      "path": "sprites/shinx.gif"
+    },
+    {
+      "name": "Shinx ♀",
+      "path": "sprites/shinx-f.gif"
+    },
+    {
+      "name": "Shroomish",
+      "path": "sprites/shroomish.gif"
+    },
+    {
+      "name": "Shuckle",
+      "path": "sprites/shuckle.gif"
+    },
+    {
+      "name": "Shuppet",
+      "path": "sprites/shuppet.gif"
+    },
+    {
+      "name": "Sigilyph",
+      "path": "sprites/sigilyph.gif"
+    },
+    {
+      "name": "Silcoon",
+      "path": "sprites/silcoon.gif"
+    },
+    {
+      "name": "Silicobra",
+      "path": "sprites/silicobra.gif"
+    },
+    {
+      "name": "Silvally",
+      "path": "sprites/silvally.gif"
+    },
+    {
+      "name": "Silvally Bug",
+      "path": "sprites/silvally-bug.gif"
+    },
+    {
+      "name": "Silvally Dark",
+      "path": "sprites/silvally-dark.gif"
+    },
+    {
+      "name": "Silvally Dragon",
+      "path": "sprites/silvally-dragon.gif"
+    },
+    {
+      "name": "Silvally Electric",
+      "path": "sprites/silvally-electric.gif"
+    },
+    {
+      "name": "Silvally Fairy",
+      "path": "sprites/silvally-fairy.gif"
+    },
+    {
+      "name": "Silvally Fighting",
+      "path": "sprites/silvally-fighting.gif"
+    },
+    {
+      "name": "Silvally Fire",
+      "path": "sprites/silvally-fire.gif"
+    },
+    {
+      "name": "Silvally Flying",
+      "path": "sprites/silvally-flying.gif"
+    },
+    {
+      "name": "Silvally Ghost",
+      "path": "sprites/silvally-ghost.gif"
+    },
+    {
+      "name": "Silvally Grass",
+      "path": "sprites/silvally-grass.gif"
+    },
+    {
+      "name": "Silvally Ground",
+      "path": "sprites/silvally-ground.gif"
+    },
+    {
+      "name": "Silvally Ice",
+      "path": "sprites/silvally-ice.gif"
+    },
+    {
+      "name": "Silvally Poison",
+      "path": "sprites/silvally-poison.gif"
+    },
+    {
+      "name": "Silvally Psychic",
+      "path": "sprites/silvally-psychic.gif"
+    },
+    {
+      "name": "Silvally Rock",
+      "path": "sprites/silvally-rock.gif"
+    },
+    {
+      "name": "Silvally Steel",
+      "path": "sprites/silvally-steel.gif"
+    },
+    {
+      "name": "Silvally Water",
+      "path": "sprites/silvally-water.gif"
+    },
+    {
+      "name": "Simipour",
+      "path": "sprites/simipour.gif"
+    },
+    {
+      "name": "Simisage",
+      "path": "sprites/simisage.gif"
+    },
+    {
+      "name": "Simisear",
+      "path": "sprites/simisear.gif"
+    },
+    {
+      "name": "Skarmory",
+      "path": "sprites/skarmory.gif"
+    },
+    {
+      "name": "Skiddo",
+      "path": "sprites/skiddo.gif"
+    },
+    {
+      "name": "Skiploom",
+      "path": "sprites/skiploom.gif"
+    },
+    {
+      "name": "Skitty",
+      "path": "sprites/skitty.gif"
+    },
+    {
+      "name": "Skorupi",
+      "path": "sprites/skorupi.gif"
+    },
+    {
+      "name": "Skuntank",
+      "path": "sprites/skuntank.gif"
+    },
+    {
+      "name": "Slaking",
+      "path": "sprites/slaking.gif"
+    },
+    {
+      "name": "Slakoth",
+      "path": "sprites/slakoth.gif"
+    },
+    {
+      "name": "Sliggoo",
+      "path": "sprites/sliggoo.gif"
+    },
+    {
+      "name": "Sliggoo Hisui",
+      "path": "sprites/sliggoo-hisui.gif"
+    },
+    {
+      "name": "Slowbro",
+      "path": "sprites/slowbro.gif"
+    },
+    {
+      "name": "Slowbro Galar",
+      "path": "sprites/slowbro-galar.gif"
+    },
+    {
+      "name": "Slowking",
+      "path": "sprites/slowking.gif"
+    },
+    {
+      "name": "Slowking Galar",
+      "path": "sprites/slowking-galar.gif"
+    },
+    {
+      "name": "Slowpoke",
+      "path": "sprites/slowpoke.gif"
+    },
+    {
+      "name": "Slowpoke Galar",
+      "path": "sprites/slowpoke-galar.gif"
+    },
+    {
+      "name": "Slugma",
+      "path": "sprites/slugma.gif"
+    },
+    {
+      "name": "Slurpuff",
+      "path": "sprites/slurpuff.gif"
+    },
+    {
+      "name": "Smeargle",
+      "path": "sprites/smeargle.gif"
+    },
+    {
+      "name": "Smoochum",
+      "path": "sprites/smoochum.gif"
+    },
+    {
+      "name": "Sneasel",
+      "path": "sprites/sneasel.gif"
+    },
+    {
+      "name": "Sneasel ♀",
+      "path": "sprites/sneasel-f.gif"
+    },
+    {
+      "name": "Snivy",
+      "path": "sprites/snivy.gif"
+    },
+    {
+      "name": "Snom",
+      "path": "sprites/snom.gif"
+    },
+    {
+      "name": "Snorlax",
+      "path": "sprites/snorlax.gif"
+    },
+    {
+      "name": "Snorunt",
+      "path": "sprites/snorunt.gif"
+    },
+    {
+      "name": "Snover",
+      "path": "sprites/snover.gif"
+    },
+    {
+      "name": "Snover ♀",
+      "path": "sprites/snover-f.gif"
+    },
+    {
+      "name": "Snubbull",
+      "path": "sprites/snubbull.gif"
+    },
+    {
+      "name": "Sobble",
+      "path": "sprites/sobble.gif"
+    },
+    {
+      "name": "Solgaleo",
+      "path": "sprites/solgaleo.gif"
+    },
+    {
+      "name": "Solosis",
+      "path": "sprites/solosis.gif"
+    },
+    {
+      "name": "Solrock",
+      "path": "sprites/solrock.gif"
+    },
+    {
+      "name": "Spearow",
+      "path": "sprites/spearow.gif"
+    },
+    {
+      "name": "Spewpa",
+      "path": "sprites/spewpa.gif"
+    },
+    {
+      "name": "Spheal",
+      "path": "sprites/spheal.gif"
+    },
+    {
+      "name": "Spinarak",
+      "path": "sprites/spinarak.gif"
+    },
+    {
+      "name": "Spinda",
+      "path": "sprites/spinda.gif"
+    },
+    {
+      "name": "Spiritomb",
+      "path": "sprites/spiritomb.gif"
+    },
+    {
+      "name": "Spoink",
+      "path": "sprites/spoink.gif"
+    },
+    {
+      "name": "Spritzee",
+      "path": "sprites/spritzee.gif"
+    },
+    {
+      "name": "Squirtle",
+      "path": "sprites/squirtle.gif"
+    },
+    {
+      "name": "Stakataka",
+      "path": "sprites/stakataka.gif"
+    },
+    {
+      "name": "Stantler",
+      "path": "sprites/stantler.gif"
+    },
+    {
+      "name": "Staraptor",
+      "path": "sprites/staraptor.gif"
+    },
+    {
+      "name": "Staraptor ♀",
+      "path": "sprites/staraptor-f.gif"
+    },
+    {
+      "name": "Staravia",
+      "path": "sprites/staravia.gif"
+    },
+    {
+      "name": "Staravia ♀",
+      "path": "sprites/staravia-f.gif"
+    },
+    {
+      "name": "Starly",
+      "path": "sprites/starly.gif"
+    },
+    {
+      "name": "Starly ♀",
+      "path": "sprites/starly-f.gif"
+    },
+    {
+      "name": "Starmie",
+      "path": "sprites/starmie.gif"
+    },
+    {
+      "name": "Staryu",
+      "path": "sprites/staryu.gif"
+    },
+    {
+      "name": "Steelix",
+      "path": "sprites/steelix.gif"
+    },
+    {
+      "name": "Steelix ♀",
+      "path": "sprites/steelix-f.gif"
+    },
+    {
+      "name": "Steelix Mega",
+      "path": "sprites/steelix-mega.gif"
+    },
+    {
+      "name": "Steenee",
+      "path": "sprites/steenee.gif"
+    },
+    {
+      "name": "Stonjourner",
+      "path": "sprites/stonjourner.gif"
+    },
+    {
+      "name": "Stoutland",
+      "path": "sprites/stoutland.gif"
+    },
+    {
+      "name": "Stufful",
+      "path": "sprites/stufful.gif"
+    },
+    {
+      "name": "Stunfisk",
+      "path": "sprites/stunfisk.gif"
+    },
+    {
+      "name": "Stunky",
+      "path": "sprites/stunky.gif"
+    },
+    {
+      "name": "Substitute",
+      "path": "sprites/substitute.gif"
+    },
+    {
+      "name": "Sudowoodo",
+      "path": "sprites/sudowoodo.gif"
+    },
+    {
+      "name": "Sudowoodo ♀",
+      "path": "sprites/sudowoodo-f.gif"
+    },
+    {
+      "name": "Suicune",
+      "path": "sprites/suicune.gif"
+    },
+    {
+      "name": "Sunflora",
+      "path": "sprites/sunflora.gif"
+    },
+    {
+      "name": "Sunkern",
+      "path": "sprites/sunkern.gif"
+    },
+    {
+      "name": "Surskit",
+      "path": "sprites/surskit.gif"
+    },
+    {
+      "name": "Swablu",
+      "path": "sprites/swablu.gif"
+    },
+    {
+      "name": "Swadloon",
+      "path": "sprites/swadloon.gif"
+    },
+    {
+      "name": "Swalot",
+      "path": "sprites/swalot.gif"
+    },
+    {
+      "name": "Swalot ♀",
+      "path": "sprites/swalot-f.gif"
+    },
+    {
+      "name": "Swampert",
+      "path": "sprites/swampert.gif"
+    },
+    {
+      "name": "Swanna",
+      "path": "sprites/swanna.gif"
+    },
+    {
+      "name": "Swellow",
+      "path": "sprites/swellow.gif"
+    },
+    {
+      "name": "Swepa",
+      "path": "sprites/swepa.gif"
+    },
+    {
+      "name": "Swinub",
+      "path": "sprites/swinub.gif"
+    },
+    {
+      "name": "Swirlix",
+      "path": "sprites/swirlix.gif"
+    },
+    {
+      "name": "Swoobat",
+      "path": "sprites/swoobat.gif"
+    },
+    {
+      "name": "Sylveon",
+      "path": "sprites/sylveon.gif"
+    },
+    {
+      "name": "Tadbulb",
+      "path": "sprites/tadbulb.gif"
+    },
+    {
+      "name": "Taillow",
+      "path": "sprites/taillow.gif"
+    },
+    {
+      "name": "Talonflame",
+      "path": "sprites/talonflame.gif"
+    },
+    {
+      "name": "Tandemaus",
+      "path": "sprites/tandemaus.gif"
+    },
+    {
+      "name": "Tangela",
+      "path": "sprites/tangela.gif"
+    },
+    {
+      "name": "Tangrowth",
+      "path": "sprites/tangrowth.gif"
+    },
+    {
+      "name": "Tangrowth ♀",
+      "path": "sprites/tangrowth-f.gif"
+    },
+    {
+      "name": "Tapubulu",
+      "path": "sprites/tapubulu.gif"
+    },
+    {
+      "name": "Tapukoko",
+      "path": "sprites/tapukoko.gif"
+    },
+    {
+      "name": "Tapulele",
+      "path": "sprites/tapulele.gif"
+    },
+    {
+      "name": "Tatsugiri",
+      "path": "sprites/tatsugiri.gif"
+    },
+    {
+      "name": "Tatsugiri Droopy",
+      "path": "sprites/tatsugiri-droopy.gif"
+    },
+    {
+      "name": "Tatsugiri Stretchy",
+      "path": "sprites/tatsugiri-stretchy.gif"
+    },
+    {
+      "name": "Tauros",
+      "path": "sprites/tauros.gif"
+    },
+    {
+      "name": "Teddiursa",
+      "path": "sprites/teddiursa.gif"
+    },
+    {
+      "name": "Tentacool",
+      "path": "sprites/tentacool.gif"
+    },
+    {
+      "name": "Tentacruel",
+      "path": "sprites/tentacruel.gif"
+    },
+    {
+      "name": "Tepig",
+      "path": "sprites/tepig.gif"
+    },
+    {
+      "name": "Terapagos",
+      "path": "sprites/terapagos.gif"
+    },
+    {
+      "name": "Terapagos Stellar",
+      "path": "sprites/terapagos-stellar.gif"
+    },
+    {
+      "name": "Terapagos Terastal",
+      "path": "sprites/terapagos-terastal.gif"
+    },
+    {
+      "name": "Terrakion",
+      "path": "sprites/terrakion.gif"
+    },
+    {
+      "name": "Throh",
+      "path": "sprites/throh.gif"
+    },
+    {
+      "name": "Thundurus",
+      "path": "sprites/thundurus.gif"
+    },
+    {
+      "name": "Thundurus Therian",
+      "path": "sprites/thundurus-therian.gif"
+    },
+    {
+      "name": "Thwackey",
+      "path": "sprites/thwackey.gif"
+    },
+    {
+      "name": "Timburr",
+      "path": "sprites/timburr.gif"
+    },
+    {
+      "name": "Tinglu",
+      "path": "sprites/tinglu.gif"
+    },
+    {
+      "name": "Tirtouga",
+      "path": "sprites/tirtouga.gif"
+    },
+    {
+      "name": "Togedemaru",
+      "path": "sprites/togedemaru.gif"
+    },
+    {
+      "name": "Togekiss",
+      "path": "sprites/togekiss.gif"
+    },
+    {
+      "name": "Togepi",
+      "path": "sprites/togepi.gif"
+    },
+    {
+      "name": "Togetic",
+      "path": "sprites/togetic.gif"
+    },
+    {
+      "name": "Tomohawk",
+      "path": "sprites/tomohawk.gif"
+    },
+    {
+      "name": "Tomohawk ♀",
+      "path": "sprites/tomohawk-f.gif"
+    },
+    {
+      "name": "Torchic",
+      "path": "sprites/torchic.gif"
+    },
+    {
+      "name": "Torchic ♀",
+      "path": "sprites/torchic-f.gif"
+    },
+    {
+      "name": "Torkoal",
+      "path": "sprites/torkoal.gif"
+    },
+    {
+      "name": "Tornadus",
+      "path": "sprites/tornadus.gif"
+    },
+    {
+      "name": "Tornadus Therian",
+      "path": "sprites/tornadus-therian.gif"
+    },
+    {
+      "name": "Torterra",
+      "path": "sprites/torterra.gif"
+    },
+    {
+      "name": "Totodile",
+      "path": "sprites/totodile.gif"
+    },
+    {
+      "name": "Toucannon",
+      "path": "sprites/toucannon.gif"
+    },
+    {
+      "name": "Toxapex",
+      "path": "sprites/toxapex.gif"
+    },
+    {
+      "name": "Toxel",
+      "path": "sprites/toxel.gif"
+    },
+    {
+      "name": "Toxicroak",
+      "path": "sprites/toxicroak.gif"
+    },
+    {
+      "name": "Toxicroak ♀",
+      "path": "sprites/toxicroak-f.gif"
+    },
+    {
+      "name": "Toxtricity",
+      "path": "sprites/toxtricity.gif"
+    },
+    {
+      "name": "Toxtricity G-Max",
+      "path": "sprites/toxtricity-gmax.gif"
+    },
+    {
+      "name": "Tranquill",
+      "path": "sprites/tranquill.gif"
+    },
+    {
+      "name": "Trapinch",
+      "path": "sprites/trapinch.gif"
+    },
+    {
+      "name": "Treecko",
+      "path": "sprites/treecko.gif"
+    },
+    {
+      "name": "Trevenant",
+      "path": "sprites/trevenant.gif"
+    },
+    {
+      "name": "Tropius",
+      "path": "sprites/tropius.gif"
+    },
+    {
+      "name": "Trubbish",
+      "path": "sprites/trubbish.gif"
+    },
+    {
+      "name": "Trumbeak",
+      "path": "sprites/trumbeak.gif"
+    },
+    {
+      "name": "Turtonator",
+      "path": "sprites/turtonator.gif"
+    },
+    {
+      "name": "Turtwig",
+      "path": "sprites/turtwig.gif"
+    },
+    {
+      "name": "Tympole",
+      "path": "sprites/tympole.gif"
+    },
+    {
+      "name": "Tynamo",
+      "path": "sprites/tynamo.gif"
+    },
+    {
+      "name": "Typenull",
+      "path": "sprites/typenull.gif"
+    },
+    {
+      "name": "Typhlosion",
+      "path": "sprites/typhlosion.gif"
+    },
+    {
+      "name": "Tyranitar",
+      "path": "sprites/tyranitar.gif"
+    },
+    {
+      "name": "Tyranitar Mega",
+      "path": "sprites/tyranitar-mega.gif"
+    },
+    {
+      "name": "Tyrantrum",
+      "path": "sprites/tyrantrum.gif"
+    },
+    {
+      "name": "Tyrogue",
+      "path": "sprites/tyrogue.gif"
+    },
+    {
+      "name": "Tyrunt",
+      "path": "sprites/tyrunt.gif"
+    },
+    {
+      "name": "Umbreon",
+      "path": "sprites/umbreon.gif"
+    },
+    {
+      "name": "Unfezant",
+      "path": "sprites/unfezant.gif"
+    },
+    {
+      "name": "Unfezant ♀",
+      "path": "sprites/unfezant-f.gif"
+    },
+    {
+      "name": "Unown",
+      "path": "sprites/unown.gif"
+    },
+    {
+      "name": "Unown ♀",
+      "path": "sprites/unown-f.gif"
+    },
+    {
+      "name": "Unown ♂",
+      "path": "sprites/unown-m.gif"
+    },
+    {
+      "name": "Unown B",
+      "path": "sprites/unown-b.gif"
+    },
+    {
+      "name": "Unown C",
+      "path": "sprites/unown-c.gif"
+    },
+    {
+      "name": "Unown D",
+      "path": "sprites/unown-d.gif"
+    },
+    {
+      "name": "Unown E",
+      "path": "sprites/unown-e.gif"
+    },
+    {
+      "name": "Unown Exclamation",
+      "path": "sprites/unown-exclamation.gif"
+    },
+    {
+      "name": "Unown G",
+      "path": "sprites/unown-g.gif"
+    },
+    {
+      "name": "Unown H",
+      "path": "sprites/unown-h.gif"
+    },
+    {
+      "name": "Unown I",
+      "path": "sprites/unown-i.gif"
+    },
+    {
+      "name": "Unown J",
+      "path": "sprites/unown-j.gif"
+    },
+    {
+      "name": "Unown K",
+      "path": "sprites/unown-k.gif"
+    },
+    {
+      "name": "Unown L",
+      "path": "sprites/unown-l.gif"
+    },
+    {
+      "name": "Unown N",
+      "path": "sprites/unown-n.gif"
+    },
+    {
+      "name": "Unown O",
+      "path": "sprites/unown-o.gif"
+    },
+    {
+      "name": "Unown P",
+      "path": "sprites/unown-p.gif"
+    },
+    {
+      "name": "Unown Q",
+      "path": "sprites/unown-q.gif"
+    },
+    {
+      "name": "Unown Question",
+      "path": "sprites/unown-question.gif"
+    },
+    {
+      "name": "Unown R",
+      "path": "sprites/unown-r.gif"
+    },
+    {
+      "name": "Unown S",
+      "path": "sprites/unown-s.gif"
+    },
+    {
+      "name": "Unown T",
+      "path": "sprites/unown-t.gif"
+    },
+    {
+      "name": "Unown U",
+      "path": "sprites/unown-u.gif"
+    },
+    {
+      "name": "Unown V",
+      "path": "sprites/unown-v.gif"
+    },
+    {
+      "name": "Unown W",
+      "path": "sprites/unown-w.gif"
+    },
+    {
+      "name": "Unown X",
+      "path": "sprites/unown-x.gif"
+    },
+    {
+      "name": "Unown Y",
+      "path": "sprites/unown-y.gif"
+    },
+    {
+      "name": "Unown Z",
+      "path": "sprites/unown-z.gif"
+    },
+    {
+      "name": "Ursaluna",
+      "path": "sprites/ursaluna.gif"
+    },
+    {
+      "name": "Ursaluna Bloodmoon",
+      "path": "sprites/ursaluna-bloodmoon.gif"
+    },
+    {
+      "name": "Ursaring",
+      "path": "sprites/ursaring.gif"
+    },
+    {
+      "name": "Ursaring ♀",
+      "path": "sprites/ursaring-f.gif"
+    },
+    {
+      "name": "Uxie",
+      "path": "sprites/uxie.gif"
+    },
+    {
+      "name": "Vanillish",
+      "path": "sprites/vanillish.gif"
+    },
+    {
+      "name": "Vanillite",
+      "path": "sprites/vanillite.gif"
+    },
+    {
+      "name": "Vanilluxe",
+      "path": "sprites/vanilluxe.gif"
+    },
+    {
+      "name": "Vaporeon",
+      "path": "sprites/vaporeon.gif"
+    },
+    {
+      "name": "Venipede",
+      "path": "sprites/venipede.gif"
+    },
+    {
+      "name": "Venomoth",
+      "path": "sprites/venomoth.gif"
+    },
+    {
+      "name": "Venonat",
+      "path": "sprites/venonat.gif"
+    },
+    {
+      "name": "Venusaur",
+      "path": "sprites/venusaur.gif"
+    },
+    {
+      "name": "Venusaur ♀",
+      "path": "sprites/venusaur-f.gif"
+    },
+    {
+      "name": "Vespiquen",
+      "path": "sprites/vespiquen.gif"
+    },
+    {
+      "name": "Vibrava",
+      "path": "sprites/vibrava.gif"
+    },
+    {
+      "name": "Victini",
+      "path": "sprites/victini.gif"
+    },
+    {
+      "name": "Victreebel",
+      "path": "sprites/victreebel.gif"
+    },
+    {
+      "name": "Vigoroth",
+      "path": "sprites/vigoroth.gif"
+    },
+    {
+      "name": "Vikavolt",
+      "path": "sprites/vikavolt.gif"
+    },
+    {
+      "name": "Vileplume",
+      "path": "sprites/vileplume.gif"
+    },
+    {
+      "name": "Vileplume ♀",
+      "path": "sprites/vileplume-f.gif"
+    },
+    {
+      "name": "Virizion",
+      "path": "sprites/virizion.gif"
+    },
+    {
+      "name": "Vivillon",
+      "path": "sprites/vivillon.gif"
+    },
+    {
+      "name": "Vivillon Archipelago",
+      "path": "sprites/vivillon-archipelago.gif"
+    },
+    {
+      "name": "Vivillon Continental",
+      "path": "sprites/vivillon-continental.gif"
+    },
+    {
+      "name": "Vivillon Elegant",
+      "path": "sprites/vivillon-elegant.gif"
+    },
+    {
+      "name": "Vivillon Fancy",
+      "path": "sprites/vivillon-fancy.gif"
+    },
+    {
+      "name": "Vivillon Garden",
+      "path": "sprites/vivillon-garden.gif"
+    },
+    {
+      "name": "Vivillon Highplains",
+      "path": "sprites/vivillon-highplains.gif"
+    },
+    {
+      "name": "Vivillon Icysnow",
+      "path": "sprites/vivillon-icysnow.gif"
+    },
+    {
+      "name": "Vivillon Jungle",
+      "path": "sprites/vivillon-jungle.gif"
+    },
+    {
+      "name": "Vivillon Marine",
+      "path": "sprites/vivillon-marine.gif"
+    },
+    {
+      "name": "Vivillon Modern",
+      "path": "sprites/vivillon-modern.gif"
+    },
+    {
+      "name": "Vivillon Monsoon",
+      "path": "sprites/vivillon-monsoon.gif"
+    },
+    {
+      "name": "Vivillon Ocean",
+      "path": "sprites/vivillon-ocean.gif"
+    },
+    {
+      "name": "Vivillon Pokeball",
+      "path": "sprites/vivillon-pokeball.gif"
+    },
+    {
+      "name": "Vivillon Polar",
+      "path": "sprites/vivillon-polar.gif"
+    },
+    {
+      "name": "Vivillon River",
+      "path": "sprites/vivillon-river.gif"
+    },
+    {
+      "name": "Vivillon Sandstorm",
+      "path": "sprites/vivillon-sandstorm.gif"
+    },
+    {
+      "name": "Vivillon Savanna",
+      "path": "sprites/vivillon-savanna.gif"
+    },
+    {
+      "name": "Vivillon Sun",
+      "path": "sprites/vivillon-sun.gif"
+    },
+    {
+      "name": "Vivillon Tundra",
+      "path": "sprites/vivillon-tundra.gif"
+    },
+    {
+      "name": "Volbeat",
+      "path": "sprites/volbeat.gif"
+    },
+    {
+      "name": "Volcanion",
+      "path": "sprites/volcanion.gif"
+    },
+    {
+      "name": "Volcarona",
+      "path": "sprites/volcarona.gif"
+    },
+    {
+      "name": "Volkraken",
+      "path": "sprites/volkraken.gif"
+    },
+    {
+      "name": "Voltorb",
+      "path": "sprites/voltorb.gif"
+    },
+    {
+      "name": "Voltorb Hisui",
+      "path": "sprites/voltorb-hisui.gif"
+    },
+    {
+      "name": "Vullaby",
+      "path": "sprites/vullaby.gif"
+    },
+    {
+      "name": "Vulpix",
+      "path": "sprites/vulpix.gif"
+    },
+    {
+      "name": "Vulpix Alola",
+      "path": "sprites/vulpix-alola.gif"
+    },
+    {
+      "name": "Wailmer",
+      "path": "sprites/wailmer.gif"
+    },
+    {
+      "name": "Wailord",
+      "path": "sprites/wailord.gif"
+    },
+    {
+      "name": "Walrein",
+      "path": "sprites/walrein.gif"
+    },
+    {
+      "name": "Wartortle",
+      "path": "sprites/wartortle.gif"
+    },
+    {
+      "name": "Watchog",
+      "path": "sprites/watchog.gif"
+    },
+    {
+      "name": "Weavile",
+      "path": "sprites/weavile.gif"
+    },
+    {
+      "name": "Weavile ♀",
+      "path": "sprites/weavile-f.gif"
+    },
+    {
+      "name": "Weedle",
+      "path": "sprites/weedle.gif"
+    },
+    {
+      "name": "Weepinbell",
+      "path": "sprites/weepinbell.gif"
+    },
+    {
+      "name": "Weezing",
+      "path": "sprites/weezing.gif"
+    },
+    {
+      "name": "Weezing Galar",
+      "path": "sprites/weezing-galar.gif"
+    },
+    {
+      "name": "Whimsicott",
+      "path": "sprites/whimsicott.gif"
+    },
+    {
+      "name": "Whirlipede",
+      "path": "sprites/whirlipede.gif"
+    },
+    {
+      "name": "Whiscash",
+      "path": "sprites/whiscash.gif"
+    },
+    {
+      "name": "Whismur",
+      "path": "sprites/whismur.gif"
+    },
+    {
+      "name": "Wigglytuff",
+      "path": "sprites/wigglytuff.gif"
+    },
+    {
+      "name": "Wimpod",
+      "path": "sprites/wimpod.gif"
+    },
+    {
+      "name": "Wingull",
+      "path": "sprites/wingull.gif"
+    },
+    {
+      "name": "Wishiwashi",
+      "path": "sprites/wishiwashi.gif"
+    },
+    {
+      "name": "Wishiwashi School",
+      "path": "sprites/wishiwashi-school.gif"
+    },
+    {
+      "name": "Wobbuffet",
+      "path": "sprites/wobbuffet.gif"
+    },
+    {
+      "name": "Wobbuffet ♀",
+      "path": "sprites/wobbuffet-f.gif"
+    },
+    {
+      "name": "Wochien",
+      "path": "sprites/wochien.gif"
+    },
+    {
+      "name": "Woobat",
+      "path": "sprites/woobat.gif"
+    },
+    {
+      "name": "Wooloo",
+      "path": "sprites/wooloo.gif"
+    },
+    {
+      "name": "Wooper",
+      "path": "sprites/wooper.gif"
+    },
+    {
+      "name": "Wooper ♀",
+      "path": "sprites/wooper-f.gif"
+    },
+    {
+      "name": "Wooper Paldea",
+      "path": "sprites/wooper-paldea.gif"
+    },
+    {
+      "name": "Wormadam",
+      "path": "sprites/wormadam.gif"
+    },
+    {
+      "name": "Wormadam Sandy",
+      "path": "sprites/wormadam-sandy.gif"
+    },
+    {
+      "name": "Wormadam Trash",
+      "path": "sprites/wormadam-trash.gif"
+    },
+    {
+      "name": "Wurmple",
+      "path": "sprites/wurmple.gif"
+    },
+    {
+      "name": "Wynaut",
+      "path": "sprites/wynaut.gif"
+    },
+    {
+      "name": "Wyrdeer",
+      "path": "sprites/wyrdeer.gif"
+    },
+    {
+      "name": "Xatu",
+      "path": "sprites/xatu.gif"
+    },
+    {
+      "name": "Xatu ♀",
+      "path": "sprites/xatu-f.gif"
+    },
+    {
+      "name": "Xerneas",
+      "path": "sprites/xerneas.gif"
+    },
+    {
+      "name": "Xurkitree",
+      "path": "sprites/xurkitree.gif"
+    },
+    {
+      "name": "Yamask",
+      "path": "sprites/yamask.gif"
+    },
+    {
+      "name": "Yamper",
+      "path": "sprites/yamper.gif"
+    },
+    {
+      "name": "Yanma",
+      "path": "sprites/yanma.gif"
+    },
+    {
+      "name": "Yanmega",
+      "path": "sprites/yanmega.gif"
+    },
+    {
+      "name": "Yungoos",
+      "path": "sprites/yungoos.gif"
+    },
+    {
+      "name": "Yveltal",
+      "path": "sprites/yveltal.gif"
+    },
+    {
+      "name": "Zacian",
+      "path": "sprites/zacian.gif"
+    },
+    {
+      "name": "Zacian Crowned",
+      "path": "sprites/zacian-crowned.gif"
+    },
+    {
+      "name": "Zamazenta",
+      "path": "sprites/zamazenta.gif"
+    },
+    {
+      "name": "Zamazenta Crowned",
+      "path": "sprites/zamazenta-crowned.gif"
+    },
+    {
+      "name": "Zangoose",
+      "path": "sprites/zangoose.gif"
+    },
+    {
+      "name": "Zapdos",
+      "path": "sprites/zapdos.gif"
+    },
+    {
+      "name": "Zapdos Galar",
+      "path": "sprites/zapdos-galar.gif"
+    },
+    {
+      "name": "Zebstrika",
+      "path": "sprites/zebstrika.gif"
+    },
+    {
+      "name": "Zekrom",
+      "path": "sprites/zekrom.gif"
+    },
+    {
+      "name": "Zeraora",
+      "path": "sprites/zeraora.gif"
+    },
+    {
+      "name": "Zigzagoon",
+      "path": "sprites/zigzagoon.gif"
+    },
+    {
+      "name": "Zigzagoon Galar",
+      "path": "sprites/zigzagoon-galar.gif"
+    },
+    {
+      "name": "Zoroark",
+      "path": "sprites/zoroark.gif"
+    },
+    {
+      "name": "Zoroark Hisui",
+      "path": "sprites/zoroark-hisui.gif"
+    },
+    {
+      "name": "Zorua",
+      "path": "sprites/zorua.gif"
+    },
+    {
+      "name": "Zubat",
+      "path": "sprites/zubat.gif"
+    },
+    {
+      "name": "Zubat ♀",
+      "path": "sprites/zubat-f.gif"
+    },
+    {
+      "name": "Zweilous",
+      "path": "sprites/zweilous.gif"
+    },
+    {
+      "name": "Zygarde",
+      "path": "sprites/zygarde.gif"
+    },
+    {
+      "name": "Zygarde 10",
+      "path": "sprites/zygarde-10.gif"
     }
   ]
 }
-

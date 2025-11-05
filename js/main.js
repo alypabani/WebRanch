@@ -102,7 +102,17 @@ class Game {
     removePokemon(pokemonId) {
         const index = this.pokemon.findIndex(p => p.id === pokemonId);
         if (index !== -1) {
+            const pokemonToRemove = this.pokemon[index];
+            
+            // Clean up any active interactions involving this Pokemon
+            if (this.interactionSystem) {
+                this.interactionSystem.cleanupInteractionsForPokemon(pokemonToRemove);
+            }
+            
+            // Remove from array
             this.pokemon.splice(index, 1);
+            
+            // Clear selection if this Pokemon was selected
             if (this.selectedPokemon && this.selectedPokemon.id === pokemonId) {
                 this.selectedPokemon = null;
             }
