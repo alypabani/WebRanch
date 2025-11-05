@@ -9,7 +9,6 @@ class Game {
         this.interactionSystem = null;
         this.uiManager = null;
         this.lastTime = 0;
-        this.selectedPokemon = null;
         this.isRunning = false;
     }
 
@@ -43,15 +42,6 @@ class Game {
         this.uiManager.onRemovePokemon = (pokemonId) => {
             this.removePokemon(pokemonId);
         };
-
-        this.uiManager.onSelectPokemon = (pokemonData) => {
-            this.selectPokemon(pokemonData.id);
-        };
-
-        // Set up canvas click handler for selecting Pokemon
-        this.canvas.addEventListener('click', (e) => {
-            this.handleCanvasClick(e);
-        });
 
         // Handle window resize
         window.addEventListener('resize', () => {
@@ -109,40 +99,11 @@ class Game {
                 this.interactionSystem.cleanupInteractionsForPokemon(pokemonToRemove);
             }
             
-            // Remove from array
+            // Remove from array - this will immediately stop rendering
             this.pokemon.splice(index, 1);
             
-            // Clear selection if this Pokemon was selected
-            if (this.selectedPokemon && this.selectedPokemon.id === pokemonId) {
-                this.selectedPokemon = null;
-            }
-        }
-    }
-
-    selectPokemon(pokemonId) {
-        this.selectedPokemon = this.pokemon.find(p => p.id === pokemonId);
-    }
-
-    handleCanvasClick(event) {
-        const rect = this.canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        // Check if click is on a Pokemon
-        for (let i = this.pokemon.length - 1; i >= 0; i--) {
-            const pokemon = this.pokemon[i];
-            const dx = x - pokemon.position.x;
-            const dy = y - pokemon.position.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < pokemon.size + 10) {
-                // Clicked on this Pokemon
-                this.selectPokemon(pokemon.id);
-                if (this.uiManager) {
-                    this.uiManager.selectPokemon(pokemon.id);
-                }
-                break;
-            }
+            // Force immediate canvas redraw to show removal
+            this.render();
         }
     }
 
@@ -190,11 +151,6 @@ class Game {
         // Render all Pokemon
         this.pokemon.forEach(pokemon => {
             this.spriteRenderer.render(this.ctx, pokemon);
-
-            // Highlight selected Pokemon
-            if (this.selectedPokemon && pokemon.id === this.selectedPokemon.id) {
-                this.highlightPokemon(pokemon);
-            }
         });
     }
 
@@ -209,21 +165,6 @@ class Game {
         // Draw some ground
         this.ctx.fillStyle = '#90EE90';
         this.ctx.fillRect(0, this.canvas.height - 50, this.canvas.width, 50);
-    }
-
-    highlightPokemon(pokemon) {
-        const { x, y } = pokemon.position;
-        const size = pokemon.size;
-
-        this.ctx.save();
-        this.ctx.strokeStyle = '#FFD700';
-        this.ctx.lineWidth = 3;
-        this.ctx.setLineDash([5, 5]);
-        this.ctx.beginPath();
-        this.ctx.arc(x, y, size + 10, 0, Math.PI * 2);
-        this.ctx.stroke();
-        this.ctx.setLineDash([]);
-        this.ctx.restore();
     }
 
     gameLoop(currentTime) {

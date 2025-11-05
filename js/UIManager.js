@@ -1,10 +1,8 @@
 class UIManager {
     constructor() {
         this.pokemonRoster = [];
-        this.selectedPokemon = null;
         this.onAddPokemon = null;
         this.onRemovePokemon = null;
-        this.onSelectPokemon = null;
         this.availableSprites = [];
         this.spriteDetectionInProgress = false;
     }
@@ -27,10 +25,6 @@ class UIManager {
                 <div class="roster-section">
                     <h3>Roster (${this.pokemonRoster.length}/25)</h3>
                     <div id="pokemon-list" class="pokemon-list"></div>
-                </div>
-                <div class="selected-pokemon-section">
-                    <h3>Selected Pokemon</h3>
-                    <div id="selected-pokemon-info">None selected</div>
                 </div>
             </div>
         `;
@@ -81,26 +75,8 @@ class UIManager {
             this.pokemonRoster.splice(index, 1);
             this.updateRosterDisplay();
 
-            if (pokemonId === this.selectedPokemon?.id) {
-                this.selectedPokemon = null;
-                this.updateSelectedDisplay();
-            }
-
             if (this.onRemovePokemon) {
                 this.onRemovePokemon(pokemonId);
-            }
-        }
-    }
-
-    selectPokemon(pokemonId) {
-        const pokemon = this.pokemonRoster.find(p => p.id === pokemonId);
-        if (pokemon) {
-            this.selectedPokemon = pokemon;
-            this.updateSelectedDisplay();
-            this.updateRosterDisplay();
-
-            if (this.onSelectPokemon) {
-                this.onSelectPokemon(pokemon);
             }
         }
     }
@@ -118,20 +94,11 @@ class UIManager {
         this.pokemonRoster.forEach(pokemon => {
             const item = document.createElement('div');
             item.className = 'pokemon-item';
-            if (this.selectedPokemon && pokemon.id === this.selectedPokemon.id) {
-                item.classList.add('selected');
-            }
 
             item.innerHTML = `
                 <span class="pokemon-item-name">${pokemon.name}</span>
                 <button class="remove-btn" data-id="${pokemon.id}">×</button>
             `;
-
-            item.addEventListener('click', (e) => {
-                if (!e.target.classList.contains('remove-btn')) {
-                    this.selectPokemon(pokemon.id);
-                }
-            });
 
             const removeBtn = item.querySelector('.remove-btn');
             removeBtn.addEventListener('click', (e) => {
@@ -141,22 +108,6 @@ class UIManager {
 
             listContainer.appendChild(item);
         });
-    }
-
-    updateSelectedDisplay() {
-        const selectedInfo = document.getElementById('selected-pokemon-info');
-        if (!selectedInfo) return;
-
-        if (this.selectedPokemon) {
-            selectedInfo.innerHTML = `
-                <div class="selected-pokemon-details">
-                    <strong>${this.selectedPokemon.name}</strong>
-                    <div class="pokemon-sprite-path">${this.selectedPokemon.spritePath}</div>
-                </div>
-            `;
-        } else {
-            selectedInfo.textContent = 'None selected';
-        }
     }
 
     getRoster() {
