@@ -1,0 +1,25 @@
+{
+  "sprites": [
+    {
+      "name": "Pikachu",
+      "path": "sprites/pikachu.png"
+    },
+    {
+      "name": "Charizard",
+      "path": "sprites/charizard.png"
+    },
+    {
+      "name": "Blastoise",
+      "path": "sprites/blastoise.png"
+    },
+    {
+      "name": "Venusaur",
+      "path": "sprites/venusaur.png"
+    },
+    {
+      "name": "Eevee",
+      "path": "sprites/eevee.png"
+    }
+  ]
+}
+

@@ -25,10 +25,10 @@ A web-based Pokemon ranch game where Pokemon sprites autonomously move and inter
 
 ### Adding Pokemon
 
-1. Enter a Pokemon name in the "Pokemon name" field
-2. (Optional) Enter a sprite path in the "Sprite path" field, or leave blank to use default path
-3. Click "Add Pokemon" button
-4. The Pokemon will appear in the ranch and start moving autonomously
+1. Select a Pokemon sprite from the dropdown menu
+2. Click "Add Pokemon" button
+3. The Pokemon will appear in the ranch and start moving autonomously
+4. The Pokemon name is automatically derived from the sprite filename
 
 ### Selecting Pokemon
 
@@ -42,11 +42,41 @@ A web-based Pokemon ranch game where Pokemon sprites autonomously move and inter
 
 ## Sprite System
 
-The game is ready for sprite images. To add sprites:
+The game automatically detects and loads available sprites. The system tries three methods in order:
 
+### Method 1: Server-Side API (Recommended)
+If you have a server, create an endpoint at `/api/sprites` that returns:
+```json
+{
+  "sprites": [
+    { "name": "Pikachu", "path": "sprites/pikachu.png" },
+    { "name": "Charizard", "path": "sprites/charizard.png" }
+  ]
+}
+```
+
+See `server-example.js` for a Node.js/Express implementation.
+
+### Method 2: Manifest File
+Create a `sprites/manifest.json` file listing your sprites:
+```json
+{
+  "sprites": [
+    { "name": "Pikachu", "path": "sprites/pikachu.png" },
+    { "name": "Charizard", "path": "sprites/charizard.png" }
+  ]
+}
+```
+
+### Method 3: Auto-Detection (Fallback)
+If neither server nor manifest is available, the game will attempt to detect common Pokemon sprites in the `sprites/` directory.
+
+### Adding Sprites
 1. Place your sprite images in the `sprites/` directory
-2. When adding a Pokemon, specify the sprite path (e.g., `sprites/pikachu.png`)
-3. If no sprite path is provided, the game will try to load `sprites/{pokemon_name}.png`
+2. Either:
+   - Update the manifest file with your sprites
+   - Or set up the server endpoint to scan the directory automatically
+3. The sprite dropdown will populate with available sprites
 4. If a sprite fails to load, the game will use a colorful placeholder circle
 
 ## File Structure
@@ -63,7 +93,9 @@ WebRanch/
 │   ├── BehaviorSystem.js   # Autonomous movement and AI
 │   ├── InteractionSystem.js # Manages Pokemon-to-Pokemon interactions
 │   └── UIManager.js        # Handles UI controls for adding/selecting Pokemon
-├── sprites/                # Directory for Pokemon sprites (add your sprites here)
+├── sprites/                # Directory for Pokemon sprites
+│   └── manifest.json       # Optional sprite manifest file
+├── server-example.js       # Example server implementation (optional)
 └── README.md               # This file
 ```
 
