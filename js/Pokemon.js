@@ -24,7 +24,7 @@ class Pokemon {
         return `hsl(${hue}, 70%, 60%)`;
     }
 
-    update(deltaTime, canvasWidth, canvasHeight, allPokemon) {
+    update(deltaTime, canvasWidth, canvasHeight, allPokemon, uiElements) {
         // Update interaction cooldown (deltaTime is in seconds, cooldown in milliseconds)
         if (this.interactionCooldown > 0) {
             this.interactionCooldown -= deltaTime * 1000;
@@ -36,8 +36,54 @@ class Pokemon {
         }
 
         // Update position based on velocity
-        this.position.x += this.velocity.x * deltaTime;
-        this.position.y += this.velocity.y * deltaTime;
+        const newX = this.position.x + this.velocity.x * deltaTime;
+        const newY = this.position.y + this.velocity.y * deltaTime;
+
+        // Check collision with UI elements before moving
+        let canMoveX = true;
+        let canMoveY = true;
+
+        if (uiElements) {
+            const pokemonRadius = this.size / 2;
+            
+            for (const element of uiElements) {
+                const left = element.position.x;
+                const right = element.position.x + element.width;
+                const top = element.position.y;
+                const bottom = element.position.y + element.height;
+
+                // Expand bounding box by Pokemon radius
+                const expandedLeft = left - pokemonRadius;
+                const expandedRight = right + pokemonRadius;
+                const expandedTop = top - pokemonRadius;
+                const expandedBottom = bottom + pokemonRadius;
+
+                // Check if new X position would collide
+                if (newX >= expandedLeft && newX <= expandedRight &&
+                    this.position.y >= expandedTop && this.position.y <= expandedBottom) {
+                    canMoveX = false;
+                }
+
+                // Check if new Y position would collide
+                if (this.position.x >= expandedLeft && this.position.x <= expandedRight &&
+                    newY >= expandedTop && newY <= expandedBottom) {
+                    canMoveY = false;
+                }
+            }
+        }
+
+        // Update position if no collision
+        if (canMoveX) {
+            this.position.x = newX;
+        } else {
+            this.velocity.x = 0; // Stop horizontal movement
+        }
+
+        if (canMoveY) {
+            this.position.y = newY;
+        } else {
+            this.velocity.y = 0; // Stop vertical movement
+        }
 
         // Keep within canvas bounds
         this.position.x = Math.max(this.size, Math.min(canvasWidth - this.size, this.position.x));

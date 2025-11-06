@@ -4,7 +4,7 @@ class BehaviorSystem {
         this.randomWalkInterval = 2000; // milliseconds
     }
 
-    update(pokemon, deltaTime, canvasWidth, canvasHeight, allPokemon) {
+    update(pokemon, deltaTime, canvasWidth, canvasHeight, allPokemon, uiElements) {
         // Skip behavior updates if Pokemon is in an interaction
         if (pokemon.state === 'interacting') {
             return;
@@ -20,6 +20,11 @@ class BehaviorSystem {
 
         // Edge avoidance
         this.avoidEdges(pokemon, canvasWidth, canvasHeight);
+
+        // UI element avoidance
+        if (uiElements) {
+            this.avoidUIElements(pokemon, uiElements);
+        }
 
         // Apply velocity limits
         const speed = Math.sqrt(pokemon.velocity.x ** 2 + pokemon.velocity.y ** 2);
@@ -62,6 +67,69 @@ class BehaviorSystem {
         if (pokemon.position.y > canvasHeight - margin) {
             pokemon.velocity.y -= turnForce;
         }
+    }
+
+    avoidUIElements(pokemon, uiElements) {
+        const turnForce = 150;
+        const pokemonRadius = pokemon.size / 2;
+        
+        uiElements.forEach(element => {
+            // Get bounding box of UI element
+            const left = element.position.x;
+            const right = element.position.x + element.width;
+            const top = element.position.y;
+            const bottom = element.position.y + element.height;
+
+            // Expand bounding box by Pokemon radius for collision detection
+            const expandedLeft = left - pokemonRadius;
+            const expandedRight = right + pokemonRadius;
+            const expandedTop = top - pokemonRadius;
+            const expandedBottom = bottom + pokemonRadius;
+
+            // Check if Pokemon is inside or near the expanded bounding box
+            const px = pokemon.position.x;
+            const py = pokemon.position.y;
+
+            if (px >= expandedLeft && px <= expandedRight && 
+                py >= expandedTop && py <= expandedBottom) {
+                
+                // Calculate distance from Pokemon center to each edge
+                const distLeft = Math.abs(px - left);
+                const distRight = Math.abs(px - right);
+                const distTop = Math.abs(py - top);
+                const distBottom = Math.abs(py - bottom);
+
+                // Find the closest edge and push away from it
+                const minDist = Math.min(distLeft, distRight, distTop, distBottom);
+
+                if (minDist === distLeft) {
+                    // Push right
+                    pokemon.velocity.x += turnForce;
+                } else if (minDist === distRight) {
+                    // Push left
+                    pokemon.velocity.x -= turnForce;
+                } else if (minDist === distTop) {
+                    // Push down
+                    pokemon.velocity.y += turnForce;
+                } else if (minDist === distBottom) {
+                    // Push up
+                    pokemon.velocity.y -= turnForce;
+                }
+
+                // Also apply a general repulsion from the center
+                const centerX = (left + right) / 2;
+                const centerY = (top + bottom) / 2;
+                const dx = px - centerX;
+                const dy = py - centerY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance > 0) {
+                    const repelForce = (turnForce * 0.5) / Math.max(distance, 1);
+                    pokemon.velocity.x += (dx / distance) * repelForce;
+                    pokemon.velocity.y += (dy / distance) * repelForce;
+                }
+            }
+        });
     }
 
     seek(pokemon, target, strength = 1.0) {

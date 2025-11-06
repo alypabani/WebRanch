@@ -73,6 +73,12 @@ class Game {
             this.render();
         });
 
+        // Listen for UI element removal
+        window.addEventListener('removeUIElement', (e) => {
+            const elementId = e.detail.id;
+            this.removeUIElement(elementId);
+        });
+
         // Start game loop
         this.isRunning = true;
         this.gameLoop(0);
@@ -141,21 +147,23 @@ class Game {
     update(deltaTime) {
         // Update all Pokemon
         this.pokemon.forEach(pokemon => {
-            // Behavior update
+            // Behavior update (pass UI elements for collision avoidance)
             this.behaviorSystem.update(
                 pokemon,
                 deltaTime,
                 this.canvas.width,
                 this.canvas.height,
-                this.pokemon
+                this.pokemon,
+                this.uiElements
             );
 
-            // Pokemon update
+            // Pokemon update (pass UI elements for collision detection)
             pokemon.update(
                 deltaTime,
                 this.canvas.width,
                 this.canvas.height,
-                this.pokemon
+                this.pokemon,
+                this.uiElements
             );
         });
 
@@ -233,6 +241,24 @@ class Game {
         return element;
     }
 
+    removeUIElement(elementId) {
+        const index = this.uiElements.findIndex(el => el.id === elementId);
+        if (index !== -1) {
+            const element = this.uiElements[index];
+            
+            // Clean up any DOM elements
+            if (element.type === 'note' && element.container) {
+                element.container.remove();
+            }
+            if (element.type === 'todo' && element.container) {
+                element.container.remove();
+            }
+            
+            this.uiElements.splice(index, 1);
+            this.render();
+        }
+    }
+
     setupCanvasMouseHandlers() {
         let mouseDown = false;
         let lastClickTime = 0;
@@ -293,18 +319,25 @@ class Game {
         });
 
         this.canvas.addEventListener('mousemove', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Check for resize first
+            if (mouseDown && potentialDragElement && potentialDragElement.type === 'note' && potentialDragElement.isResizing) {
+                potentialDragElement.handleResize(x, y);
+                this.render();
+                return;
+            }
+
             if (mouseDown && potentialDragElement) {
-                const rect = this.canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
                 // Only start dragging if mouse moved more than 5 pixels
                 // This allows clicks to work without triggering drag
                 const dx = x - mouseDownX;
                 const dy = y - mouseDownY;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance > 5) {
+                if (distance > 5 && !potentialDragElement.isResizing) {
                     // Start dragging
                     if (!this.draggingElement) {
                         potentialDragElement.startDrag(mouseDownX, mouseDownY);
@@ -318,10 +351,6 @@ class Game {
                 }
             } else if (mouseDown && this.draggingElement) {
                 // Continue dragging
-                const rect = this.canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
                 this.draggingElement.updateDrag(x, y);
                 this.render();
             }
@@ -332,6 +361,9 @@ class Game {
                 this.draggingElement.stopDrag();
                 this.draggingElement = null;
             }
+            if (potentialDragElement && potentialDragElement.type === 'note' && potentialDragElement.isResizing) {
+                potentialDragElement.stopResize();
+            }
             potentialDragElement = null;
             mouseDown = false;
         });
@@ -341,14 +373,26 @@ class Game {
                 this.draggingElement.stopDrag();
                 this.draggingElement = null;
             }
+            if (potentialDragElement && potentialDragElement.type === 'note' && potentialDragElement.isResizing) {
+                potentialDragElement.stopResize();
+            }
             potentialDragElement = null;
             mouseDown = false;
         });
     }
 
     handleUIElementDoubleClick(element, x, y) {
-        // Both notes and todo items now use single-click editing
-        // No double-click handlers needed
+        // Double-click on note title to change color
+        if (element.type === 'note') {
+            const relX = x - element.position.x;
+            const relY = y - element.position.y;
+            // Check if double-clicking on title area
+            if (relX >= 10 && relX <= element.width - 10 && 
+                relY >= 10 && relY <= 30) {
+                element.cycleColor();
+                this.render();
+            }
+        }
     }
 
     gameLoop(currentTime) {

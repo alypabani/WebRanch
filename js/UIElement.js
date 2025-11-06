@@ -244,6 +244,12 @@ class TimerElement extends UIElement {
         ctx.fillStyle = 'white';
         ctx.fillText('Reset', this.position.x + 170, this.position.y + 87);
 
+        // Draw remove button (X) in top-right corner
+        ctx.fillStyle = '#f44336';
+        ctx.font = 'bold 14px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('×', this.position.x + this.width - 10, this.position.y + 15);
+
         // Draw hint if no time set
         if (this.setTime === 0 && !this.isSettingTime) {
             ctx.fillStyle = '#999';
@@ -255,6 +261,12 @@ class TimerElement extends UIElement {
     handleClick(x, y, canvas) {
         const relX = x - this.position.x;
         const relY = y - this.position.y;
+
+        // Remove button (X) - check first, highest priority
+        if (relX >= this.width - 20 && relX <= this.width && relY >= 0 && relY <= 20) {
+            window.dispatchEvent(new CustomEvent('removeUIElement', { detail: { id: this.id } }));
+            return true;
+        }
 
         // Set Time button
         if (relX >= 10 && relX <= 80 && relY >= 70 && relY <= 95 && !this.isFinished) {
@@ -298,6 +310,31 @@ class NoteElement extends UIElement {
         this.textElement = null;
         this.canvasRef = null;
         this.container = null;
+        this.color = '#fffacd'; // Default yellow sticky note color
+        this.colors = ['#fffacd', '#ffb3ba', '#bae1ff', '#baffc9', '#ffffba', '#ffdfba']; // Yellow, Pink, Blue, Green, Light Yellow, Peach
+        this.isResizing = false;
+        this.resizeHandleSize = 10;
+        this.minWidth = 150;
+        this.minHeight = 100;
+    }
+
+    getColorName() {
+        const colorMap = {
+            '#fffacd': 'Yellow',
+            '#ffb3ba': 'Pink',
+            '#bae1ff': 'Blue',
+            '#baffc9': 'Green',
+            '#ffffba': 'Light Yellow',
+            '#ffdfba': 'Peach'
+        };
+        return colorMap[this.color] || 'Yellow';
+    }
+
+    cycleColor() {
+        const currentIndex = this.colors.indexOf(this.color);
+        const nextIndex = (currentIndex + 1) % this.colors.length;
+        this.color = this.colors[nextIndex];
+        window.dispatchEvent(new CustomEvent('noteUpdated'));
     }
 
     initializeEditable(canvas) {
@@ -360,12 +397,24 @@ class NoteElement extends UIElement {
             const rect = this.canvasRef.getBoundingClientRect();
             this.container.style.left = (rect.left + this.position.x + 10) + 'px';
             this.container.style.top = (rect.top + this.position.y + 40) + 'px';
+            this.textElement.style.width = (this.width - 20) + 'px';
+            this.textElement.style.height = (this.height - 60) + 'px';
         }
     }
 
+    isPointInResizeHandle(x, y) {
+        const relX = x - this.position.x;
+        const relY = y - this.position.y;
+        // Bottom-right corner resize handle
+        return relX >= this.width - this.resizeHandleSize && 
+               relX <= this.width &&
+               relY >= this.height - this.resizeHandleSize && 
+               relY <= this.height;
+    }
+
     render(ctx) {
-        // Draw background
-        ctx.fillStyle = '#fffacd';
+        // Draw background with selected color
+        ctx.fillStyle = this.color;
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
         
         // Draw border
@@ -373,19 +422,42 @@ class NoteElement extends UIElement {
         ctx.lineWidth = 2;
         ctx.strokeRect(this.position.x, this.position.y, this.width, this.height);
 
-        // Draw title
+        // Draw title with color name
         ctx.fillStyle = '#333';
         ctx.font = 'bold 14px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Note', this.position.x + this.width / 2, this.position.y + 20);
+        ctx.fillText(this.getColorName(), this.position.x + this.width / 2, this.position.y + 20);
 
         // Draw placeholder text if empty
         if (!this.text || this.text === 'Click to edit') {
             ctx.fillStyle = '#999';
             ctx.font = '10px Arial';
             ctx.textAlign = 'center';
-            ctx.fillText('Click to edit', this.position.x + this.width / 2, this.position.y + this.height - 10);
+            ctx.fillText('Click to edit, double-click to change color', this.position.x + this.width / 2, this.position.y + this.height - 30);
         }
+
+        // Draw remove button (X) in top-right corner
+        ctx.fillStyle = '#f44336';
+        ctx.font = 'bold 14px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('×', this.position.x + this.width - 10, this.position.y + 15);
+
+        // Draw resize handle (bottom-right corner)
+        ctx.fillStyle = '#666';
+        ctx.fillRect(
+            this.position.x + this.width - this.resizeHandleSize,
+            this.position.y + this.height - this.resizeHandleSize,
+            this.resizeHandleSize,
+            this.resizeHandleSize
+        );
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(
+            this.position.x + this.width - this.resizeHandleSize,
+            this.position.y + this.height - this.resizeHandleSize,
+            this.resizeHandleSize,
+            this.resizeHandleSize
+        );
 
         // Initialize editable element if canvas is available
         if (this.canvasRef) {
@@ -397,9 +469,34 @@ class NoteElement extends UIElement {
         const relX = x - this.position.x;
         const relY = y - this.position.y;
 
-        // Click anywhere in the note area (except title area) to edit
-        if (relX >= 10 && relX <= this.width - 10 && 
-            relY >= 35 && relY <= this.height - 10) {
+        // Remove button (X) - check first, highest priority
+        if (relX >= this.width - 20 && relX <= this.width && relY >= 0 && relY <= 20) {
+            // Clean up editable elements
+            if (this.container) {
+                this.container.remove();
+                this.container = null;
+                this.textElement = null;
+            }
+            window.dispatchEvent(new CustomEvent('removeUIElement', { detail: { id: this.id } }));
+            return true;
+        }
+
+        // Check for resize handle
+        if (this.isPointInResizeHandle(x, y)) {
+            this.isResizing = true;
+            return true;
+        }
+
+        // Click on title area to change color (double-click handled separately)
+        if (relX >= 10 && relX <= this.width - 20 && 
+            relY >= 10 && relY <= 30) {
+            // Could add single-click color change here if desired
+            return false;
+        }
+
+        // Click anywhere in the note area (except title and resize handle) to edit
+        if (relX >= 10 && relX <= this.width - this.resizeHandleSize && 
+            relY >= 35 && relY <= this.height - this.resizeHandleSize) {
             this.initializeEditable(canvas);
             this.container.style.pointerEvents = 'auto'; // Enable editing
             setTimeout(() => {
@@ -416,6 +513,22 @@ class NoteElement extends UIElement {
         }
 
         return false;
+    }
+
+    handleResize(mouseX, mouseY) {
+        if (!this.isResizing) return;
+
+        const newWidth = Math.max(this.minWidth, mouseX - this.position.x);
+        const newHeight = Math.max(this.minHeight, mouseY - this.position.y);
+        
+        this.width = newWidth;
+        this.height = newHeight;
+        
+        this.updateTextPosition();
+    }
+
+    stopResize() {
+        this.isResizing = false;
     }
 
     updateInputPosition() {
@@ -462,7 +575,7 @@ class TodoListElement extends UIElement {
                 textElement.contentEditable = true;
                 textElement.textContent = item.text;
                 textElement.style.position = 'absolute';
-                textElement.style.width = (this.width - 50) + 'px';
+                textElement.style.width = (this.width - 30) + 'px';
                 textElement.style.height = '20px';
                 textElement.style.fontSize = '12px';
                 textElement.style.fontFamily = 'Arial';
@@ -470,8 +583,8 @@ class TodoListElement extends UIElement {
                 textElement.style.outline = 'none';
                 textElement.style.padding = '2px 5px';
                 textElement.style.backgroundColor = 'transparent';
-                textElement.style.color = item.completed ? '#999' : '#333';
-                textElement.style.textDecoration = item.completed ? 'line-through' : 'none';
+                textElement.style.color = '#333';
+                textElement.style.textDecoration = 'none';
                 textElement.style.overflow = 'hidden';
                 textElement.style.pointerEvents = 'auto';
                 textElement.style.cursor = 'text';
@@ -506,10 +619,10 @@ class TodoListElement extends UIElement {
 
             // Update position and styling
             const itemY = startY + (index * itemHeight);
-            textElement.style.left = (rect.left + this.position.x + 30) + 'px';
+            textElement.style.left = (rect.left + this.position.x + 10) + 'px';
             textElement.style.top = (rect.top + itemY - 12) + 'px';
-            textElement.style.color = item.completed ? '#999' : '#333';
-            textElement.style.textDecoration = item.completed ? 'line-through' : 'none';
+            textElement.style.color = '#333';
+            textElement.style.textDecoration = 'none';
             textElement.textContent = item.text;
         });
 
@@ -526,7 +639,7 @@ class TodoListElement extends UIElement {
 
     addItem(text) {
         if (text && text.trim()) {
-            this.items.push({ text: text.trim(), completed: false });
+            this.items.push({ text: text.trim() });
         }
     }
 
@@ -536,11 +649,6 @@ class TodoListElement extends UIElement {
         }
     }
 
-    toggleItem(index) {
-        if (index >= 0 && index < this.items.length) {
-            this.items[index].completed = !this.items[index].completed;
-        }
-    }
 
     render(ctx) {
         // Draw background
@@ -567,24 +675,6 @@ class TodoListElement extends UIElement {
         this.items.forEach((item, index) => {
             const itemY = y + (index * itemHeight);
             
-            // Draw checkbox
-            ctx.strokeStyle = '#333';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(this.position.x + 10, itemY - 12, 15, 15);
-            
-            if (item.completed) {
-                ctx.fillStyle = '#4CAF50';
-                ctx.fillRect(this.position.x + 10, itemY - 12, 15, 15);
-                // Draw checkmark
-                ctx.strokeStyle = 'white';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(this.position.x + 13, itemY - 7);
-                ctx.lineTo(this.position.x + 17, itemY - 3);
-                ctx.lineTo(this.position.x + 22, itemY - 10);
-                ctx.stroke();
-            }
-
             // Draw remove button (small X)
             ctx.fillStyle = '#f44336';
             ctx.font = 'bold 12px Arial';
@@ -671,14 +761,8 @@ class TodoListElement extends UIElement {
                     window.dispatchEvent(new CustomEvent('todoListUpdated'));
                     return true;
                 }
-                // Checkbox area
-                if (relX >= 10 && relX <= 25) {
-                    this.toggleItem(i);
-                    window.dispatchEvent(new CustomEvent('todoListUpdated'));
-                    return true;
-                }
-                // Text area - click to edit (wider area)
-                if (relX >= 25 && relX <= this.width - 25) {
+                // Text area - click to edit (wider area, no checkbox)
+                if (relX >= 10 && relX <= this.width - 25) {
                     this.startEditing(i, canvas);
                     return true;
                 }
