@@ -39,7 +39,8 @@ class UIManager {
                 const spritePath = selectedOption.value;
                 const pokemonName = this.extractPokemonNameFromPath(spritePath);
                 this.addPokemon(pokemonName, spritePath);
-                spriteSelect.selectedIndex = 0;
+                // Don't reset dropdown - keep selection so user can easily add the same Pokemon again
+                // spriteSelect.selectedIndex = 0;
             }
         });
 

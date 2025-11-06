@@ -30,17 +30,28 @@ class SpriteRenderer {
                 
                 const container = document.getElementById('gif-container');
                 const img = document.createElement('img');
-                img.style.display = 'none';
+                // Don't use display:none or opacity:0 - they can prevent GIF animation
+                // Position off-screen but keep it "visible" to the browser so it animates
+                img.style.position = 'absolute';
+                img.style.left = '-9999px';
+                img.style.top = '-9999px';
+                img.style.width = '1px';
+                img.style.height = '1px';
+                img.style.zIndex = '-1';
+                
+                // Add to DOM first so browser can animate it
+                container.appendChild(img);
                 
                 img.onload = () => {
                     this.spriteCache.set(spritePath, img);
                     this.imgElements.set(spritePath, img);
-                    container.appendChild(img);
                     resolve(img);
                 };
                 img.onerror = () => {
+                    container.removeChild(img);
                     resolve(null);
                 };
+                // Set src after adding to DOM so browser can start animating
                 img.src = spritePath;
             } else {
                 // For non-GIF images, use regular Image object
