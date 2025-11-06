@@ -76,6 +76,57 @@ body {
     margin-bottom: 0;
 }
 
+.ui-elements-section {
+    margin-bottom: 20px;
+}
+
+.ui-element-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ui-element-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.ui-element-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ui-element-option span {
+    flex: 1;
+    font-size: 14px;
+}
+
+.add-ui-element-btn {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.add-ui-element-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
 .add-pokemon-section {
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;

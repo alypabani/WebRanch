@@ -4,12 +4,14 @@ class Game {
         this.canvas = null;
         this.ctx = null;
         this.pokemon = [];
+        this.uiElements = [];
         this.spriteRenderer = null;
         this.behaviorSystem = null;
         this.interactionSystem = null;
         this.uiManager = null;
         this.lastTime = 0;
         this.isRunning = false;
+        this.draggingElement = null;
     }
 
     initialize() {
@@ -43,6 +45,13 @@ class Game {
         this.uiManager.onRemovePokemon = (pokemonId) => {
             this.removePokemon(pokemonId);
         };
+
+        this.uiManager.onAddUIElement = (type) => {
+            this.addUIElement(type);
+        };
+
+        // Set up canvas mouse handlers for dragging UI elements
+        this.setupCanvasMouseHandlers();
 
         // Handle window resize
         window.addEventListener('resize', () => {
@@ -159,6 +168,11 @@ class Game {
         this.pokemon.forEach(pokemon => {
             this.spriteRenderer.render(this.ctx, pokemon);
         });
+
+        // Render all UI elements
+        this.uiElements.forEach(element => {
+            element.render(this.ctx);
+        });
     }
 
     drawBackground() {
@@ -172,6 +186,122 @@ class Game {
         // Draw some ground
         this.ctx.fillStyle = '#90EE90';
         this.ctx.fillRect(0, this.canvas.height - 50, this.canvas.width, 50);
+    }
+
+    addUIElement(type) {
+        // Random starting position
+        const x = Math.random() * (this.canvas.width - 250) + 50;
+        const y = Math.random() * (this.canvas.height - 300) + 50;
+
+        let element;
+        const id = Date.now() + Math.random();
+
+        switch(type) {
+            case 'timer':
+                element = new TimerElement(id, x, y);
+                break;
+            case 'note':
+                element = new NoteElement(id, x, y);
+                break;
+            case 'todo':
+                element = new TodoListElement(id, x, y);
+                break;
+            default:
+                return null;
+        }
+
+        this.uiElements.push(element);
+        return element;
+    }
+
+    setupCanvasMouseHandlers() {
+        let mouseDown = false;
+        let lastClickTime = 0;
+        let lastClickElement = null;
+
+        this.canvas.addEventListener('mousedown', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Check UI elements first (they're on top)
+            for (let i = this.uiElements.length - 1; i >= 0; i--) {
+                const element = this.uiElements[i];
+                if (element.isPointInside(x, y)) {
+                    // Check for double-click
+                    const currentTime = Date.now();
+                    if (lastClickElement === element && currentTime - lastClickTime < 300) {
+                        // Double click detected
+                        this.handleUIElementDoubleClick(element, x, y);
+                        lastClickTime = 0;
+                        lastClickElement = null;
+                        return;
+                    }
+
+                    // Check if clicking on a control button
+                    if (element.handleClick && element.handleClick(x, y)) {
+                        this.render();
+                        return;
+                    }
+
+                    // Start dragging
+                    element.startDrag(x, y);
+                    this.draggingElement = element;
+                    mouseDown = true;
+                    
+                    // Move to front
+                    this.uiElements.splice(i, 1);
+                    this.uiElements.push(element);
+                    
+                    lastClickTime = currentTime;
+                    lastClickElement = element;
+                    return;
+                }
+            }
+        });
+
+        this.canvas.addEventListener('mousemove', (e) => {
+            if (mouseDown && this.draggingElement) {
+                const rect = this.canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                this.draggingElement.updateDrag(x, y);
+                this.render();
+            }
+        });
+
+        this.canvas.addEventListener('mouseup', () => {
+            if (this.draggingElement) {
+                this.draggingElement.stopDrag();
+                this.draggingElement = null;
+            }
+            mouseDown = false;
+        });
+
+        this.canvas.addEventListener('mouseleave', () => {
+            if (this.draggingElement) {
+                this.draggingElement.stopDrag();
+                this.draggingElement = null;
+            }
+            mouseDown = false;
+        });
+    }
+
+    handleUIElementDoubleClick(element, x, y) {
+        if (element.type === 'note') {
+            const text = prompt('Enter note text:', element.text);
+            if (text !== null) {
+                element.text = text;
+                this.render();
+            }
+        } else if (element.type === 'todo') {
+            const text = prompt('Add to-do item:');
+            if (text !== null) {
+                element.addItem(text);
+                this.render();
+            }
+        }
     }
 
     gameLoop(currentTime) {

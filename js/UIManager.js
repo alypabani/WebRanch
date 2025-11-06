@@ -3,6 +3,7 @@ class UIManager {
         this.pokemonRoster = [];
         this.onAddPokemon = null;
         this.onRemovePokemon = null;
+        this.onAddUIElement = null;
         this.availableSprites = [];
         this.spriteDetectionInProgress = false;
     }
@@ -29,6 +30,23 @@ class UIManager {
                     </h3>
                     <div id="pokemon-list" class="pokemon-list"></div>
                 </div>
+                <div class="ui-elements-section">
+                    <h3>UI Elements</h3>
+                    <div class="ui-element-options">
+                        <div class="ui-element-option">
+                            <span>Timer</span>
+                            <button class="add-ui-element-btn" data-type="timer">+</button>
+                        </div>
+                        <div class="ui-element-option">
+                            <span>Note</span>
+                            <button class="add-ui-element-btn" data-type="note">+</button>
+                        </div>
+                        <div class="ui-element-option">
+                            <span>To-Do List</span>
+                            <button class="add-ui-element-btn" data-type="todo">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
 
@@ -52,6 +70,21 @@ class UIManager {
         
         // Set up roster collapse/expand toggle
         this.setupRosterToggle();
+        
+        // Set up UI element buttons
+        this.setupUIElementButtons();
+    }
+    
+    setupUIElementButtons() {
+        const addButtons = document.querySelectorAll('.add-ui-element-btn');
+        addButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.dataset.type;
+                if (this.onAddUIElement) {
+                    this.onAddUIElement(type);
+                }
+            });
+        });
     }
     
     setupRosterToggle() {
