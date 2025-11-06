@@ -112,6 +112,11 @@ class SpriteRenderer {
             if (sprite) {
                 ctx.save();
                 ctx.translate(x, y);
+                // Apply rocking animation (subtle rotation)
+                if (pokemon.rockAngle) {
+                    const rotation = pokemon.rockAngle * (Math.PI / 180); // Convert to radians
+                    ctx.rotate(rotation);
+                }
                 ctx.drawImage(
                     sprite,
                     -size / 2,
@@ -161,10 +166,22 @@ class SpriteRenderer {
         
         // Update position to match Pokemon position
         // x and y are canvas coordinates, position img element accordingly
-        imgElement.style.left = (x - size / 2) + 'px';
-        imgElement.style.top = (y - size / 2) + 'px';
+        const canvas = document.getElementById('game-canvas');
+        const canvasRect = canvas ? canvas.getBoundingClientRect() : { left: 0, top: 0 };
+        
+        imgElement.style.left = (canvasRect.left + x - size / 2) + 'px';
+        imgElement.style.top = (canvasRect.top + y - size / 2) + 'px';
         imgElement.style.width = size + 'px';
         imgElement.style.height = size + 'px';
+        
+        // Apply rocking animation (subtle rotation)
+        if (pokemon.rockAngle) {
+            const rotation = pokemon.rockAngle * (Math.PI / 180); // Convert to radians
+            imgElement.style.transform = `rotate(${rotation}rad)`;
+            imgElement.style.transformOrigin = 'center center';
+        } else {
+            imgElement.style.transform = 'rotate(0rad)';
+        }
     }
     
     removePokemonElement(pokemonId) {

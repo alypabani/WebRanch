@@ -11,7 +11,8 @@ class Pokemon {
         this.targetPosition = null;
         this.idleTimer = 0;
         this.color = this.generateColor();
-        this.size = 64; // Pokemon sprite size
+        this.size = 81; // Pokemon sprite size (9x9 square)
+        this.rockAngle = 0; // Current rocking angle for animation
     }
 
     generateColor() {
@@ -121,6 +122,22 @@ class Pokemon {
         if (Math.abs(this.velocity.x) < 0.1 && Math.abs(this.velocity.y) < 0.1) {
             this.velocity.x = 0;
             this.velocity.y = 0;
+        }
+
+        // Update rocking animation based on movement speed
+        const speed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
+        if (speed > 0.1 && this.state !== 'interacting') {
+            // Rock faster when moving faster
+            const rockFrequency = 3 + (speed / 5); // Frequency of rocking (cycles per second)
+            const maxRockAngle = 8; // Maximum rocking angle in degrees
+            const time = Date.now() / 1000; // Current time in seconds
+            
+            // Use a combination of position and time for unique rocking per Pokemon
+            const uniqueOffset = this.id % 1000; // Make each Pokemon rock slightly differently
+            this.rockAngle = Math.sin(time * rockFrequency + uniqueOffset) * maxRockAngle;
+        } else {
+            // Gradually return to no rocking when stopped
+            this.rockAngle *= 0.9;
         }
     }
 

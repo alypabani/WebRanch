@@ -1,6 +1,6 @@
 class BehaviorSystem {
     constructor() {
-        this.maxSpeed = 50; // pixels per second
+        this.maxSpeed = 100; // pixels per second
         this.randomWalkInterval = 2000; // milliseconds
     }
 
@@ -38,7 +38,7 @@ class BehaviorSystem {
         // Random chance to start moving
         if (Math.random() < 0.3) {
             const angle = Math.random() * Math.PI * 2;
-            const speed = 20 + Math.random() * 30;
+            const speed = 50 + Math.random() * 50; // Speed range: 50-100 pixels per second
             pokemon.velocity.x = Math.cos(angle) * speed;
             pokemon.velocity.y = Math.sin(angle) * speed;
             pokemon.setState('moving');
