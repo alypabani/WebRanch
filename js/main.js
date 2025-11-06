@@ -63,6 +63,16 @@ class Game {
             this.render();
         });
 
+        // Listen for timer updates to trigger re-render
+        window.addEventListener('timerUpdated', () => {
+            this.render();
+        });
+
+        // Listen for note updates to trigger re-render
+        window.addEventListener('noteUpdated', () => {
+            this.render();
+        });
+
         // Start game loop
         this.isRunning = true;
         this.gameLoop(0);
@@ -297,14 +307,8 @@ class Game {
     }
 
     handleUIElementDoubleClick(element, x, y) {
-        if (element.type === 'note') {
-            const text = prompt('Enter note text:', element.text);
-            if (text !== null) {
-                element.text = text;
-                this.render();
-            }
-        }
-        // Todo items now use single-click editing, so no double-click needed
+        // Both notes and todo items now use single-click editing
+        // No double-click handlers needed
     }
 
     gameLoop(currentTime) {
