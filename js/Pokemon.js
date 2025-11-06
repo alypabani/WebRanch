@@ -114,9 +114,9 @@ class Pokemon {
         this.position.x = Math.max(this.size, Math.min(canvasWidth - this.size, this.position.x));
         this.position.y = Math.max(this.size, Math.min(canvasHeight - this.size, this.position.y));
 
-        // Apply friction
-        this.velocity.x *= 0.95;
-        this.velocity.y *= 0.95;
+        // Apply friction (reduced from 0.95 to 0.975 for double the movement distance)
+        this.velocity.x *= 0.975;
+        this.velocity.y *= 0.975;
 
         // Stop if velocity is very small
         if (Math.abs(this.velocity.x) < 0.1 && Math.abs(this.velocity.y) < 0.1) {
