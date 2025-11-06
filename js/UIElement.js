@@ -25,9 +25,6 @@ class UIElement {
             if (this.type === 'todo' && this.inputElement) {
                 this.updateInputPosition();
             }
-            if (this.type === 'timer' && this.inputElement) {
-                this.updateInputPosition();
-            }
             if (this.type === 'note' && this.inputElement) {
                 this.updateInputPosition();
             }
@@ -76,9 +73,6 @@ class TimerElement extends UIElement {
         this.jinglePath = 'sounds/timer-jingle.mp3'; // Default path - user can add their jingle here
         this.width = 200;
         this.height = 140;
-        this.isSettingTime = false;
-        this.inputElement = null;
-        this.canvasRef = null;
     }
 
     loadAudio() {
@@ -171,30 +165,11 @@ class TimerElement extends UIElement {
     startSettingTime(canvas) {
         if (this.isRunning) return;
         
-        if (this.inputElement) {
-            this.inputElement.remove();
-        }
-
-        this.canvasRef = canvas;
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = 'MM:SS';
-        input.value = this.setTime > 0 ? this.formatTime(this.setTime) : '00:00';
-        input.style.position = 'absolute';
-        input.style.left = (canvas.getBoundingClientRect().left + this.position.x + 10) + 'px';
-        input.style.top = (canvas.getBoundingClientRect().top + this.position.y + 40) + 'px';
-        input.style.width = (this.width - 20) + 'px';
-        input.style.height = '25px';
-        input.style.fontSize = '18px';
-        input.style.fontFamily = 'monospace';
-        input.style.border = '2px solid #333';
-        input.style.padding = '2px 5px';
-        input.style.zIndex = '1000';
-        input.style.textAlign = 'center';
-        input.style.borderRadius = '2px';
-
-        input.addEventListener('blur', () => {
-            const value = input.value.trim();
+        const currentValue = this.setTime > 0 ? this.formatTime(this.setTime) : '00:00';
+        const input = prompt('Set timer (format: MM:SS)', currentValue);
+        
+        if (input !== null && input.trim()) {
+            const value = input.trim();
             const timeMatch = value.match(/^(\d{1,2}):(\d{2})$/);
             if (timeMatch) {
                 const minutes = parseInt(timeMatch[1]);
@@ -202,31 +177,13 @@ class TimerElement extends UIElement {
                 if (minutes >= 0 && seconds >= 0 && seconds < 60) {
                     this.setTimerTime(minutes, seconds);
                     window.dispatchEvent(new CustomEvent('timerUpdated'));
+                } else {
+                    alert('Invalid time format. Use MM:SS (e.g., 05:30)');
                 }
+            } else {
+                alert('Invalid time format. Use MM:SS (e.g., 05:30)');
             }
-            input.remove();
-            this.inputElement = null;
-            this.isSettingTime = false;
-            this.canvasRef = null;
-        });
-
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                input.blur();
-            } else if (e.key === 'Escape') {
-                input.remove();
-                this.inputElement = null;
-                this.isSettingTime = false;
-                this.canvasRef = null;
-            }
-        });
-
-        document.body.appendChild(input);
-        input.focus();
-        input.select();
-
-        this.inputElement = input;
-        this.isSettingTime = true;
+        }
     }
 
     render(ctx) {
@@ -329,13 +286,6 @@ class TimerElement extends UIElement {
 
         return false;
     }
-
-    updateInputPosition() {
-        if (this.isSettingTime && this.inputElement && this.canvasRef) {
-            this.inputElement.style.left = (this.canvasRef.getBoundingClientRect().left + this.position.x + 10) + 'px';
-            this.inputElement.style.top = (this.canvasRef.getBoundingClientRect().top + this.position.y + 40) + 'px';
-        }
-    }
 }
 
 // Note element
@@ -413,19 +363,21 @@ class NoteElement extends UIElement {
         this.canvasRef = canvas;
         const input = document.createElement('textarea');
         input.value = this.text === 'Click to edit' ? '' : this.text;
-        input.style.position = 'absolute';
+        input.style.position = 'fixed'; // Use fixed instead of absolute for better positioning
         input.style.left = (canvas.getBoundingClientRect().left + this.position.x + 10) + 'px';
         input.style.top = (canvas.getBoundingClientRect().top + this.position.y + 40) + 'px';
         input.style.width = (this.width - 20) + 'px';
         input.style.height = (this.height - 60) + 'px';
         input.style.fontSize = '12px';
         input.style.fontFamily = 'Arial';
-        input.style.border = '2px solid #333';
+        input.style.border = '2px solid #2196F3';
         input.style.padding = '5px';
-        input.style.zIndex = '1000';
+        input.style.zIndex = '10000'; // Very high z-index
         input.style.borderRadius = '2px';
         input.style.resize = 'none';
         input.style.overflow = 'auto';
+        input.style.backgroundColor = 'white';
+        input.style.pointerEvents = 'auto'; // Ensure it's clickable
 
         input.addEventListener('blur', () => {
             this.text = input.value.trim() || 'Click to edit';
@@ -443,7 +395,12 @@ class NoteElement extends UIElement {
         });
 
         document.body.appendChild(input);
-        input.focus();
+        
+        // Use requestAnimationFrame to ensure DOM is ready before focusing
+        requestAnimationFrame(() => {
+            input.focus();
+        });
+
         this.inputElement = input;
         this.isEditing = true;
     }
@@ -456,7 +413,10 @@ class NoteElement extends UIElement {
         if (relX >= 10 && relX <= this.width - 10 && 
             relY >= 35 && relY <= this.height - 10 && 
             !this.isEditing) {
-            this.startEditing(canvas);
+            // Use setTimeout to ensure the click event completes before opening input
+            setTimeout(() => {
+                this.startEditing(canvas);
+            }, 10);
             return true;
         }
 
@@ -465,8 +425,10 @@ class NoteElement extends UIElement {
 
     updateInputPosition() {
         if (this.isEditing && this.inputElement && this.canvasRef) {
-            this.inputElement.style.left = (this.canvasRef.getBoundingClientRect().left + this.position.x + 10) + 'px';
-            this.inputElement.style.top = (this.canvasRef.getBoundingClientRect().top + this.position.y + 40) + 'px';
+            if (this.type === 'note') {
+                this.inputElement.style.left = (this.canvasRef.getBoundingClientRect().left + this.position.x + 10) + 'px';
+                this.inputElement.style.top = (this.canvasRef.getBoundingClientRect().top + this.position.y + 40) + 'px';
+            }
         }
     }
 }
@@ -596,17 +558,19 @@ class TodoListElement extends UIElement {
         const input = document.createElement('input');
         input.type = 'text';
         input.value = (index >= 0 && this.items[index]) ? this.items[index].text : '';
-        input.style.position = 'absolute';
+        input.style.position = 'fixed'; // Use fixed instead of absolute for better positioning
         input.style.left = (canvas.getBoundingClientRect().left + textX) + 'px';
         input.style.top = (canvas.getBoundingClientRect().top + itemY - 12) + 'px';
         input.style.width = textWidth + 'px';
         input.style.height = '20px';
         input.style.fontSize = '12px';
         input.style.fontFamily = 'Arial';
-        input.style.border = '1px solid #333';
+        input.style.border = '2px solid #2196F3';
         input.style.padding = '2px 5px';
-        input.style.zIndex = '1000';
+        input.style.zIndex = '10000'; // Very high z-index
         input.style.borderRadius = '2px';
+        input.style.backgroundColor = 'white';
+        input.style.pointerEvents = 'auto'; // Ensure it's clickable
 
         // Store canvas reference for position updates
         this.canvasRef = canvas;
@@ -643,8 +607,12 @@ class TodoListElement extends UIElement {
         });
 
         document.body.appendChild(input);
-        input.focus();
-        input.select();
+        
+        // Use requestAnimationFrame to ensure DOM is ready before focusing
+        requestAnimationFrame(() => {
+            input.focus();
+            input.select();
+        });
 
         this.inputElement = input;
         this.editingIndex = index;
@@ -683,7 +651,10 @@ class TodoListElement extends UIElement {
                 }
                 // Text area - click to edit (wider area)
                 if (relX >= 25 && relX <= this.width - 25) {
-                    this.startEditing(i, canvas);
+                    // Use setTimeout to ensure the click event completes before opening input
+                    setTimeout(() => {
+                        this.startEditing(i, canvas);
+                    }, 10);
                     return true;
                 }
             }
@@ -691,7 +662,10 @@ class TodoListElement extends UIElement {
 
         // Click below items to add new item
         if (relY >= startY + (this.items.length * itemHeight) && relY <= this.position.y + this.height - 10) {
-            this.startEditing(-1, canvas); // -1 means new item
+            // Use setTimeout to ensure the click event completes before opening input
+            setTimeout(() => {
+                this.startEditing(-1, canvas); // -1 means new item
+            }, 10);
             return true;
         }
 

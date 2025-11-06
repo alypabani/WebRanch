@@ -263,6 +263,8 @@ class Game {
                     if (element.handleClick) {
                         const handled = element.handleClick(x, y, this.canvas);
                         if (handled) {
+                            e.preventDefault(); // Prevent default behavior
+                            e.stopPropagation(); // Stop event propagation
                             this.render();
                             lastClickTime = currentTime;
                             lastClickElement = element;
