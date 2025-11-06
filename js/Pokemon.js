@@ -11,7 +11,7 @@ class Pokemon {
         this.targetPosition = null;
         this.idleTimer = 0;
         this.color = this.generateColor();
-        this.size = 30; // Default size for placeholder
+        this.size = 300; // Size matches side menu width (300px)
     }
 
     generateColor() {

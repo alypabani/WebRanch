@@ -23,7 +23,10 @@ class UIManager {
                     <button id="add-pokemon-btn">Add Pokemon</button>
                 </div>
                 <div class="roster-section">
-                    <h3>Roster (${this.pokemonRoster.length}/25)</h3>
+                    <h3 class="roster-header">
+                        <span>Roster (${this.pokemonRoster.length}/25)</span>
+                        <button id="roster-toggle-btn" class="roster-toggle-btn" title="Collapse roster">−</button>
+                    </h3>
                     <div id="pokemon-list" class="pokemon-list"></div>
                 </div>
             </div>
@@ -46,6 +49,36 @@ class UIManager {
 
         // Fetch sprites from server
         this.fetchAvailableSprites();
+        
+        // Set up roster collapse/expand toggle
+        this.setupRosterToggle();
+    }
+    
+    setupRosterToggle() {
+        const toggleBtn = document.getElementById('roster-toggle-btn');
+        const rosterList = document.getElementById('pokemon-list');
+        const rosterSection = document.querySelector('.roster-section');
+        
+        if (!toggleBtn || !rosterList) return;
+        
+        let isCollapsed = false;
+        
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isCollapsed = !isCollapsed;
+            
+            if (isCollapsed) {
+                rosterList.style.display = 'none';
+                rosterSection.classList.add('collapsed');
+                toggleBtn.textContent = '+';
+                toggleBtn.title = 'Expand roster';
+            } else {
+                rosterList.style.display = 'block';
+                rosterSection.classList.remove('collapsed');
+                toggleBtn.textContent = '−';
+                toggleBtn.title = 'Collapse roster';
+            }
+        });
     }
 
     addPokemon(name, spritePath) {
@@ -84,11 +117,13 @@ class UIManager {
 
     updateRosterDisplay() {
         const listContainer = document.getElementById('pokemon-list');
-        const rosterHeader = document.querySelector('.roster-section h3');
+        const rosterHeader = document.querySelector('.roster-header span');
         
         if (!listContainer) return;
 
-        rosterHeader.textContent = `Roster (${this.pokemonRoster.length}/25)`;
+        if (rosterHeader) {
+            rosterHeader.textContent = `Roster (${this.pokemonRoster.length}/25)`;
+        }
 
         listContainer.innerHTML = '';
 

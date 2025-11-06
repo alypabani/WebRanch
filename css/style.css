@@ -43,6 +43,39 @@ body {
     padding-bottom: 5px;
 }
 
+.roster-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roster-toggle-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.roster-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.roster-section.collapsed {
+    margin-bottom: 0;
+}
+
 .add-pokemon-section {
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
