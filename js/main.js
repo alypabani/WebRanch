@@ -36,7 +36,7 @@ class Game {
         
         // Set up UI callbacks
         this.uiManager.onAddPokemon = (pokemonData) => {
-            this.addPokemon(pokemonData.name, pokemonData.spritePath);
+            this.addPokemon(pokemonData.id, pokemonData.name, pokemonData.spritePath);
         };
 
         this.uiManager.onRemovePokemon = (pokemonId) => {
@@ -64,7 +64,7 @@ class Game {
         }
     }
 
-    addPokemon(name, spritePath) {
+    addPokemon(id, name, spritePath) {
         if (this.pokemon.length >= 25) {
             return null;
         }
@@ -73,8 +73,9 @@ class Game {
         const x = Math.random() * (this.canvas.width - 100) + 50;
         const y = Math.random() * (this.canvas.height - 100) + 50;
 
+        // Use the ID passed from UIManager so IDs match between both arrays
         const pokemon = new Pokemon(
-            Date.now() + Math.random(),
+            id,
             name,
             spritePath,
             x,
