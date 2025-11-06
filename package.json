@@ -7,9 +7,6 @@
   },
   "keywords": ["pokemon", "game", "canvas"],
   "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "express": "^4.18.2"
-  }
+  "license": "MIT"
 }
 
