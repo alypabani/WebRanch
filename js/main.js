@@ -27,6 +27,7 @@ class Game {
 
         // Initialize systems
         this.spriteRenderer = new SpriteRenderer();
+        this.spriteRenderer.setCanvasContainer(this.canvas);
         this.behaviorSystem = new BehaviorSystem();
         this.interactionSystem = new InteractionSystem();
         this.uiManager = new UIManager();
@@ -102,6 +103,11 @@ class Game {
             
             // Remove from array - this will immediately stop rendering
             this.pokemon.splice(index, 1);
+            
+            // Remove DOM element if it's a GIF
+            if (this.spriteRenderer) {
+                this.spriteRenderer.removePokemonElement(pokemonId);
+            }
             
             // Force immediate canvas redraw to show removal
             this.render();

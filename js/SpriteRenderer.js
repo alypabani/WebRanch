@@ -4,6 +4,28 @@ class SpriteRenderer {
         this.placeholderSize = 30;
         // Keep img elements in DOM for animated GIFs to work properly
         this.imgElements = new Map();
+        // Map of Pokemon IDs to their DOM img elements (for animated GIFs)
+        this.pokemonImgElements = new Map();
+        this.canvasContainer = null;
+    }
+    
+    setCanvasContainer(canvasElement) {
+        // Get the canvas container to position img elements relative to it
+        this.canvasContainer = canvasElement.parentElement;
+        
+        // Create container for Pokemon img elements
+        if (!document.getElementById('pokemon-gif-layer')) {
+            const layer = document.createElement('div');
+            layer.id = 'pokemon-gif-layer';
+            layer.style.position = 'absolute';
+            layer.style.top = '0';
+            layer.style.left = '0';
+            layer.style.width = '100%';
+            layer.style.height = '100%';
+            layer.style.pointerEvents = 'none';
+            layer.style.zIndex = '10';
+            this.canvasContainer.appendChild(layer);
+        }
     }
 
     async loadSprite(spritePath) {
@@ -72,38 +94,86 @@ class SpriteRenderer {
         const { x, y } = pokemon.position;
         const size = pokemon.size;
 
-        // Try to load and render sprite if available
-        const sprite = this.spriteCache.get(pokemon.spritePath);
-        
-        if (sprite) {
-            // For animated GIFs, use the img element from DOM (which animates)
-            // For static images, use the cached sprite
-            let imgToDraw = sprite;
-            if (pokemon.spritePath.endsWith('.gif') && this.imgElements.has(pokemon.spritePath)) {
-                imgToDraw = this.imgElements.get(pokemon.spritePath);
+        // For animated GIFs, use DOM img elements positioned over canvas
+        // This allows the GIF to animate naturally
+        if (pokemon.spritePath.endsWith('.gif')) {
+            const sprite = this.spriteCache.get(pokemon.spritePath);
+            if (sprite && this.imgElements.has(pokemon.spritePath)) {
+                // Sprite loaded, render as DOM element
+                this.renderGifAsElement(pokemon, x, y, size);
+            } else {
+                // Sprite not loaded yet, render placeholder on canvas
+                this.renderPlaceholder(ctx, pokemon);
             }
-            
-            // Render loaded sprite (supports animated GIFs)
-            ctx.save();
-            ctx.translate(x, y);
-            
-            // Draw sprite centered
-            // For animated GIFs, drawing from a DOM img element allows animation
-            ctx.drawImage(
-                imgToDraw,
-                -size / 2,
-                -size / 2,
-                size,
-                size
-            );
-            
-            ctx.restore();
         } else {
-            // Render placeholder
-            this.renderPlaceholder(ctx, pokemon);
+            // For non-GIF images, render to canvas normally
+            const sprite = this.spriteCache.get(pokemon.spritePath);
+            
+            if (sprite) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.drawImage(
+                    sprite,
+                    -size / 2,
+                    -size / 2,
+                    size,
+                    size
+                );
+                ctx.restore();
+            } else {
+                // Render placeholder
+                this.renderPlaceholder(ctx, pokemon);
+            }
+        }
+    }
+    
+    renderGifAsElement(pokemon, x, y, size) {
+        // Get or create the img element for this Pokemon
+        let imgElement = this.pokemonImgElements.get(pokemon.id);
+        
+        // Check if sprite is loaded
+        const sprite = this.spriteCache.get(pokemon.spritePath);
+        const sourceImg = this.imgElements.get(pokemon.spritePath);
+        
+        if (!sprite || !sourceImg) {
+            // Sprite not loaded yet - don't create element, will be created once loaded
+            // The sprite loader will eventually create it
+            return;
         }
         
-        // Names are not displayed in the ranch
+        if (!imgElement) {
+            // Create a new img element positioned over the canvas
+            const layer = document.getElementById('pokemon-gif-layer');
+            if (!layer) return;
+            
+            imgElement = document.createElement('img');
+            imgElement.src = pokemon.spritePath;
+            imgElement.style.position = 'absolute';
+            imgElement.style.width = size + 'px';
+            imgElement.style.height = size + 'px';
+            imgElement.style.pointerEvents = 'none';
+            imgElement.style.imageRendering = 'pixelated'; // Keep sprite crisp
+            imgElement.dataset.pokemonId = pokemon.id;
+            
+            layer.appendChild(imgElement);
+            this.pokemonImgElements.set(pokemon.id, imgElement);
+        }
+        
+        // Update position to match Pokemon position
+        // x and y are canvas coordinates, position img element accordingly
+        imgElement.style.left = (x - size / 2) + 'px';
+        imgElement.style.top = (y - size / 2) + 'px';
+        imgElement.style.width = size + 'px';
+        imgElement.style.height = size + 'px';
+    }
+    
+    removePokemonElement(pokemonId) {
+        // Remove the DOM element when Pokemon is removed
+        const imgElement = this.pokemonImgElements.get(pokemonId);
+        if (imgElement) {
+            imgElement.remove();
+            this.pokemonImgElements.delete(pokemonId);
+        }
     }
 
     renderPlaceholder(ctx, pokemon) {
