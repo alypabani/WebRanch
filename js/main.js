@@ -58,10 +58,6 @@ class Game {
             this.resizeCanvas();
         });
 
-        // Listen for todo list updates to trigger re-render
-        window.addEventListener('todoListUpdated', () => {
-            this.render();
-        });
 
         // Listen for timer updates to trigger re-render
         window.addEventListener('timerUpdated', () => {
@@ -195,7 +191,7 @@ class Game {
         // Render all UI elements
         this.uiElements.forEach(element => {
             // Initialize canvas reference for elements that need it
-            if (!element.canvasRef && (element.type === 'note' || element.type === 'todo')) {
+            if (!element.canvasRef && element.type === 'note') {
                 element.canvasRef = this.canvas;
             }
             element.render(this.ctx);
@@ -230,9 +226,6 @@ class Game {
             case 'note':
                 element = new NoteElement(id, x, y);
                 break;
-            case 'todo':
-                element = new TodoListElement(id, x, y);
-                break;
             default:
                 return null;
         }
@@ -248,9 +241,6 @@ class Game {
             
             // Clean up any DOM elements
             if (element.type === 'note' && element.container) {
-                element.container.remove();
-            }
-            if (element.type === 'todo' && element.container) {
                 element.container.remove();
             }
             

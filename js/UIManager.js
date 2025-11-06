@@ -41,10 +41,6 @@ class UIManager {
                             <span>Note</span>
                             <button class="add-ui-element-btn" data-type="note">+</button>
                         </div>
-                        <div class="ui-element-option">
-                            <span>To-Do List</span>
-                            <button class="add-ui-element-btn" data-type="todo">+</button>
-                        </div>
                     </div>
                 </div>
             </div>
