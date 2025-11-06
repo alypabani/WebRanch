@@ -15,7 +15,7 @@ class UIManager {
         // Create UI structure
         container.innerHTML = `
             <div class="ui-panel">
-                <h2>Pokemon Ranch</h2>
+                <h2>placeholder</h2>
                 <div class="add-pokemon-section">
                     <h3>Add Pokemon</h3>
                     <select id="pokemon-sprite-select" class="sprite-select">
