@@ -22,10 +22,10 @@ class UIElement {
             this.position.y = mouseY - this.dragOffset.y;
             
             // Update input position if editing
-            if (this.type === 'todo' && this.inputElement) {
+            if (this.type === 'todo') {
                 this.updateInputPosition();
             }
-            if (this.type === 'note' && this.inputElement) {
+            if (this.type === 'note') {
                 this.updateInputPosition();
             }
         }
@@ -70,7 +70,7 @@ class TimerElement extends UIElement {
         this.pausedTime = 0; // Time when paused
         this.isFinished = false;
         this.audio = null; // Audio element for jingle
-        this.jinglePath = 'sounds/timer-jingle.mp3'; // Default path - user can add their jingle here
+        this.jinglePath = 'sounds/timer-jingle.MP3'; // Default path - user can add their jingle here
         this.width = 200;
         this.height = 140;
     }
@@ -293,11 +293,74 @@ class NoteElement extends UIElement {
     constructor(id, x, y) {
         super(id, 'note', x, y);
         this.text = 'Click to edit';
-        this.isEditing = false;
         this.width = 250;
         this.height = 200;
-        this.inputElement = null;
+        this.textElement = null;
         this.canvasRef = null;
+        this.container = null;
+    }
+
+    initializeEditable(canvas) {
+        if (this.textElement) return; // Already initialized
+
+        this.canvasRef = canvas;
+        
+        // Create container for the editable area
+        this.container = document.createElement('div');
+        this.container.style.position = 'absolute';
+        this.container.style.pointerEvents = 'none'; // Allow clicks to pass through when not editing
+        this.container.style.zIndex = '1000';
+        
+        // Create contenteditable text area
+        this.textElement = document.createElement('div');
+        this.textElement.contentEditable = true;
+        this.textElement.textContent = this.text === 'Click to edit' ? '' : this.text;
+        this.textElement.style.position = 'absolute';
+        this.textElement.style.width = (this.width - 20) + 'px';
+        this.textElement.style.height = (this.height - 60) + 'px';
+        this.textElement.style.fontSize = '12px';
+        this.textElement.style.fontFamily = 'Arial';
+        this.textElement.style.border = 'none';
+        this.textElement.style.outline = 'none';
+        this.textElement.style.padding = '5px';
+        this.textElement.style.backgroundColor = 'transparent';
+        this.textElement.style.color = '#333';
+        this.textElement.style.overflow = 'auto';
+        this.textElement.style.resize = 'none';
+        this.textElement.style.pointerEvents = 'auto';
+        this.textElement.style.cursor = 'text';
+        this.textElement.style.minHeight = '20px';
+
+        this.container.appendChild(this.textElement);
+        document.body.appendChild(this.container);
+
+        // Update text on input
+        this.textElement.addEventListener('input', () => {
+            this.text = this.textElement.textContent || 'Click to edit';
+            window.dispatchEvent(new CustomEvent('noteUpdated'));
+        });
+
+        // Update text on blur
+        this.textElement.addEventListener('blur', () => {
+            this.text = this.textElement.textContent.trim() || 'Click to edit';
+            this.container.style.pointerEvents = 'none'; // Disable editing
+            window.dispatchEvent(new CustomEvent('noteUpdated'));
+        });
+
+        // Prevent drag when clicking on text
+        this.textElement.addEventListener('mousedown', (e) => {
+            e.stopPropagation();
+        });
+
+        this.updateTextPosition();
+    }
+
+    updateTextPosition() {
+        if (this.container && this.canvasRef) {
+            const rect = this.canvasRef.getBoundingClientRect();
+            this.container.style.left = (rect.left + this.position.x + 10) + 'px';
+            this.container.style.top = (rect.top + this.position.y + 40) + 'px';
+        }
     }
 
     render(ctx) {
@@ -316,93 +379,18 @@ class NoteElement extends UIElement {
         ctx.textAlign = 'center';
         ctx.fillText('Note', this.position.x + this.width / 2, this.position.y + 20);
 
-        // Draw text
-        ctx.fillStyle = '#333';
-        ctx.font = '12px Arial';
-        ctx.textAlign = 'left';
-        const lines = this.wrapText(ctx, this.text, this.position.x + 10, this.position.y + 40, this.width - 20, 14);
-        
-        // Draw hint if not editing
-        if (!this.isEditing && this.text === 'Click to edit') {
+        // Draw placeholder text if empty
+        if (!this.text || this.text === 'Click to edit') {
             ctx.fillStyle = '#999';
             ctx.font = '10px Arial';
             ctx.textAlign = 'center';
             ctx.fillText('Click to edit', this.position.x + this.width / 2, this.position.y + this.height - 10);
         }
-    }
 
-    wrapText(ctx, text, x, y, maxWidth, lineHeight) {
-        const words = text.split(' ');
-        let line = '';
-        let currentY = y;
-        let lineCount = 0;
-
-        for (let n = 0; n < words.length; n++) {
-            const testLine = line + words[n] + ' ';
-            const metrics = ctx.measureText(testLine);
-            const testWidth = metrics.width;
-            if (testWidth > maxWidth && n > 0) {
-                ctx.fillText(line, x, currentY);
-                line = words[n] + ' ';
-                currentY += lineHeight;
-                lineCount++;
-                if (lineCount > 10) break; // Limit lines
-            } else {
-                line = testLine;
-            }
+        // Initialize editable element if canvas is available
+        if (this.canvasRef) {
+            this.updateTextPosition();
         }
-        ctx.fillText(line, x, currentY);
-        return lineCount + 1;
-    }
-
-    startEditing(canvas) {
-        if (this.inputElement) {
-            this.inputElement.remove();
-        }
-
-        this.canvasRef = canvas;
-        const input = document.createElement('textarea');
-        input.value = this.text === 'Click to edit' ? '' : this.text;
-        input.style.position = 'fixed'; // Use fixed instead of absolute for better positioning
-        input.style.left = (canvas.getBoundingClientRect().left + this.position.x + 10) + 'px';
-        input.style.top = (canvas.getBoundingClientRect().top + this.position.y + 40) + 'px';
-        input.style.width = (this.width - 20) + 'px';
-        input.style.height = (this.height - 60) + 'px';
-        input.style.fontSize = '12px';
-        input.style.fontFamily = 'Arial';
-        input.style.border = '2px solid #2196F3';
-        input.style.padding = '5px';
-        input.style.zIndex = '10000'; // Very high z-index
-        input.style.borderRadius = '2px';
-        input.style.resize = 'none';
-        input.style.overflow = 'auto';
-        input.style.backgroundColor = 'white';
-        input.style.pointerEvents = 'auto'; // Ensure it's clickable
-
-        input.addEventListener('blur', () => {
-            this.text = input.value.trim() || 'Click to edit';
-            input.remove();
-            this.inputElement = null;
-            this.isEditing = false;
-            this.canvasRef = null;
-            window.dispatchEvent(new CustomEvent('noteUpdated'));
-        });
-
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                input.blur();
-            }
-        });
-
-        document.body.appendChild(input);
-        
-        // Use requestAnimationFrame to ensure DOM is ready before focusing
-        requestAnimationFrame(() => {
-            input.focus();
-        });
-
-        this.inputElement = input;
-        this.isEditing = true;
     }
 
     handleClick(x, y, canvas) {
@@ -411,11 +399,18 @@ class NoteElement extends UIElement {
 
         // Click anywhere in the note area (except title area) to edit
         if (relX >= 10 && relX <= this.width - 10 && 
-            relY >= 35 && relY <= this.height - 10 && 
-            !this.isEditing) {
-            // Use setTimeout to ensure the click event completes before opening input
+            relY >= 35 && relY <= this.height - 10) {
+            this.initializeEditable(canvas);
+            this.container.style.pointerEvents = 'auto'; // Enable editing
             setTimeout(() => {
-                this.startEditing(canvas);
+                this.textElement.focus();
+                // Place cursor at end
+                const range = document.createRange();
+                const sel = window.getSelection();
+                range.selectNodeContents(this.textElement);
+                range.collapse(false);
+                sel.removeAllRanges();
+                sel.addRange(range);
             }, 10);
             return true;
         }
@@ -424,12 +419,7 @@ class NoteElement extends UIElement {
     }
 
     updateInputPosition() {
-        if (this.isEditing && this.inputElement && this.canvasRef) {
-            if (this.type === 'note') {
-                this.inputElement.style.left = (this.canvasRef.getBoundingClientRect().left + this.position.x + 10) + 'px';
-                this.inputElement.style.top = (this.canvasRef.getBoundingClientRect().top + this.position.y + 40) + 'px';
-            }
-        }
+        this.updateTextPosition();
     }
 }
 
@@ -440,8 +430,98 @@ class TodoListElement extends UIElement {
         this.items = [];
         this.width = 250;
         this.height = 300;
-        this.editingIndex = null;
-        this.inputElement = null;
+        this.textElements = new Map(); // Map of index to contenteditable div
+        this.canvasRef = null;
+        this.container = null;
+    }
+
+    initializeEditable(canvas) {
+        if (this.container) return; // Already initialized
+
+        this.canvasRef = canvas;
+        this.container = document.createElement('div');
+        this.container.style.position = 'absolute';
+        this.container.style.pointerEvents = 'none'; // Allow clicks to pass through when not editing
+        this.container.style.zIndex = '1000';
+        document.body.appendChild(this.container);
+        this.updateTextPositions();
+    }
+
+    updateTextPositions() {
+        if (!this.container || !this.canvasRef) return;
+
+        const rect = this.canvasRef.getBoundingClientRect();
+        const startY = this.position.y + 40;
+        const itemHeight = 25;
+
+        this.items.forEach((item, index) => {
+            let textElement = this.textElements.get(index);
+            if (!textElement) {
+                // Create contenteditable div for this item
+                textElement = document.createElement('div');
+                textElement.contentEditable = true;
+                textElement.textContent = item.text;
+                textElement.style.position = 'absolute';
+                textElement.style.width = (this.width - 50) + 'px';
+                textElement.style.height = '20px';
+                textElement.style.fontSize = '12px';
+                textElement.style.fontFamily = 'Arial';
+                textElement.style.border = 'none';
+                textElement.style.outline = 'none';
+                textElement.style.padding = '2px 5px';
+                textElement.style.backgroundColor = 'transparent';
+                textElement.style.color = item.completed ? '#999' : '#333';
+                textElement.style.textDecoration = item.completed ? 'line-through' : 'none';
+                textElement.style.overflow = 'hidden';
+                textElement.style.pointerEvents = 'auto';
+                textElement.style.cursor = 'text';
+                textElement.style.whiteSpace = 'nowrap';
+                textElement.style.overflow = 'hidden';
+                textElement.style.textOverflow = 'ellipsis';
+
+                // Update item text on input
+                textElement.addEventListener('input', () => {
+                    item.text = textElement.textContent || '';
+                    window.dispatchEvent(new CustomEvent('todoListUpdated'));
+                });
+
+                // Update item text on blur
+                textElement.addEventListener('blur', () => {
+                    item.text = textElement.textContent.trim() || 'New item';
+                    if (!item.text || item.text === 'New item') {
+                        item.text = 'New item';
+                    }
+                    this.container.style.pointerEvents = 'none'; // Disable editing
+                    window.dispatchEvent(new CustomEvent('todoListUpdated'));
+                });
+
+                // Prevent drag when clicking on text
+                textElement.addEventListener('mousedown', (e) => {
+                    e.stopPropagation();
+                });
+
+                this.container.appendChild(textElement);
+                this.textElements.set(index, textElement);
+            }
+
+            // Update position and styling
+            const itemY = startY + (index * itemHeight);
+            textElement.style.left = (rect.left + this.position.x + 30) + 'px';
+            textElement.style.top = (rect.top + itemY - 12) + 'px';
+            textElement.style.color = item.completed ? '#999' : '#333';
+            textElement.style.textDecoration = item.completed ? 'line-through' : 'none';
+            textElement.textContent = item.text;
+        });
+
+        // Remove text elements for items that no longer exist
+        const indicesToRemove = [];
+        this.textElements.forEach((element, index) => {
+            if (index >= this.items.length) {
+                element.remove();
+                indicesToRemove.push(index);
+            }
+        });
+        indicesToRemove.forEach(index => this.textElements.delete(index));
     }
 
     addItem(text) {
@@ -505,34 +585,17 @@ class TodoListElement extends UIElement {
                 ctx.stroke();
             }
 
-            // Draw text
-            ctx.fillStyle = item.completed ? '#999' : '#333';
-            const textY = itemY;
-            const maxWidth = this.width - 50;
-            const text = item.text.length > 30 ? item.text.substring(0, 27) + '...' : item.text;
-            
-            // Measure text width for strikethrough
-            const textWidth = ctx.measureText(text).width;
-            const textX = this.position.x + 30;
-            
-            ctx.fillText(text, textX, textY);
-            
-            // Draw strikethrough line if completed
-            if (item.completed) {
-                ctx.strokeStyle = '#999';
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(textX, textY - 5);
-                ctx.lineTo(textX + textWidth, textY - 5);
-                ctx.stroke();
-            }
-
             // Draw remove button (small X)
             ctx.fillStyle = '#f44336';
             ctx.font = 'bold 12px Arial';
             ctx.textAlign = 'center';
-            ctx.fillText('×', this.position.x + this.width - 15, textY);
+            ctx.fillText('×', this.position.x + this.width - 15, itemY);
         });
+
+        // Update text element positions if canvas is available
+        if (this.canvasRef) {
+            this.updateTextPositions();
+        }
 
         // Draw "Add item" hint
         if (this.items.length === 0) {
@@ -544,88 +607,37 @@ class TodoListElement extends UIElement {
     }
 
     startEditing(index, canvas) {
-        if (this.inputElement) {
-            this.inputElement.remove();
+        this.initializeEditable(canvas);
+        
+        if (index < 0) {
+            // Adding new item
+            this.addItem('New item');
+            index = this.items.length - 1;
+            window.dispatchEvent(new CustomEvent('todoListUpdated'));
         }
 
-        const startY = this.position.y + 40;
-        const itemHeight = 25;
-        const itemY = startY + (index >= 0 ? index * itemHeight : this.items.length * itemHeight);
-        const textX = this.position.x + 30;
-        const textWidth = this.width - 50;
-
-        // Create input element
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.value = (index >= 0 && this.items[index]) ? this.items[index].text : '';
-        input.style.position = 'fixed'; // Use fixed instead of absolute for better positioning
-        input.style.left = (canvas.getBoundingClientRect().left + textX) + 'px';
-        input.style.top = (canvas.getBoundingClientRect().top + itemY - 12) + 'px';
-        input.style.width = textWidth + 'px';
-        input.style.height = '20px';
-        input.style.fontSize = '12px';
-        input.style.fontFamily = 'Arial';
-        input.style.border = '2px solid #2196F3';
-        input.style.padding = '2px 5px';
-        input.style.zIndex = '10000'; // Very high z-index
-        input.style.borderRadius = '2px';
-        input.style.backgroundColor = 'white';
-        input.style.pointerEvents = 'auto'; // Ensure it's clickable
-
-        // Store canvas reference for position updates
-        this.canvasRef = canvas;
-
-        input.addEventListener('blur', () => {
-            if (index !== null && index >= 0 && index < this.items.length) {
-                if (input.value.trim()) {
-                    this.items[index].text = input.value.trim();
-                } else {
-                    this.items.splice(index, 1);
-                }
-            } else {
-                // Adding new item
-                if (input.value.trim()) {
-                    this.addItem(input.value.trim());
-                }
-            }
-            input.remove();
-            this.inputElement = null;
-            this.editingIndex = null;
-            this.canvasRef = null;
-            // Trigger custom event to notify game to re-render
-            window.dispatchEvent(new CustomEvent('todoListUpdated'));
-        });
-
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                input.blur();
-            } else if (e.key === 'Escape') {
-                input.remove();
-                this.inputElement = null;
-                this.editingIndex = null;
-            }
-        });
-
-        document.body.appendChild(input);
+        // Enable editing
+        this.container.style.pointerEvents = 'auto';
+        this.updateTextPositions();
         
-        // Use requestAnimationFrame to ensure DOM is ready before focusing
-        requestAnimationFrame(() => {
-            input.focus();
-            input.select();
-        });
-
-        this.inputElement = input;
-        this.editingIndex = index;
+        const textElement = this.textElements.get(index);
+        if (textElement) {
+            setTimeout(() => {
+                textElement.focus();
+                // Place cursor at end
+                const range = document.createRange();
+                const sel = window.getSelection();
+                range.selectNodeContents(textElement);
+                range.collapse(false);
+                sel.removeAllRanges();
+                sel.addRange(range);
+            }, 10);
+        }
     }
 
     handleClick(x, y, canvas) {
         const relX = x - this.position.x;
         const relY = y - this.position.y;
-
-        // Don't allow editing if already editing
-        if (this.inputElement) {
-            return false;
-        }
 
         // Check if clicking on an item
         const startY = this.position.y + 40;
@@ -640,6 +652,22 @@ class TodoListElement extends UIElement {
                 // Remove button area (check first, has highest priority)
                 if (relX >= this.width - 25 && relX <= this.width - 5) {
                     this.removeItem(i);
+                    // Remove text element
+                    const textElement = this.textElements.get(i);
+                    if (textElement) {
+                        textElement.remove();
+                        this.textElements.delete(i);
+                    }
+                    // Reindex remaining elements
+                    const newMap = new Map();
+                    this.textElements.forEach((element, oldIndex) => {
+                        if (oldIndex < i) {
+                            newMap.set(oldIndex, element);
+                        } else if (oldIndex > i) {
+                            newMap.set(oldIndex - 1, element);
+                        }
+                    });
+                    this.textElements = newMap;
                     window.dispatchEvent(new CustomEvent('todoListUpdated'));
                     return true;
                 }
@@ -651,10 +679,7 @@ class TodoListElement extends UIElement {
                 }
                 // Text area - click to edit (wider area)
                 if (relX >= 25 && relX <= this.width - 25) {
-                    // Use setTimeout to ensure the click event completes before opening input
-                    setTimeout(() => {
-                        this.startEditing(i, canvas);
-                    }, 10);
+                    this.startEditing(i, canvas);
                     return true;
                 }
             }
@@ -662,14 +687,15 @@ class TodoListElement extends UIElement {
 
         // Click below items to add new item
         if (relY >= startY + (this.items.length * itemHeight) && relY <= this.position.y + this.height - 10) {
-            // Use setTimeout to ensure the click event completes before opening input
-            setTimeout(() => {
-                this.startEditing(-1, canvas); // -1 means new item
-            }, 10);
+            this.startEditing(-1, canvas); // -1 means new item
             return true;
         }
 
         return false;
+    }
+
+    updateInputPosition() {
+        this.updateTextPositions();
     }
 }
 

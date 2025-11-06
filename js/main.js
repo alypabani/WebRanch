@@ -186,6 +186,10 @@ class Game {
 
         // Render all UI elements
         this.uiElements.forEach(element => {
+            // Initialize canvas reference for elements that need it
+            if (!element.canvasRef && (element.type === 'note' || element.type === 'todo')) {
+                element.canvasRef = this.canvas;
+            }
             element.render(this.ctx);
         });
     }
