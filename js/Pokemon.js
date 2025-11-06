@@ -36,14 +36,11 @@ class Pokemon {
         }
 
         // Update position based on velocity
-        const newX = this.position.x + this.velocity.x * deltaTime;
-        const newY = this.position.y + this.velocity.y * deltaTime;
+        let newX = this.position.x + this.velocity.x * deltaTime;
+        let newY = this.position.y + this.velocity.y * deltaTime;
 
-        // Check collision with UI elements before moving
-        let canMoveX = true;
-        let canMoveY = true;
-
-        if (uiElements) {
+        // Check collision with UI elements and resolve
+        if (uiElements && uiElements.length > 0) {
             const pokemonRadius = this.size / 2;
             
             for (const element of uiElements) {
@@ -52,38 +49,65 @@ class Pokemon {
                 const top = element.position.y;
                 const bottom = element.position.y + element.height;
 
-                // Expand bounding box by Pokemon radius
-                const expandedLeft = left - pokemonRadius;
-                const expandedRight = right + pokemonRadius;
-                const expandedTop = top - pokemonRadius;
-                const expandedBottom = bottom + pokemonRadius;
+                // Find closest point on rectangle to Pokemon center
+                const closestX = Math.max(left, Math.min(newX, right));
+                const closestY = Math.max(top, Math.min(newY, bottom));
 
-                // Check if new X position would collide
-                if (newX >= expandedLeft && newX <= expandedRight &&
-                    this.position.y >= expandedTop && this.position.y <= expandedBottom) {
-                    canMoveX = false;
-                }
+                // Calculate distance from Pokemon center to closest point
+                const dx = newX - closestX;
+                const dy = newY - closestY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
 
-                // Check if new Y position would collide
-                if (this.position.x >= expandedLeft && this.position.x <= expandedRight &&
-                    newY >= expandedTop && newY <= expandedBottom) {
-                    canMoveY = false;
+                // Check if Pokemon (circle) overlaps with rectangle
+                if (distance < pokemonRadius) {
+                    // Collision detected - push Pokemon out
+                    if (distance > 0) {
+                        // Push Pokemon away from the closest point
+                        const pushDistance = pokemonRadius - distance + 1; // +1 to ensure separation
+                        newX = newX + (dx / distance) * pushDistance;
+                        newY = newY + (dy / distance) * pushDistance;
+                        
+                        // Calculate collision normal
+                        const normalX = dx / distance;
+                        const normalY = dy / distance;
+                        
+                        // Calculate bounce coefficient (0.8 = 80% of velocity retained, creates bounce)
+                        const bounceCoefficient = 0.8;
+                        
+                        // Reflect velocity away from collision with bounce
+                        const dot = this.velocity.x * normalX + this.velocity.y * normalY;
+                        this.velocity.x -= (1 + bounceCoefficient) * dot * normalX;
+                        this.velocity.y -= (1 + bounceCoefficient) * dot * normalY;
+                        
+                        // Add extra bounce force perpendicular to surface for more visible effect
+                        const bounceForce = 30;
+                        this.velocity.x += normalX * bounceForce;
+                        this.velocity.y += normalY * bounceForce;
+                        
+                        // Ensure minimum bounce velocity for visibility
+                        const minBounceSpeed = 20;
+                        const currentSpeed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
+                        if (currentSpeed < minBounceSpeed && currentSpeed > 0) {
+                            const speedMultiplier = minBounceSpeed / currentSpeed;
+                            this.velocity.x *= speedMultiplier;
+                            this.velocity.y *= speedMultiplier;
+                        }
+                    } else {
+                        // If exactly at center, push in a random direction with bounce
+                        const angle = Math.random() * Math.PI * 2;
+                        const bounceSpeed = 40;
+                        this.velocity.x = Math.cos(angle) * bounceSpeed;
+                        this.velocity.y = Math.sin(angle) * bounceSpeed;
+                        newX += Math.cos(angle) * pokemonRadius;
+                        newY += Math.sin(angle) * pokemonRadius;
+                    }
                 }
             }
         }
 
-        // Update position if no collision
-        if (canMoveX) {
-            this.position.x = newX;
-        } else {
-            this.velocity.x = 0; // Stop horizontal movement
-        }
-
-        if (canMoveY) {
-            this.position.y = newY;
-        } else {
-            this.velocity.y = 0; // Stop vertical movement
-        }
+        // Update position
+        this.position.x = newX;
+        this.position.y = newY;
 
         // Keep within canvas bounds
         this.position.x = Math.max(this.size, Math.min(canvasWidth - this.size, this.position.x));

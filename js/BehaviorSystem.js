@@ -70,7 +70,8 @@ class BehaviorSystem {
     }
 
     avoidUIElements(pokemon, uiElements) {
-        const turnForce = 150;
+        const turnForce = 200;
+        const avoidanceRadius = 80; // Start avoiding when this close
         const pokemonRadius = pokemon.size / 2;
         
         uiElements.forEach(element => {
@@ -80,53 +81,33 @@ class BehaviorSystem {
             const top = element.position.y;
             const bottom = element.position.y + element.height;
 
-            // Expand bounding box by Pokemon radius for collision detection
-            const expandedLeft = left - pokemonRadius;
-            const expandedRight = right + pokemonRadius;
-            const expandedTop = top - pokemonRadius;
-            const expandedBottom = bottom + pokemonRadius;
-
-            // Check if Pokemon is inside or near the expanded bounding box
             const px = pokemon.position.x;
             const py = pokemon.position.y;
 
-            if (px >= expandedLeft && px <= expandedRight && 
-                py >= expandedTop && py <= expandedBottom) {
-                
-                // Calculate distance from Pokemon center to each edge
-                const distLeft = Math.abs(px - left);
-                const distRight = Math.abs(px - right);
-                const distTop = Math.abs(py - top);
-                const distBottom = Math.abs(py - bottom);
+            // Find closest point on rectangle to Pokemon center
+            const closestX = Math.max(left, Math.min(px, right));
+            const closestY = Math.max(top, Math.min(py, bottom));
 
-                // Find the closest edge and push away from it
-                const minDist = Math.min(distLeft, distRight, distTop, distBottom);
+            // Calculate distance from Pokemon center to closest point
+            const dx = px - closestX;
+            const dy = py - closestY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (minDist === distLeft) {
-                    // Push right
-                    pokemon.velocity.x += turnForce;
-                } else if (minDist === distRight) {
-                    // Push left
-                    pokemon.velocity.x -= turnForce;
-                } else if (minDist === distTop) {
-                    // Push down
-                    pokemon.velocity.y += turnForce;
-                } else if (minDist === distBottom) {
-                    // Push up
-                    pokemon.velocity.y -= turnForce;
-                }
-
-                // Also apply a general repulsion from the center
-                const centerX = (left + right) / 2;
-                const centerY = (top + bottom) / 2;
-                const dx = px - centerX;
-                const dy = py - centerY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+            // If Pokemon is within avoidance radius (not just touching)
+            if (distance < avoidanceRadius + pokemonRadius) {
+                // Calculate repulsion force (stronger when closer)
+                const overlap = (avoidanceRadius + pokemonRadius) - distance;
+                const strength = Math.max(0, overlap / avoidanceRadius);
                 
                 if (distance > 0) {
-                    const repelForce = (turnForce * 0.5) / Math.max(distance, 1);
-                    pokemon.velocity.x += (dx / distance) * repelForce;
-                    pokemon.velocity.y += (dy / distance) * repelForce;
+                    // Normalize direction
+                    const normalX = dx / distance;
+                    const normalY = dy / distance;
+                    
+                    // Apply repulsion force
+                    const force = turnForce * strength;
+                    pokemon.velocity.x += normalX * force;
+                    pokemon.velocity.y += normalY * force;
                 }
             }
         });
