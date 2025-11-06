@@ -124,21 +124,14 @@ class Pokemon {
             this.velocity.y = 0;
         }
 
-        // Update rocking animation based on movement speed
-        const speed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
-        if (speed > 0.1 && this.state !== 'interacting') {
-            // Rock faster when moving faster
-            const rockFrequency = 3 + (speed / 5); // Frequency of rocking (cycles per second)
-            const maxRockAngle = 8; // Maximum rocking angle in degrees
-            const time = Date.now() / 1000; // Current time in seconds
-            
-            // Use a combination of position and time for unique rocking per Pokemon
-            const uniqueOffset = this.id % 1000; // Make each Pokemon rock slightly differently
-            this.rockAngle = Math.sin(time * rockFrequency + uniqueOffset) * maxRockAngle;
-        } else {
-            // Gradually return to no rocking when stopped
-            this.rockAngle *= 0.9;
-        }
+        // Constant slow rocking animation (always active)
+        const time = Date.now() / 1000; // Current time in seconds
+        const rockFrequency = 0.5; // Slow frequency - 0.5 cycles per second (very slow)
+        const maxRockAngle = 3; // Smaller angle for subtle constant motion
+        const uniqueOffset = this.id % 1000; // Make each Pokemon rock slightly differently
+        
+        // Always rock at a constant slow pace
+        this.rockAngle = Math.sin(time * rockFrequency + uniqueOffset) * maxRockAngle;
     }
 
     getInteractionRadius() {

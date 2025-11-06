@@ -1,7 +1,7 @@
 class BehaviorSystem {
     constructor() {
         this.maxSpeed = 100; // pixels per second
-        this.randomWalkInterval = 2000; // milliseconds
+        this.randomWalkInterval = 1000; // milliseconds (reduced from 2000 for more frequent decisions)
     }
 
     update(pokemon, deltaTime, canvasWidth, canvasHeight, allPokemon, uiElements) {
@@ -35,8 +35,8 @@ class BehaviorSystem {
     }
 
     randomWalk(pokemon, canvasWidth, canvasHeight) {
-        // Random chance to start moving
-        if (Math.random() < 0.3) {
+        // Random chance to start moving (increased from 0.3 to 0.7 for more frequent movement)
+        if (Math.random() < 0.7) {
             const angle = Math.random() * Math.PI * 2;
             const speed = 50 + Math.random() * 50; // Speed range: 50-100 pixels per second
             pokemon.velocity.x = Math.cos(angle) * speed;
