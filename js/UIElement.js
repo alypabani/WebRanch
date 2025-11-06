@@ -20,6 +20,23 @@ class UIElement {
         if (this.isDragging) {
             this.position.x = mouseX - this.dragOffset.x;
             this.position.y = mouseY - this.dragOffset.y;
+            
+            // Update input position if editing
+            if (this.type === 'todo' && this.inputElement) {
+                this.updateInputPosition();
+            }
+        }
+    }
+    
+    updateInputPosition() {
+        if (this.type === 'todo' && this.inputElement && this.canvasRef) {
+            const startY = this.position.y + 40;
+            const itemHeight = 25;
+            const itemY = startY + (this.editingIndex >= 0 ? this.editingIndex * itemHeight : this.items.length * itemHeight);
+            const textX = this.position.x + 30;
+            
+            this.inputElement.style.left = (this.canvasRef.getBoundingClientRect().left + textX) + 'px';
+            this.inputElement.style.top = (this.canvasRef.getBoundingClientRect().top + itemY - 12) + 'px';
         }
     }
 
@@ -219,6 +236,8 @@ class TodoListElement extends UIElement {
         this.items = [];
         this.width = 250;
         this.height = 300;
+        this.editingIndex = null;
+        this.inputElement = null;
     }
 
     addItem(text) {
@@ -284,11 +303,25 @@ class TodoListElement extends UIElement {
 
             // Draw text
             ctx.fillStyle = item.completed ? '#999' : '#333';
-            ctx.textDecoration = item.completed ? 'line-through' : 'none';
             const textY = itemY;
             const maxWidth = this.width - 50;
             const text = item.text.length > 30 ? item.text.substring(0, 27) + '...' : item.text;
-            ctx.fillText(text, this.position.x + 30, textY);
+            
+            // Measure text width for strikethrough
+            const textWidth = ctx.measureText(text).width;
+            const textX = this.position.x + 30;
+            
+            ctx.fillText(text, textX, textY);
+            
+            // Draw strikethrough line if completed
+            if (item.completed) {
+                ctx.strokeStyle = '#999';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(textX, textY - 5);
+                ctx.lineTo(textX + textWidth, textY - 5);
+                ctx.stroke();
+            }
 
             // Draw remove button (small X)
             ctx.fillStyle = '#f44336';
@@ -302,11 +335,80 @@ class TodoListElement extends UIElement {
             ctx.fillStyle = '#999';
             ctx.font = '10px Arial';
             ctx.textAlign = 'center';
-            ctx.fillText('Double click to add items', this.position.x + this.width / 2, this.position.y + this.height - 10);
+            ctx.fillText('Click on text to add items', this.position.x + this.width / 2, this.position.y + this.height - 10);
         }
     }
 
-    handleClick(x, y) {
+    startEditing(index, canvas) {
+        if (this.inputElement) {
+            this.inputElement.remove();
+        }
+
+        const startY = this.position.y + 40;
+        const itemHeight = 25;
+        const itemY = startY + (index >= 0 ? index * itemHeight : this.items.length * itemHeight);
+        const textX = this.position.x + 30;
+        const textWidth = this.width - 50;
+
+        // Create input element
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = (index >= 0 && this.items[index]) ? this.items[index].text : '';
+        input.style.position = 'absolute';
+        input.style.left = (canvas.getBoundingClientRect().left + textX) + 'px';
+        input.style.top = (canvas.getBoundingClientRect().top + itemY - 12) + 'px';
+        input.style.width = textWidth + 'px';
+        input.style.height = '20px';
+        input.style.fontSize = '12px';
+        input.style.fontFamily = 'Arial';
+        input.style.border = '1px solid #333';
+        input.style.padding = '2px 5px';
+        input.style.zIndex = '1000';
+        input.style.borderRadius = '2px';
+
+        // Store canvas reference for position updates
+        this.canvasRef = canvas;
+
+        input.addEventListener('blur', () => {
+            if (index !== null && index >= 0 && index < this.items.length) {
+                if (input.value.trim()) {
+                    this.items[index].text = input.value.trim();
+                } else {
+                    this.items.splice(index, 1);
+                }
+            } else {
+                // Adding new item
+                if (input.value.trim()) {
+                    this.addItem(input.value.trim());
+                }
+            }
+            input.remove();
+            this.inputElement = null;
+            this.editingIndex = null;
+            this.canvasRef = null;
+            // Trigger custom event to notify game to re-render
+            window.dispatchEvent(new CustomEvent('todoListUpdated'));
+        });
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                input.blur();
+            } else if (e.key === 'Escape') {
+                input.remove();
+                this.inputElement = null;
+                this.editingIndex = null;
+            }
+        });
+
+        document.body.appendChild(input);
+        input.focus();
+        input.select();
+
+        this.inputElement = input;
+        this.editingIndex = index;
+    }
+
+    handleClick(x, y, canvas) {
         const relX = x - this.position.x;
         const relY = y - this.position.y;
 
@@ -330,7 +432,18 @@ class TodoListElement extends UIElement {
                     this.removeItem(i);
                     return true;
                 }
+                // Text area - click to edit
+                if (relX >= 30 && relX <= this.width - 30) {
+                    this.startEditing(i, canvas);
+                    return true;
+                }
             }
+        }
+
+        // Click below items to add new item
+        if (relY >= startY + (this.items.length * itemHeight) && relY <= this.position.y + this.height - 10) {
+            this.startEditing(-1, canvas); // -1 means new item
+            return true;
         }
 
         return false;

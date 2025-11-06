@@ -58,6 +58,11 @@ class Game {
             this.resizeCanvas();
         });
 
+        // Listen for todo list updates to trigger re-render
+        window.addEventListener('todoListUpdated', () => {
+            this.render();
+        });
+
         // Start game loop
         this.isRunning = true;
         this.gameLoop(0);
@@ -239,9 +244,12 @@ class Game {
                     }
 
                     // Check if clicking on a control button
-                    if (element.handleClick && element.handleClick(x, y)) {
-                        this.render();
-                        return;
+                    if (element.handleClick) {
+                        const handled = element.handleClick(x, y, this.canvas);
+                        if (handled) {
+                            this.render();
+                            return;
+                        }
                     }
 
                     // Start dragging
@@ -295,13 +303,8 @@ class Game {
                 element.text = text;
                 this.render();
             }
-        } else if (element.type === 'todo') {
-            const text = prompt('Add to-do item:');
-            if (text !== null) {
-                element.addItem(text);
-                this.render();
-            }
         }
+        // Todo items now use single-click editing, so no double-click needed
     }
 
     gameLoop(currentTime) {
