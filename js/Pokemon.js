@@ -11,7 +11,7 @@ class Pokemon {
         this.targetPosition = null;
         this.idleTimer = 0;
         this.color = this.generateColor();
-        this.size = 48; // Size matches typical sprite dimensions
+        this.size = 56; // Size between 48px and 64px
     }
 
     generateColor() {
