@@ -233,11 +233,16 @@ class Game {
         let mouseDown = false;
         let lastClickTime = 0;
         let lastClickElement = null;
+        let mouseDownX = 0;
+        let mouseDownY = 0;
+        let potentialDragElement = null;
 
         this.canvas.addEventListener('mousedown', (e) => {
             const rect = this.canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
+            mouseDownX = x;
+            mouseDownY = y;
 
             // Check UI elements first (they're on top)
             for (let i = this.uiElements.length - 1; i >= 0; i--) {
@@ -253,19 +258,21 @@ class Game {
                         return;
                     }
 
-                    // Check if clicking on a control button
+                    // Check if clicking on a control button or interactive area FIRST
+                    // This prevents dragging when clicking on interactive elements
                     if (element.handleClick) {
                         const handled = element.handleClick(x, y, this.canvas);
                         if (handled) {
                             this.render();
-                            return;
+                            lastClickTime = currentTime;
+                            lastClickElement = element;
+                            return; // Don't start dragging if click was handled
                         }
                     }
 
-                    // Start dragging
-                    element.startDrag(x, y);
-                    this.draggingElement = element;
-                    mouseDown = true;
+                    // Store element for potential drag, but don't start dragging yet
+                    // We'll start dragging only if mouse moves significantly
+                    potentialDragElement = element;
                     
                     // Move to front
                     this.uiElements.splice(i, 1);
@@ -273,13 +280,38 @@ class Game {
                     
                     lastClickTime = currentTime;
                     lastClickElement = element;
+                    mouseDown = true;
                     return;
                 }
             }
         });
 
         this.canvas.addEventListener('mousemove', (e) => {
-            if (mouseDown && this.draggingElement) {
+            if (mouseDown && potentialDragElement) {
+                const rect = this.canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Only start dragging if mouse moved more than 5 pixels
+                // This allows clicks to work without triggering drag
+                const dx = x - mouseDownX;
+                const dy = y - mouseDownY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance > 5) {
+                    // Start dragging
+                    if (!this.draggingElement) {
+                        potentialDragElement.startDrag(mouseDownX, mouseDownY);
+                        this.draggingElement = potentialDragElement;
+                    }
+                    
+                    if (this.draggingElement) {
+                        this.draggingElement.updateDrag(x, y);
+                        this.render();
+                    }
+                }
+            } else if (mouseDown && this.draggingElement) {
+                // Continue dragging
                 const rect = this.canvas.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -294,6 +326,7 @@ class Game {
                 this.draggingElement.stopDrag();
                 this.draggingElement = null;
             }
+            potentialDragElement = null;
             mouseDown = false;
         });
 
@@ -302,6 +335,7 @@ class Game {
                 this.draggingElement.stopDrag();
                 this.draggingElement = null;
             }
+            potentialDragElement = null;
             mouseDown = false;
         });
     }
